@@ -1,0 +1,14 @@
+Monster
+
+lbMonsterFiles
+gbMonsterInformation
+btnMonsterFilesReload
+btnMonsterFilesNew
+btnMonsterFilesDelete
+btnMonsterFilesCopy
+btnMonsterFilesSave
+btnMonsterFilesOpenRaw
+
+txtMonsterExternalFile
+btnMonsterBrowseZhoon
+

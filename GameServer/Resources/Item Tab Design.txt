@@ -1,0 +1,15 @@
+
+lbItemFiles
+gbItemInformation
+btnItemFilesReload
+btnItemFilesNew
+btnItemFilesDelete
+btnItemFilesCopy
+btnItemFilesSave
+btnItemFilesOpenRaw
+
+txtItemExternalFile
+btnItemBrowseZhoon
+txtItemId
+txtItemName
+txtItemServerName

@@ -2,11 +2,11 @@
 
 public enum ShadowSize
 {
-	Unknown,
 	Small,
 	Medium,
 	Large,
 	Giant,
+	Unknown,
 };
 
 public enum MonsterClass

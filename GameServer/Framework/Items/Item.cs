@@ -672,7 +672,7 @@ namespace GameServer.Framework.Items
 			sb.AppendLine($"{Keywords.JobRegenerationMP[0]}\t\t{_specialization.Regeneration.Mp.Min} {_specialization.Regeneration.Mp.Max}");
 			sb.AppendLine();
 
-			// Zhoon File
+			sb.AppendLine("// Zhoon File");
 			sb.AppendLine($"{Keywords.ExternalFile}\t\t\"{ExternalFile}\"");
 			sb.AppendLine();
 

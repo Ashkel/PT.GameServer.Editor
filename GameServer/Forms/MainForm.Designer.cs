@@ -246,6 +246,9 @@
 			gbMonsterInformation = new GroupBox();
 			tabControl3 = new TabControl();
 			tabPage7 = new TabPage();
+			groupBox32 = new GroupBox();
+			cbbMonsterSoundCode = new ComboBox();
+			label73 = new Label();
 			groupBox5 = new GroupBox();
 			btnMonsterBrowseZhoon = new Button();
 			txtMonsterExternalFile = new TextBox();
@@ -255,8 +258,6 @@
 			label61 = new Label();
 			txtMonsterName = new TextBox();
 			label66 = new Label();
-			txtMonsterId = new TextBox();
-			label67 = new Label();
 			tabPage8 = new TabPage();
 			groupBox2 = new GroupBox();
 			lbMonsterFiles = new ListBox();
@@ -441,6 +442,7 @@
 			gbMonsterInformation.SuspendLayout();
 			tabControl3.SuspendLayout();
 			tabPage7.SuspendLayout();
+			groupBox32.SuspendLayout();
 			groupBox5.SuspendLayout();
 			groupBox6.SuspendLayout();
 			groupBox2.SuspendLayout();
@@ -2614,6 +2616,7 @@
 			// 
 			// tabPage7
 			// 
+			tabPage7.Controls.Add(groupBox32);
 			tabPage7.Controls.Add(groupBox5);
 			tabPage7.Controls.Add(groupBox6);
 			tabPage7.Location = new Point(4, 24);
@@ -2623,6 +2626,34 @@
 			tabPage7.TabIndex = 0;
 			tabPage7.Text = "Page 1";
 			tabPage7.UseVisualStyleBackColor = true;
+			// 
+			// groupBox32
+			// 
+			groupBox32.Controls.Add(cbbMonsterSoundCode);
+			groupBox32.Controls.Add(label73);
+			groupBox32.Location = new Point(270, 12);
+			groupBox32.Name = "groupBox32";
+			groupBox32.Size = new Size(256, 64);
+			groupBox32.TabIndex = 3;
+			groupBox32.TabStop = false;
+			groupBox32.Text = "Sound Effects";
+			// 
+			// cbbMonsterSoundCode
+			// 
+			cbbMonsterSoundCode.FormattingEnabled = true;
+			cbbMonsterSoundCode.Location = new Point(80, 29);
+			cbbMonsterSoundCode.Name = "cbbMonsterSoundCode";
+			cbbMonsterSoundCode.Size = new Size(160, 23);
+			cbbMonsterSoundCode.TabIndex = 9;
+			// 
+			// label73
+			// 
+			label73.AutoSize = true;
+			label73.Location = new Point(16, 32);
+			label73.Name = "label73";
+			label73.Size = new Size(41, 15);
+			label73.TabIndex = 8;
+			label73.Text = "Sound";
 			// 
 			// groupBox5
 			// 
@@ -2668,18 +2699,16 @@
 			groupBox6.Controls.Add(label61);
 			groupBox6.Controls.Add(txtMonsterName);
 			groupBox6.Controls.Add(label66);
-			groupBox6.Controls.Add(txtMonsterId);
-			groupBox6.Controls.Add(label67);
 			groupBox6.Location = new Point(8, 84);
 			groupBox6.Name = "groupBox6";
-			groupBox6.Size = new Size(256, 128);
+			groupBox6.Size = new Size(256, 92);
 			groupBox6.TabIndex = 2;
 			groupBox6.TabStop = false;
 			groupBox6.Text = "Identity";
 			// 
 			// txtMonsterServerName
 			// 
-			txtMonsterServerName.Location = new Point(80, 87);
+			txtMonsterServerName.Location = new Point(80, 58);
 			txtMonsterServerName.Name = "txtMonsterServerName";
 			txtMonsterServerName.Size = new Size(160, 23);
 			txtMonsterServerName.TabIndex = 3;
@@ -2687,7 +2716,7 @@
 			// label61
 			// 
 			label61.AutoSize = true;
-			label61.Location = new Point(16, 90);
+			label61.Location = new Point(16, 61);
 			label61.Name = "label61";
 			label61.Size = new Size(48, 15);
 			label61.TabIndex = 4;
@@ -2695,7 +2724,7 @@
 			// 
 			// txtMonsterName
 			// 
-			txtMonsterName.Location = new Point(80, 58);
+			txtMonsterName.Location = new Point(80, 29);
 			txtMonsterName.Name = "txtMonsterName";
 			txtMonsterName.Size = new Size(160, 23);
 			txtMonsterName.TabIndex = 2;
@@ -2703,27 +2732,11 @@
 			// label66
 			// 
 			label66.AutoSize = true;
-			label66.Location = new Point(16, 61);
+			label66.Location = new Point(16, 32);
 			label66.Name = "label66";
 			label66.Size = new Size(39, 15);
 			label66.TabIndex = 2;
 			label66.Text = "Name";
-			// 
-			// txtMonsterId
-			// 
-			txtMonsterId.Location = new Point(80, 29);
-			txtMonsterId.Name = "txtMonsterId";
-			txtMonsterId.Size = new Size(160, 23);
-			txtMonsterId.TabIndex = 1;
-			// 
-			// label67
-			// 
-			label67.AutoSize = true;
-			label67.Location = new Point(16, 32);
-			label67.Name = "label67";
-			label67.Size = new Size(17, 15);
-			label67.TabIndex = 0;
-			label67.Text = "Id";
 			// 
 			// tabPage8
 			// 
@@ -3511,6 +3524,8 @@
 			gbMonsterInformation.ResumeLayout(false);
 			tabControl3.ResumeLayout(false);
 			tabPage7.ResumeLayout(false);
+			groupBox32.ResumeLayout(false);
+			groupBox32.PerformLayout();
 			groupBox5.ResumeLayout(false);
 			groupBox5.PerformLayout();
 			groupBox6.ResumeLayout(false);
@@ -3813,8 +3828,6 @@
 		private Label label61;
 		private TextBox txtMonsterName;
 		private Label label66;
-		private TextBox txtMonsterId;
-		private Label label67;
 		private GroupBox groupBox7;
 		private Button btnNPCBrowseZhoon;
 		private TextBox txtNPCExternalFile;
@@ -3841,5 +3854,8 @@
 		private ToolStripTextBox txtItemFilesSearch;
 		private ToolStripSeparator toolStripSeparator2;
 		private ToolStripTextBox txtMonsterFilesSearch;
+		private GroupBox groupBox32;
+		private ComboBox cbbMonsterSoundCode;
+		private Label label73;
 	}
 }

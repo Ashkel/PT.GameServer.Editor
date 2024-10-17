@@ -1,6 +1,5 @@
 ﻿using GameServer.Helpers;
 using System.Text;
-using static System.Windows.Forms.AxHost;
 
 namespace GameServer.Framework.Characters;
 
@@ -419,6 +418,11 @@ public partial class Monster : GameInfo
 		ExternalFile = string.Empty;
 	}
 
+	#endregion
+
+
+	#region Parsing method
+
 	protected override void ParseLine(string line)
 	{
 		int position = 0;
@@ -493,7 +497,6 @@ public partial class Monster : GameInfo
 		else if (string.Compare(keyword, Keywords.IsBoss) == 0)
 		{
 			IsBoss = true;
-			MonsterClass = MonsterClass.Boss;
 		}
 		else if (string.Compare(keyword, Keywords.MonsterClass) == 0)
 		{
@@ -610,22 +613,6 @@ public partial class Monster : GameInfo
 		{
 			_resistance.Organic = FileHelper.ParseInteger(line, ref position);
 		}
-		else if (string.Compare(keyword, Keywords.Water) == 0)
-		{
-			_resistance.Water = FileHelper.ParseInteger(line, ref position);
-		}
-		else if (string.Compare(keyword, Keywords.Lightning) == 0)
-		{
-			_resistance.Lightning = FileHelper.ParseInteger(line, ref position);
-		}
-		else if (string.Compare(keyword, Keywords.Ice) == 0)
-		{
-			_resistance.Ice = FileHelper.ParseInteger(line, ref position);
-		}
-		else if (string.Compare(keyword, Keywords.Wind) == 0)
-		{
-			_resistance.Wind = FileHelper.ParseInteger(line, ref position);
-		}
 		else if (string.Compare(keyword, Keywords.Earth) == 0)
 		{
 			_resistance.Earth = FileHelper.ParseInteger(line, ref position);
@@ -634,9 +621,25 @@ public partial class Monster : GameInfo
 		{
 			_resistance.Fire = FileHelper.ParseInteger(line, ref position);
 		}
+		else if (string.Compare(keyword, Keywords.Ice) == 0)
+		{
+			_resistance.Ice = FileHelper.ParseInteger(line, ref position);
+		}
+		else if (string.Compare(keyword, Keywords.Lightning) == 0)
+		{
+			_resistance.Lightning = FileHelper.ParseInteger(line, ref position);
+		}
 		else if (string.Compare(keyword, Keywords.Poison) == 0)
 		{
 			_resistance.Poison = FileHelper.ParseInteger(line, ref position);
+		}
+		else if (string.Compare(keyword, Keywords.Water) == 0)
+		{
+			_resistance.Water = FileHelper.ParseInteger(line, ref position);
+		}
+		else if (string.Compare(keyword, Keywords.Wind) == 0)
+		{
+			_resistance.Wind = FileHelper.ParseInteger(line, ref position);
 		}
 
 		// Movement
@@ -671,9 +674,9 @@ public partial class Monster : GameInfo
 
 			if (!string.IsNullOrEmpty(sound))
 			{
-				SoundCode = FileHelper.GetWord(line, ref position);
+				SoundCode = sound;
 
-				if (!SoundList.Contains(sound))
+				if (!SoundList.Contains(sound, StringComparer.InvariantCultureIgnoreCase))
 					SoundList.Add(sound);
 			}
 		}
@@ -770,190 +773,194 @@ public partial class Monster : GameInfo
 		}
 	}
 
+	#endregion
+
+
+	#region Saving method
+
 	public override void Save(string? fileName = null)
 	{
 		StringBuilder sb = new();
 
+		sb.AppendLine("// Priston Tale - Monster file");
+		sb.AppendLine("// Identifiers");
+		sb.AppendLine($"{Keywords.ServerName}\t\t\"{ServerName}\"");
+
+		if(DistinctionCode != 0)
+			sb.AppendLine($"{Keywords.DistinctionCode}\t\t{DistinctionCode}");
+
+		sb.AppendLine();
+
+
+		sb.AppendLine("// Appearance (3D Model Data)");
+		sb.AppendLine($"{Keywords.ModelFile}\t\t\"{ModelFile}\"");
+		sb.AppendLine($"{Keywords.ShadowSize}\t\t{Parse(ShadowSize)}");
+
+		if (ModelSize > 0.000f)
+			sb.AppendLine($"{Keywords.ModelSize}\t\t{ModelSize}");
+
+		if(!string.IsNullOrEmpty(ModelEvent))
+			sb.AppendLine($"{Keywords.ModelEvent}\t\t\"{ModelEvent}\"");
+
+		if(ArrowPosition != Point.Empty)
+			sb.AppendLine($"{Keywords.ArrowPosition}\t\t{ArrowPosition.X} {ArrowPosition.Y}");
+		
+		sb.AppendLine();
+
+
+		sb.AppendLine("// States");
+		sb.AppendLine($"{Keywords.State}\t\t" + (State ? "적" : "NPC"));
+		sb.AppendLine($"{Keywords.Level}\t\t{Level}");
+
+		if (IsBoss)
+			sb.AppendLine(Keywords.IsBoss);
+		else if (MonsterClass != MonsterClass.Normal)
+			sb.AppendLine($"{Keywords.MonsterClass}\t\t{(int)MonsterClass}");
+
+		var type = Parse(Type);
+		if (!string.IsNullOrEmpty(type))
+			sb.AppendLine($"{Keywords.MonsterType}\t\t{type}");
+
+		if (ActiveTime != ActiveTime.All)
+			sb.AppendLine($"{Keywords.ActiveTime}\t\t{ActiveTime}");
+
+		if (Nature != MonsterNature.Neutral)
+			sb.AppendLine($"{Keywords.MonsterNature}\t\t{Nature}");
+
+		if (GenerateGroup != Framework.Range.Empty)
+			sb.AppendLine($"{Keywords.GenerateGroup}\t\t{GenerateGroup.Min} {GenerateGroup.Max}");
+
+		sb.AppendLine($"{Keywords.RealSight}\t\t{RealSight}");
+		sb.AppendLine($"{Keywords.IQ}\t\t{IQ}");
+
+		if (IsUndead)
+			sb.AppendLine($"{Keywords.IsUndead}\t\t{Keywords.Undead[0]}");
+
+		sb.AppendLine();
+
+
+		sb.AppendLine("// Offensive Stats");
+		sb.AppendLine($"{Keywords.AttackPower}\t\t{AttackPower.Min} {AttackPower.Max}");
+		sb.AppendLine($"{Keywords.AttackSpeed}\t\t{AttackSpeed}");
+		sb.AppendLine($"{Keywords.AttackRange}\t\t{AttackRange}");
+		sb.AppendLine($"{Keywords.AttackRate}\t\t{AttackRate}");
+
+		sb.AppendLine("// Offensive Skill Stats");
+		sb.AppendLine($"{Keywords.SkillDamage}\t\t{SkillDamage.Min} {SkillDamage.Max}");
+		sb.AppendLine($"{Keywords.SkillDistance}\t\t{SkillDistance}");
+		sb.AppendLine($"{Keywords.SkillRange}\t\t{SkillRange}");
+		sb.AppendLine($"{Keywords.SkillRate}\t\t{SkillRate}");
+		sb.AppendLine($"{Keywords.SkillCurse}\t\t{SkillCurse}");
+		sb.AppendLine($"{Keywords.StunRate[0]}\t\t{StunRate}");
+		sb.AppendLine($"{Keywords.SpecialAttackRate}\t\t{SpecialAttackRate}");
+		sb.AppendLine();
+
+
+		sb.AppendLine("// Defensive Stats");
+		sb.AppendLine($"{Keywords.Defense}\t\t{Defense}");
+		sb.AppendLine($"{Keywords.Absorption}\t\t{Absorption}");
+		sb.AppendLine($"{Keywords.BlockRate}\t\t{BlockRate}");
+		sb.AppendLine($"{Keywords.Life[0]}\t\t{Life}");
+
+		sb.AppendLine("// Magic Resistance");
+		sb.AppendLine($"{Keywords.Organic}\t\t{_resistance.Organic}");
+		sb.AppendLine($"{Keywords.Earth}\t\t{_resistance.Earth}");
+		sb.AppendLine($"{Keywords.Fire}\t\t{_resistance.Fire}");
+		sb.AppendLine($"{Keywords.Ice}\t\t{_resistance.Ice}");
+		sb.AppendLine($"{Keywords.Lightning}\t\t{_resistance.Lightning}");
+		sb.AppendLine($"{Keywords.Poison}\t\t{_resistance.Poison}");
+		sb.AppendLine($"{Keywords.Water}\t\t{_resistance.Water}");
+		sb.AppendLine($"{Keywords.Wind}\t\t{_resistance.Wind}");
+		sb.AppendLine();
+
+		sb.AppendLine("// Movement");
+		sb.AppendLine($"{Keywords.MovementType}\t\t{MovementType}");
+		sb.AppendLine($"{Keywords.MovementSpeed}\t\t{MovementSpeed}");
+		sb.AppendLine($"{Keywords.MovementRange}\t\t{MovementRange}");
+		sb.AppendLine();
+
+		sb.AppendLine("// Potion");
+		sb.AppendLine($"{Keywords.PotionCount}\t\t{PotionCount}");
+		sb.AppendLine($"{Keywords.PotionRate}\t\t{PotionRate}");
+		sb.AppendLine();
+
+		sb.AppendLine("// Sound Effects");
+		if (!string.IsNullOrEmpty(SoundCode))
+			sb.AppendLine($"{Keywords.SoundCode[0]}\t\t{SoundCode}");
+
+		sb.AppendLine();
+
+
+		sb.AppendLine("// Loots");
+
+		if (EventCode != 0)
+			sb.AppendLine($"{Keywords.EventCode}\t\t{EventCode}");
+
+		if (EventInfo != 0)
+			sb.AppendLine($"{Keywords.EventInfo}\t\t{EventInfo}");
+
+		if (!string.IsNullOrEmpty(EventItem))
+		{
+			sb.AppendLine($"{Keywords.EventItem}\t\t{EventItem}");
+			sb.AppendLine();
+		}
+
+		sb.AppendLine($"{Keywords.Experience}\t\t{Experience}");
+
+		sb.AppendLine();
+
+		if (AllSeeLoot)
+			sb.AppendLine(Keywords.AllSeeItem);
+
+		if (FallItemMax > 0)
+			sb.AppendLine($"{Keywords.FallItemMax}\t\t{FallItemMax}");
+
+		foreach (var loot in FallItems)
+		{
+			if (loot.Nothing)
+				sb.AppendLine($"{Keywords.FallItems}\t\t{loot.Rate}\t{Keywords.LootNothing}");
+			else if (loot.Money != null)
+				sb.AppendLine($"{Keywords.FallItems}\t\t{loot.Rate}\t{Keywords.LootMoney}\t{loot.Money.Value.Min} {loot.Money.Value.Max}");
+			else if (loot.Coin != null)
+				sb.AppendLine($"{Keywords.FallItems}\t\t{loot.Rate}\t{Keywords.LootCoin}\t{loot.Coin.Value.Min} {loot.Coin.Value.Max}");
+			else if (loot.Items != null && loot.Items.Count > 0)
+				sb.AppendLine($"{Keywords.FallItems}\t\t{loot.Rate}\t{string.Join(' ', loot.Items)}");
+		}
+
+		sb.AppendLine();
+
+		foreach (var loot in FallItemsPlus)
+        {
+            if (loot.Items != null && loot.Items.Count > 0)
+				sb.AppendLine($"{Keywords.FallItemsPlus}\t\t{loot.Rate}\t{string.Join(' ', loot.Items)}");
+		}
+
+		sb.AppendLine();
+
+
+		sb.AppendLine("// Zhoon File");
+		sb.AppendLine($"{Keywords.ExternalFile}\t\t\"{ExternalFile}\"");
+		sb.AppendLine();
 
 
 		using var sw = new StreamWriter(fileName ?? FileName, false, Encoding);
 		sw.Write(sb);
+		sw.Flush();
+
+		var path = Path.Combine(Globals.MonsterPath, ExternalFile);
+		using var zhoon = new StreamWriter(path);
+
+		zhoon.WriteLine("// Priston Tale - Monster file");
+
+		var fi = new FileInfo(fileName ?? FileName);
+		zhoon.WriteLine($"// {fi.Name}");
+		zhoon.WriteLine();
+
+		var langName = FileHelper.GetInfoName(Globals.Settings.Language);
+		zhoon.WriteLine($"{langName}\t\t\"{Name}\"");
+		zhoon.WriteLine();
+		zhoon.Flush();
 	}
-
-	//protected override void EditLine(string line, ref StringBuilder sb)
-	//{
-	//	int position = 0;
-	//	string keyword = FileHelper.GetWord(line, ref position);
-
-	//	if (keyword == null)
-	//		return;
-
-	//	// Identifiers
-	//	if (string.Compare(keyword, "*이름") == 0)
-	//	{
-	//		sb.AppendLine($"{keyword}\t\t\"{ServerName}\"");
-	//	}
-	//	else if ((string.Compare(keyword, "*B_NAME", true) == 0) ||
-	//			 (string.Compare(keyword, "*E_NAME", true) == 0) ||
-	//			 (string.Compare(keyword, "*J_NAME", true) == 0) ||
-	//			 (string.Compare(keyword, "*K_NAME", true) == 0) ||
-	//			 (string.Compare(keyword, "*NAME", true) == 0))
-	//	{
-	//		sb.AppendLine($"{keyword}\t\t\"{Name}\"");
-	//	}
-	//	else if (string.Compare(keyword, "*구별코드") == 0)
-	//	{
-	//		sb.AppendLine($"{keyword}\t\t{DistinctionCode}");
-	//	}
-
-	//	// Appearance (3D Model Data)
-	//	else if (string.Compare(keyword, "*모양파일") == 0)
-	//	{
-	//		sb.AppendLine($"{keyword}\t\t\"{ModelFile}\"");
-	//	}
-	//	else if (string.Compare(keyword, "*크기") == 0)
-	//	{
-	//		var size = Parse(ShadowSize);
-	//		if (!string.IsNullOrEmpty(size))
-	//			sb.AppendLine($"{keyword}\t\t{size}");
-	//	}
-	//	else if (string.Compare(keyword, "*모델크기") == 0)
-	//	{
-	//		sb.AppendLine($"{keyword}\t\t{ModelSize}");
-	//	}
-	//	else if (string.Compare(keyword, "*예비모델") == 0)
-	//	{
-	//		if (!string.IsNullOrEmpty(ModelEvent))
-	//			sb.AppendLine($"{keyword}\t\t\"{ModelEvent}\"");
-	//	}
-	//	else if (string.Compare(keyword, "*화면보정") == 0)
-	//	{
-	//		sb.AppendLine($"{keyword}\t\t{ArrowPosition.X}\t{ArrowPosition.Y}");
-	//	}
-
-	//	// States
-	//	else if (string.Compare(keyword, "*속성") == 0)
-	//	{
-	//		if (State)
-	//			sb.AppendLine($"{keyword}\t\t적");
-	//	}
-	//	else if (string.Compare(keyword, "*레벨") == 0)
-	//	{
-	//		sb.AppendLine($"{keyword}\t\t{Level}");
-	//	}
-	//	else if (string.Compare(keyword, "*두목") == 0)
-	//	{
-	//		if(IsBoss)
-	//			sb.AppendLine($"{keyword}");
-	//	}
-	//	else if (string.Compare(keyword, "*계급") == 0)
-	//	{
-	//		sb.AppendLine($"{keyword}\t\t{(int)MonsterClass}");
-	//	}
-	//	else if (string.Compare(keyword, "*몬스터종족") == 0)
-	//	{
-	//		var type = Parse(Type);
-
-	//		sb.AppendLine($"{keyword}\t\t{type}");
-	//	}
-	//	else if (string.Compare(keyword, "*활동시간") == 0)
-	//	{
-	//		var time = Parse(ActiveTime);
-
-	//		sb.AppendLine($"{keyword}\t\t{time}");
-	//	}
-	//	else if (string.Compare(keyword, "*품성") == 0)
-	//	{
-	//		var nature = Parse(Nature);
-
-	//		sb.AppendLine($"{keyword}\t\t{nature}");
-	//	}
-	//	else if (string.Compare(keyword, "*조직") == 0)
-	//	{
-	//		sb.AppendLine($"{keyword}\t\t{GenerateGroup.Min}\t{GenerateGroup.Max}");
-	//	}
-	//	else if (string.Compare(keyword, "*시야") == 0)
-	//	{
-	//		sb.AppendLine($"{keyword}\t\t{RealSight}");
-	//	}
-	//	else if (string.Compare(keyword, "*지능") == 0)
-	//	{
-	//		sb.AppendLine($"{keyword}\t\t{IQ}");
-	//	}
-	//	else if (string.Compare(keyword, "*언데드") == 0)
-	//	{
-	//		if(IsUndead)
-	//			sb.AppendLine($"{keyword}\t\t있음");
-	//	}
-
-	//	// Attack
-	//	else if (string.Compare(keyword, "*공격력") == 0)
-	//	{
-	//		sb.AppendLine($"{keyword}\t\t{AttackPower.Min} {AttackPower.Max}");
-	//	}
-	//	else if (string.Compare(keyword, "*공격속도") == 0)
-	//	{
-	//		sb.AppendLine($"{keyword}\t\t{AttackSpeed}");
-	//	}
-	//	else if (string.Compare(keyword, "*공격범위") == 0)
-	//	{
-	//		sb.AppendLine($"{keyword}\t\t{AttackRange}");
-	//	}
-	//	else if (string.Compare(keyword, "*명중력") == 0)
-	//	{
-	//		sb.AppendLine($"{keyword}\t\t{AttackRate}");
-	//	}
-	//	else if (string.Compare(keyword, "*기술공격력") == 0)
-	//	{
-	//		sb.AppendLine($"{keyword}\t\t{SkillDamage.Min} {SkillDamage.Max}");
-	//	}
-	//	else if (string.Compare(keyword, "*기술공격거리") == 0)
-	//	{
-	//		sb.AppendLine($"{keyword}\t\t{SkillDistance}");
-	//	}
-	//	else if (string.Compare(keyword, "*기술공격범위") == 0)
-	//	{
-	//		sb.AppendLine($"{keyword}\t\t{SkillRange}");
-	//	}
-	//	else if (string.Compare(keyword, "*기술공격률") == 0)
-	//	{
-	//		sb.AppendLine($"{keyword}\t\t{SkillRate}");
-	//	}
-	//	else if (string.Compare(keyword, "*저주기술") == 0)
-	//	{
-	//		sb.AppendLine($"{keyword}\t\t{SkillCurse}");
-	//	}
-	//	else if ((string.Compare(keyword, "*스턴율") == 0) ||
-	//			 (string.Compare(keyword, "*라이프") == 0))
-	//	{
-	//		sb.AppendLine($"{keyword}\t\t{StunRate}");
-	//	}
-	//	else if (string.Compare(keyword, "*특수공격률") == 0)
-	//	{
-	//		sb.AppendLine($"{keyword}\t\t{SpecialAttackRate}");
-	//	}
-
-
-
-	//	// Sound
-	//	else if ((string.Compare(keyword, "*소리") == 0) ||
-	//			 (string.Compare(keyword, "*효과음") == 0))
-	//	{
-	//		sb.AppendLine($"{keyword}\t\t{SoundCode}");
-	//	}
-
-	//	// Zhoon File
-	//	else if (string.Compare(keyword, "*연결파일") == 0)
-	//	{
-	//		sb.AppendLine($"{keyword}\t\t\" {ExternalFile} \"");
-
-	//		var path = Path.Combine(Globals.MonsterPath, ExternalFile);
-	//		if (File.Exists(path))
-	//			Process(path, path);
-	//	}
-	//	else
-	//		sb.AppendLine(line);
-	//}
 
 	#endregion
 }

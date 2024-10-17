@@ -82,6 +82,7 @@ public partial class Monster
 
 		public static readonly string LootNothing = "없음";
 		public static readonly string LootMoney = "돈";
+		public static readonly string LootCoin = "동전";
 
 		// Item craft(ores, recipes)
 		public static readonly string FallItemsPlus = "*추가아이템";

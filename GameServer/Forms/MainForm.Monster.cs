@@ -109,6 +109,23 @@ public partial class MainForm
 		}
 	}
 
+	private void LoadMonsterSounds()
+	{
+		if (Monster.SoundList.Count <= 0)
+		{
+			Monster monster = new();
+
+			foreach (var fileName in _currentTabFiles!)
+			{
+				monster.Process(Path.Combine(Globals.MonsterPath, fileName));
+			}
+
+			Monster.SoundList.Sort(StringComparer.InvariantCultureIgnoreCase);
+
+			cbbMonsterSoundCode.DataSource = Monster.SoundList;
+		}
+	}
+
 	private void SetMonsterData()
 	{
 		try
@@ -118,6 +135,7 @@ public partial class MainForm
 			txtMonsterName.Text = _loadedMonster.Name;
 			txtMonsterServerName.Text = _loadedMonster.ServerName;
 
+			cbbMonsterSoundCode.SelectedItem = _loadedMonster.SoundCode;
 
 			txtMonsterExternalFile.Text = _loadedMonster.ExternalFile;
 		}
@@ -132,9 +150,9 @@ public partial class MainForm
 		try
 		{
 			_loadedMonster.Name = txtMonsterName.Text;
-			_loadedMonster.ServerName = txtNPCServerName.Text;
+			_loadedMonster.ServerName = txtMonsterServerName.Text;
 
-
+			_loadedMonster.SoundCode = (string)cbbMonsterSoundCode.SelectedItem;
 
 			_loadedMonster.ExternalFile = txtMonsterExternalFile.Text;
 		}

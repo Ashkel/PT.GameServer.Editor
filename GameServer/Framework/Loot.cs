@@ -18,12 +18,12 @@ public struct Loot
     /// <summary>
     /// Range between min-max gold
     /// </summary>
-    public Range? Money;
+    public Framework.Range? Money;
 
     /// <summary>
     /// Range between min-max coins
     /// </summary>
-    public Range? Coin;
+    public Framework.Range? Coin;
 
     /// <summary>
     /// List of items

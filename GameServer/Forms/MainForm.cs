@@ -46,15 +46,12 @@ public partial class MainForm : Form
 		if (!EnsureWorkingDirectory(Globals.GameServerPath))
 			return;
 
-		LoadItemFiles();
+		LoadAll();
 	}
 
 	private void miFileLoad_Click(object sender, EventArgs e)
 	{
-		LoadItemFiles();
-		LoadMonsterFiles();
-		LoadNPCFiles();
-		LoadFieldFiles();
+		LoadAll();
 	}
 
 	private void miEditSettings_Click(object sender, EventArgs e)
@@ -125,6 +122,15 @@ public partial class MainForm : Form
 		}
 
 		return true;
+	}
+
+	private void LoadAll()
+	{
+		LoadItemFiles();
+		LoadMonsterFiles();
+		LoadMonsterSounds();
+		LoadNPCFiles();
+		LoadFieldFiles();
 	}
 
 	#endregion

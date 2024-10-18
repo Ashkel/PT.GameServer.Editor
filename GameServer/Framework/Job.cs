@@ -20,7 +20,7 @@
 		PureBody,
 	}
 
-	public static class Jobs
+	public static class Job
 	{
 		public static JobType Parse(string str)
 		{

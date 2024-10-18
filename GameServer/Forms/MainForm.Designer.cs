@@ -246,19 +246,136 @@
 			gbMonsterInformation = new GroupBox();
 			tabControl3 = new TabControl();
 			tabPage7 = new TabPage();
-			groupBox32 = new GroupBox();
-			cbbMonsterSoundCode = new ComboBox();
-			label73 = new Label();
+			groupBox39 = new GroupBox();
+			nudMonsterMoveRange = new NumericUpDown();
+			label106 = new Label();
+			nudMonsterMoveSpeed = new NumericUpDown();
+			label112 = new Label();
+			groupBox37 = new GroupBox();
+			nudMonsterLife = new NumericUpDown();
+			label105 = new Label();
+			groupBox38 = new GroupBox();
+			nudMonsterElementalPoison = new NumericUpDown();
+			label97 = new Label();
+			nudMonsterElementalLightning = new NumericUpDown();
+			label98 = new Label();
+			nudMonsterElementalIce = new NumericUpDown();
+			label99 = new Label();
+			nudMonsterElementalFire = new NumericUpDown();
+			label100 = new Label();
+			nudMonsterElementalOrganic = new NumericUpDown();
+			label101 = new Label();
+			nudMonsterBlockRate = new NumericUpDown();
+			label102 = new Label();
+			nudMonsterAbsortion = new NumericUpDown();
+			label103 = new Label();
+			nudMonsterDefense = new NumericUpDown();
+			label104 = new Label();
+			groupBox36 = new GroupBox();
+			nudMonsterSpecialAttack = new NumericUpDown();
+			label96 = new Label();
+			nudMonsterStunRate = new NumericUpDown();
+			label95 = new Label();
+			nudMonsterSkillCurse = new NumericUpDown();
+			label94 = new Label();
+			nudMonsterSkillRate = new NumericUpDown();
+			label90 = new Label();
+			nudMonsterSkillRange = new NumericUpDown();
+			label91 = new Label();
+			nudMonsterSkillDistance = new NumericUpDown();
+			label92 = new Label();
+			nudMonsterSkillPowerMax = new NumericUpDown();
+			nudMonsterSkillPowerMin = new NumericUpDown();
+			label93 = new Label();
+			groupBox35 = new GroupBox();
+			nudMonsterAttackRate = new NumericUpDown();
+			label89 = new Label();
+			nudMonsterAttackRange = new NumericUpDown();
+			label88 = new Label();
+			nudMonsterAttackSpeed = new NumericUpDown();
+			label87 = new Label();
+			nudMonsterAttackPowerMax = new NumericUpDown();
+			nudMonsterAttackPowerMin = new NumericUpDown();
+			label86 = new Label();
+			groupBox34 = new GroupBox();
+			nudMonsterIQ = new NumericUpDown();
+			label85 = new Label();
+			nudMonsterSight = new NumericUpDown();
+			label84 = new Label();
+			nudMonsterGroupMax = new NumericUpDown();
+			nudMonsterGroupMin = new NumericUpDown();
+			label83 = new Label();
+			cbbMonsterNature = new ComboBox();
+			label82 = new Label();
+			cbbMonsterActiveTime = new ComboBox();
+			label81 = new Label();
+			cbbMonsterType = new ComboBox();
+			label80 = new Label();
+			ckbMonsterIsBoss = new CheckBox();
+			cbbMonsterClass = new ComboBox();
+			label79 = new Label();
+			nudMonsterLevel = new NumericUpDown();
+			label78 = new Label();
+			groupBox33 = new GroupBox();
+			nudMonsterArrowPosMax = new NumericUpDown();
+			nudMonsterArrowPosMin = new NumericUpDown();
+			label77 = new Label();
+			txtMonsterModelEvent = new TextBox();
+			label76 = new Label();
+			cbbMonsterShadowSize = new ComboBox();
+			label75 = new Label();
+			label74 = new Label();
+			nudMonsterModelSize = new NumericUpDown();
+			txtMonsterModelFile = new TextBox();
+			label67 = new Label();
 			groupBox5 = new GroupBox();
 			btnMonsterBrowseZhoon = new Button();
 			txtMonsterExternalFile = new TextBox();
 			label60 = new Label();
 			groupBox6 = new GroupBox();
+			nudMonsterDistinctionCode = new NumericUpDown();
+			label117 = new Label();
 			txtMonsterServerName = new TextBox();
 			label61 = new Label();
 			txtMonsterName = new TextBox();
 			label66 = new Label();
 			tabPage8 = new TabPage();
+			groupBox32 = new GroupBox();
+			cbbMonsterSoundCode = new ComboBox();
+			label73 = new Label();
+			groupBox43 = new GroupBox();
+			tabControl6 = new TabControl();
+			tabPage13 = new TabPage();
+			dgvMonsterLoots = new DataGridView();
+			dgvtxtMonsterLootRate = new DataGridViewTextBoxColumn();
+			dgvcbbMonsterLootType = new DataGridViewComboBoxColumn();
+			dgvtxtMonsterLoot = new DataGridViewTextBoxColumn();
+			tabPage14 = new TabPage();
+			dgvMonsterLootPlus = new DataGridView();
+			dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+			dgvcbbMonsterLootPlusType = new DataGridViewComboBoxColumn();
+			dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
+			groupBox42 = new GroupBox();
+			nudMonsterFallMax = new NumericUpDown();
+			label116 = new Label();
+			ckbMonsterAllSeeLoot = new CheckBox();
+			label115 = new Label();
+			nudMonsterLootCount = new NumericUpDown();
+			label114 = new Label();
+			nudMonsterExperience = new NumericUpDown();
+			label113 = new Label();
+			groupBox41 = new GroupBox();
+			label111 = new Label();
+			txtMonsterEventItem = new TextBox();
+			nudMonsterEventInfo = new NumericUpDown();
+			label109 = new Label();
+			nudMonsterEventCode = new NumericUpDown();
+			label110 = new Label();
+			groupBox40 = new GroupBox();
+			nudMonsterPotionRate = new NumericUpDown();
+			label107 = new Label();
+			nudMonsterPotionCount = new NumericUpDown();
+			label108 = new Label();
 			groupBox2 = new GroupBox();
 			lbMonsterFiles = new ListBox();
 			toolStrip3 = new ToolStrip();
@@ -442,9 +559,66 @@
 			gbMonsterInformation.SuspendLayout();
 			tabControl3.SuspendLayout();
 			tabPage7.SuspendLayout();
-			groupBox32.SuspendLayout();
+			groupBox39.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)nudMonsterMoveRange).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterMoveSpeed).BeginInit();
+			groupBox37.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)nudMonsterLife).BeginInit();
+			groupBox38.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)nudMonsterElementalPoison).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterElementalLightning).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterElementalIce).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterElementalFire).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterElementalOrganic).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterBlockRate).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterAbsortion).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterDefense).BeginInit();
+			groupBox36.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)nudMonsterSpecialAttack).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterStunRate).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterSkillCurse).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterSkillRate).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterSkillRange).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterSkillDistance).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterSkillPowerMax).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterSkillPowerMin).BeginInit();
+			groupBox35.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)nudMonsterAttackRate).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterAttackRange).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterAttackSpeed).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterAttackPowerMax).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterAttackPowerMin).BeginInit();
+			groupBox34.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)nudMonsterIQ).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterSight).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterGroupMax).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterGroupMin).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterLevel).BeginInit();
+			groupBox33.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)nudMonsterArrowPosMax).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterArrowPosMin).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterModelSize).BeginInit();
 			groupBox5.SuspendLayout();
 			groupBox6.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)nudMonsterDistinctionCode).BeginInit();
+			tabPage8.SuspendLayout();
+			groupBox32.SuspendLayout();
+			groupBox43.SuspendLayout();
+			tabControl6.SuspendLayout();
+			tabPage13.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)dgvMonsterLoots).BeginInit();
+			tabPage14.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)dgvMonsterLootPlus).BeginInit();
+			groupBox42.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)nudMonsterFallMax).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterLootCount).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterExperience).BeginInit();
+			groupBox41.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)nudMonsterEventInfo).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterEventCode).BeginInit();
+			groupBox40.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)nudMonsterPotionRate).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterPotionCount).BeginInit();
 			groupBox2.SuspendLayout();
 			toolStrip3.SuspendLayout();
 			tabPage3.SuspendLayout();
@@ -2616,7 +2790,12 @@
 			// 
 			// tabPage7
 			// 
-			tabPage7.Controls.Add(groupBox32);
+			tabPage7.Controls.Add(groupBox39);
+			tabPage7.Controls.Add(groupBox37);
+			tabPage7.Controls.Add(groupBox36);
+			tabPage7.Controls.Add(groupBox35);
+			tabPage7.Controls.Add(groupBox34);
+			tabPage7.Controls.Add(groupBox33);
 			tabPage7.Controls.Add(groupBox5);
 			tabPage7.Controls.Add(groupBox6);
 			tabPage7.Location = new Point(4, 24);
@@ -2627,33 +2806,818 @@
 			tabPage7.Text = "Page 1";
 			tabPage7.UseVisualStyleBackColor = true;
 			// 
-			// groupBox32
+			// groupBox39
 			// 
-			groupBox32.Controls.Add(cbbMonsterSoundCode);
-			groupBox32.Controls.Add(label73);
-			groupBox32.Location = new Point(270, 12);
-			groupBox32.Name = "groupBox32";
-			groupBox32.Size = new Size(256, 64);
-			groupBox32.TabIndex = 3;
-			groupBox32.TabStop = false;
-			groupBox32.Text = "Sound Effects";
+			groupBox39.Controls.Add(nudMonsterMoveRange);
+			groupBox39.Controls.Add(label106);
+			groupBox39.Controls.Add(nudMonsterMoveSpeed);
+			groupBox39.Controls.Add(label112);
+			groupBox39.Location = new Point(6, 396);
+			groupBox39.Name = "groupBox39";
+			groupBox39.Size = new Size(256, 90);
+			groupBox39.TabIndex = 4;
+			groupBox39.TabStop = false;
+			groupBox39.Text = "Movement";
 			// 
-			// cbbMonsterSoundCode
+			// nudMonsterMoveRange
 			// 
-			cbbMonsterSoundCode.FormattingEnabled = true;
-			cbbMonsterSoundCode.Location = new Point(80, 29);
-			cbbMonsterSoundCode.Name = "cbbMonsterSoundCode";
-			cbbMonsterSoundCode.Size = new Size(160, 23);
-			cbbMonsterSoundCode.TabIndex = 9;
+			nudMonsterMoveRange.DecimalPlaces = 1;
+			nudMonsterMoveRange.Location = new Point(80, 59);
+			nudMonsterMoveRange.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+			nudMonsterMoveRange.Name = "nudMonsterMoveRange";
+			nudMonsterMoveRange.Size = new Size(160, 23);
+			nudMonsterMoveRange.TabIndex = 11;
+			nudMonsterMoveRange.ThousandsSeparator = true;
 			// 
-			// label73
+			// label106
 			// 
-			label73.AutoSize = true;
-			label73.Location = new Point(16, 32);
-			label73.Name = "label73";
-			label73.Size = new Size(41, 15);
-			label73.TabIndex = 8;
-			label73.Text = "Sound";
+			label106.AutoSize = true;
+			label106.Location = new Point(16, 61);
+			label106.Name = "label106";
+			label106.Size = new Size(40, 15);
+			label106.TabIndex = 32;
+			label106.Text = "Range";
+			// 
+			// nudMonsterMoveSpeed
+			// 
+			nudMonsterMoveSpeed.DecimalPlaces = 1;
+			nudMonsterMoveSpeed.Location = new Point(80, 30);
+			nudMonsterMoveSpeed.Name = "nudMonsterMoveSpeed";
+			nudMonsterMoveSpeed.Size = new Size(160, 23);
+			nudMonsterMoveSpeed.TabIndex = 10;
+			nudMonsterMoveSpeed.ThousandsSeparator = true;
+			// 
+			// label112
+			// 
+			label112.AutoSize = true;
+			label112.Location = new Point(16, 32);
+			label112.Name = "label112";
+			label112.Size = new Size(39, 15);
+			label112.TabIndex = 30;
+			label112.Text = "Speed";
+			// 
+			// groupBox37
+			// 
+			groupBox37.Controls.Add(nudMonsterLife);
+			groupBox37.Controls.Add(label105);
+			groupBox37.Controls.Add(groupBox38);
+			groupBox37.Controls.Add(nudMonsterBlockRate);
+			groupBox37.Controls.Add(label102);
+			groupBox37.Controls.Add(nudMonsterAbsortion);
+			groupBox37.Controls.Add(label103);
+			groupBox37.Controls.Add(nudMonsterDefense);
+			groupBox37.Controls.Add(label104);
+			groupBox37.Location = new Point(532, 12);
+			groupBox37.Name = "groupBox37";
+			groupBox37.Size = new Size(256, 350);
+			groupBox37.TabIndex = 7;
+			groupBox37.TabStop = false;
+			groupBox37.Text = "Defensive";
+			// 
+			// nudMonsterLife
+			// 
+			nudMonsterLife.Location = new Point(80, 117);
+			nudMonsterLife.Maximum = new decimal(new int[] { 30000, 0, 0, 0 });
+			nudMonsterLife.Name = "nudMonsterLife";
+			nudMonsterLife.Size = new Size(160, 23);
+			nudMonsterLife.TabIndex = 33;
+			nudMonsterLife.ThousandsSeparator = true;
+			// 
+			// label105
+			// 
+			label105.AutoSize = true;
+			label105.Location = new Point(16, 119);
+			label105.Name = "label105";
+			label105.Size = new Size(26, 15);
+			label105.TabIndex = 34;
+			label105.Text = "Life";
+			// 
+			// groupBox38
+			// 
+			groupBox38.Controls.Add(nudMonsterElementalPoison);
+			groupBox38.Controls.Add(label97);
+			groupBox38.Controls.Add(nudMonsterElementalLightning);
+			groupBox38.Controls.Add(label98);
+			groupBox38.Controls.Add(nudMonsterElementalIce);
+			groupBox38.Controls.Add(label99);
+			groupBox38.Controls.Add(nudMonsterElementalFire);
+			groupBox38.Controls.Add(label100);
+			groupBox38.Controls.Add(nudMonsterElementalOrganic);
+			groupBox38.Controls.Add(label101);
+			groupBox38.Location = new Point(16, 152);
+			groupBox38.Name = "groupBox38";
+			groupBox38.Size = new Size(224, 187);
+			groupBox38.TabIndex = 33;
+			groupBox38.TabStop = false;
+			groupBox38.Text = "Magic Resistance";
+			// 
+			// nudMonsterElementalPoison
+			// 
+			nudMonsterElementalPoison.Location = new Point(80, 146);
+			nudMonsterElementalPoison.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+			nudMonsterElementalPoison.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
+			nudMonsterElementalPoison.Name = "nudMonsterElementalPoison";
+			nudMonsterElementalPoison.Size = new Size(128, 23);
+			nudMonsterElementalPoison.TabIndex = 38;
+			nudMonsterElementalPoison.ThousandsSeparator = true;
+			// 
+			// label97
+			// 
+			label97.AutoSize = true;
+			label97.Location = new Point(16, 148);
+			label97.Name = "label97";
+			label97.Size = new Size(43, 15);
+			label97.TabIndex = 34;
+			label97.Text = "Poison";
+			// 
+			// nudMonsterElementalLightning
+			// 
+			nudMonsterElementalLightning.Location = new Point(80, 117);
+			nudMonsterElementalLightning.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+			nudMonsterElementalLightning.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
+			nudMonsterElementalLightning.Name = "nudMonsterElementalLightning";
+			nudMonsterElementalLightning.Size = new Size(128, 23);
+			nudMonsterElementalLightning.TabIndex = 37;
+			nudMonsterElementalLightning.ThousandsSeparator = true;
+			// 
+			// label98
+			// 
+			label98.AutoSize = true;
+			label98.Location = new Point(16, 119);
+			label98.Name = "label98";
+			label98.Size = new Size(58, 15);
+			label98.TabIndex = 32;
+			label98.Text = "Lightning";
+			// 
+			// nudMonsterElementalIce
+			// 
+			nudMonsterElementalIce.Location = new Point(80, 88);
+			nudMonsterElementalIce.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+			nudMonsterElementalIce.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
+			nudMonsterElementalIce.Name = "nudMonsterElementalIce";
+			nudMonsterElementalIce.Size = new Size(128, 23);
+			nudMonsterElementalIce.TabIndex = 36;
+			nudMonsterElementalIce.ThousandsSeparator = true;
+			// 
+			// label99
+			// 
+			label99.AutoSize = true;
+			label99.Location = new Point(16, 90);
+			label99.Name = "label99";
+			label99.Size = new Size(22, 15);
+			label99.TabIndex = 30;
+			label99.Text = "Ice";
+			// 
+			// nudMonsterElementalFire
+			// 
+			nudMonsterElementalFire.Location = new Point(80, 59);
+			nudMonsterElementalFire.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+			nudMonsterElementalFire.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
+			nudMonsterElementalFire.Name = "nudMonsterElementalFire";
+			nudMonsterElementalFire.Size = new Size(128, 23);
+			nudMonsterElementalFire.TabIndex = 35;
+			nudMonsterElementalFire.ThousandsSeparator = true;
+			// 
+			// label100
+			// 
+			label100.AutoSize = true;
+			label100.Location = new Point(16, 61);
+			label100.Name = "label100";
+			label100.Size = new Size(26, 15);
+			label100.TabIndex = 28;
+			label100.Text = "Fire";
+			// 
+			// nudMonsterElementalOrganic
+			// 
+			nudMonsterElementalOrganic.Location = new Point(80, 30);
+			nudMonsterElementalOrganic.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+			nudMonsterElementalOrganic.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
+			nudMonsterElementalOrganic.Name = "nudMonsterElementalOrganic";
+			nudMonsterElementalOrganic.Size = new Size(128, 23);
+			nudMonsterElementalOrganic.TabIndex = 34;
+			nudMonsterElementalOrganic.ThousandsSeparator = true;
+			// 
+			// label101
+			// 
+			label101.AutoSize = true;
+			label101.Location = new Point(16, 32);
+			label101.Name = "label101";
+			label101.Size = new Size(49, 15);
+			label101.TabIndex = 26;
+			label101.Text = "Organic";
+			// 
+			// nudMonsterBlockRate
+			// 
+			nudMonsterBlockRate.DecimalPlaces = 1;
+			nudMonsterBlockRate.Location = new Point(80, 88);
+			nudMonsterBlockRate.Name = "nudMonsterBlockRate";
+			nudMonsterBlockRate.Size = new Size(160, 23);
+			nudMonsterBlockRate.TabIndex = 32;
+			nudMonsterBlockRate.ThousandsSeparator = true;
+			// 
+			// label102
+			// 
+			label102.AutoSize = true;
+			label102.Location = new Point(16, 90);
+			label102.Name = "label102";
+			label102.Size = new Size(59, 15);
+			label102.TabIndex = 30;
+			label102.Text = "BlockRate";
+			// 
+			// nudMonsterAbsortion
+			// 
+			nudMonsterAbsortion.DecimalPlaces = 1;
+			nudMonsterAbsortion.Location = new Point(80, 59);
+			nudMonsterAbsortion.Name = "nudMonsterAbsortion";
+			nudMonsterAbsortion.Size = new Size(160, 23);
+			nudMonsterAbsortion.TabIndex = 31;
+			nudMonsterAbsortion.ThousandsSeparator = true;
+			// 
+			// label103
+			// 
+			label103.AutoSize = true;
+			label103.Location = new Point(16, 61);
+			label103.Name = "label103";
+			label103.Size = new Size(59, 15);
+			label103.TabIndex = 27;
+			label103.Text = "Absortion";
+			// 
+			// nudMonsterDefense
+			// 
+			nudMonsterDefense.Location = new Point(80, 30);
+			nudMonsterDefense.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+			nudMonsterDefense.Name = "nudMonsterDefense";
+			nudMonsterDefense.Size = new Size(160, 23);
+			nudMonsterDefense.TabIndex = 30;
+			nudMonsterDefense.ThousandsSeparator = true;
+			// 
+			// label104
+			// 
+			label104.AutoSize = true;
+			label104.Location = new Point(16, 32);
+			label104.Name = "label104";
+			label104.Size = new Size(49, 15);
+			label104.TabIndex = 24;
+			label104.Text = "Defense";
+			// 
+			// groupBox36
+			// 
+			groupBox36.Controls.Add(nudMonsterSpecialAttack);
+			groupBox36.Controls.Add(label96);
+			groupBox36.Controls.Add(nudMonsterStunRate);
+			groupBox36.Controls.Add(label95);
+			groupBox36.Controls.Add(nudMonsterSkillCurse);
+			groupBox36.Controls.Add(label94);
+			groupBox36.Controls.Add(nudMonsterSkillRate);
+			groupBox36.Controls.Add(label90);
+			groupBox36.Controls.Add(nudMonsterSkillRange);
+			groupBox36.Controls.Add(label91);
+			groupBox36.Controls.Add(nudMonsterSkillDistance);
+			groupBox36.Controls.Add(label92);
+			groupBox36.Controls.Add(nudMonsterSkillPowerMax);
+			groupBox36.Controls.Add(nudMonsterSkillPowerMin);
+			groupBox36.Controls.Add(label93);
+			groupBox36.Location = new Point(270, 286);
+			groupBox36.Name = "groupBox36";
+			groupBox36.Size = new Size(256, 244);
+			groupBox36.TabIndex = 6;
+			groupBox36.TabStop = false;
+			groupBox36.Text = "Skill";
+			// 
+			// nudMonsterSpecialAttack
+			// 
+			nudMonsterSpecialAttack.Location = new Point(80, 208);
+			nudMonsterSpecialAttack.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+			nudMonsterSpecialAttack.Name = "nudMonsterSpecialAttack";
+			nudMonsterSpecialAttack.Size = new Size(160, 23);
+			nudMonsterSpecialAttack.TabIndex = 29;
+			nudMonsterSpecialAttack.ThousandsSeparator = true;
+			// 
+			// label96
+			// 
+			label96.AutoSize = true;
+			label96.Location = new Point(16, 210);
+			label96.Name = "label96";
+			label96.Size = new Size(44, 15);
+			label96.TabIndex = 58;
+			label96.Text = "Special";
+			// 
+			// nudMonsterStunRate
+			// 
+			nudMonsterStunRate.Location = new Point(80, 179);
+			nudMonsterStunRate.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+			nudMonsterStunRate.Name = "nudMonsterStunRate";
+			nudMonsterStunRate.Size = new Size(160, 23);
+			nudMonsterStunRate.TabIndex = 28;
+			nudMonsterStunRate.ThousandsSeparator = true;
+			// 
+			// label95
+			// 
+			label95.AutoSize = true;
+			label95.Location = new Point(16, 181);
+			label95.Name = "label95";
+			label95.Size = new Size(57, 15);
+			label95.TabIndex = 56;
+			label95.Text = "Stun Rate";
+			// 
+			// nudMonsterSkillCurse
+			// 
+			nudMonsterSkillCurse.Location = new Point(80, 150);
+			nudMonsterSkillCurse.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+			nudMonsterSkillCurse.Name = "nudMonsterSkillCurse";
+			nudMonsterSkillCurse.Size = new Size(160, 23);
+			nudMonsterSkillCurse.TabIndex = 27;
+			nudMonsterSkillCurse.ThousandsSeparator = true;
+			// 
+			// label94
+			// 
+			label94.AutoSize = true;
+			label94.Location = new Point(16, 152);
+			label94.Name = "label94";
+			label94.Size = new Size(37, 15);
+			label94.TabIndex = 54;
+			label94.Text = "Curse";
+			// 
+			// nudMonsterSkillRate
+			// 
+			nudMonsterSkillRate.Location = new Point(80, 121);
+			nudMonsterSkillRate.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+			nudMonsterSkillRate.Name = "nudMonsterSkillRate";
+			nudMonsterSkillRate.Size = new Size(160, 23);
+			nudMonsterSkillRate.TabIndex = 26;
+			nudMonsterSkillRate.ThousandsSeparator = true;
+			// 
+			// label90
+			// 
+			label90.AutoSize = true;
+			label90.Location = new Point(16, 123);
+			label90.Name = "label90";
+			label90.Size = new Size(30, 15);
+			label90.TabIndex = 52;
+			label90.Text = "Rate";
+			// 
+			// nudMonsterSkillRange
+			// 
+			nudMonsterSkillRange.Location = new Point(80, 92);
+			nudMonsterSkillRange.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+			nudMonsterSkillRange.Name = "nudMonsterSkillRange";
+			nudMonsterSkillRange.Size = new Size(160, 23);
+			nudMonsterSkillRange.TabIndex = 25;
+			nudMonsterSkillRange.ThousandsSeparator = true;
+			// 
+			// label91
+			// 
+			label91.AutoSize = true;
+			label91.Location = new Point(16, 94);
+			label91.Name = "label91";
+			label91.Size = new Size(40, 15);
+			label91.TabIndex = 50;
+			label91.Text = "Range";
+			// 
+			// nudMonsterSkillDistance
+			// 
+			nudMonsterSkillDistance.Location = new Point(80, 59);
+			nudMonsterSkillDistance.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+			nudMonsterSkillDistance.Name = "nudMonsterSkillDistance";
+			nudMonsterSkillDistance.Size = new Size(160, 23);
+			nudMonsterSkillDistance.TabIndex = 24;
+			nudMonsterSkillDistance.ThousandsSeparator = true;
+			// 
+			// label92
+			// 
+			label92.AutoSize = true;
+			label92.Location = new Point(16, 61);
+			label92.Name = "label92";
+			label92.Size = new Size(52, 15);
+			label92.TabIndex = 47;
+			label92.Text = "Distance";
+			// 
+			// nudMonsterSkillPowerMax
+			// 
+			nudMonsterSkillPowerMax.Location = new Point(168, 30);
+			nudMonsterSkillPowerMax.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+			nudMonsterSkillPowerMax.Name = "nudMonsterSkillPowerMax";
+			nudMonsterSkillPowerMax.Size = new Size(72, 23);
+			nudMonsterSkillPowerMax.TabIndex = 23;
+			nudMonsterSkillPowerMax.ThousandsSeparator = true;
+			// 
+			// nudMonsterSkillPowerMin
+			// 
+			nudMonsterSkillPowerMin.Location = new Point(80, 30);
+			nudMonsterSkillPowerMin.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+			nudMonsterSkillPowerMin.Name = "nudMonsterSkillPowerMin";
+			nudMonsterSkillPowerMin.Size = new Size(72, 23);
+			nudMonsterSkillPowerMin.TabIndex = 22;
+			nudMonsterSkillPowerMin.ThousandsSeparator = true;
+			// 
+			// label93
+			// 
+			label93.AutoSize = true;
+			label93.Location = new Point(16, 32);
+			label93.Name = "label93";
+			label93.Size = new Size(40, 15);
+			label93.TabIndex = 44;
+			label93.Text = "Power";
+			// 
+			// groupBox35
+			// 
+			groupBox35.Controls.Add(nudMonsterAttackRate);
+			groupBox35.Controls.Add(label89);
+			groupBox35.Controls.Add(nudMonsterAttackRange);
+			groupBox35.Controls.Add(label88);
+			groupBox35.Controls.Add(nudMonsterAttackSpeed);
+			groupBox35.Controls.Add(label87);
+			groupBox35.Controls.Add(nudMonsterAttackPowerMax);
+			groupBox35.Controls.Add(nudMonsterAttackPowerMin);
+			groupBox35.Controls.Add(label86);
+			groupBox35.Location = new Point(532, 370);
+			groupBox35.Name = "groupBox35";
+			groupBox35.Size = new Size(256, 160);
+			groupBox35.TabIndex = 8;
+			groupBox35.TabStop = false;
+			groupBox35.Text = "Attack";
+			// 
+			// nudMonsterAttackRate
+			// 
+			nudMonsterAttackRate.Location = new Point(80, 121);
+			nudMonsterAttackRate.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+			nudMonsterAttackRate.Name = "nudMonsterAttackRate";
+			nudMonsterAttackRate.Size = new Size(160, 23);
+			nudMonsterAttackRate.TabIndex = 43;
+			nudMonsterAttackRate.ThousandsSeparator = true;
+			// 
+			// label89
+			// 
+			label89.AutoSize = true;
+			label89.Location = new Point(16, 123);
+			label89.Name = "label89";
+			label89.Size = new Size(30, 15);
+			label89.TabIndex = 52;
+			label89.Text = "Rate";
+			// 
+			// nudMonsterAttackRange
+			// 
+			nudMonsterAttackRange.Location = new Point(80, 92);
+			nudMonsterAttackRange.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+			nudMonsterAttackRange.Name = "nudMonsterAttackRange";
+			nudMonsterAttackRange.Size = new Size(160, 23);
+			nudMonsterAttackRange.TabIndex = 42;
+			nudMonsterAttackRange.ThousandsSeparator = true;
+			// 
+			// label88
+			// 
+			label88.AutoSize = true;
+			label88.Location = new Point(16, 94);
+			label88.Name = "label88";
+			label88.Size = new Size(40, 15);
+			label88.TabIndex = 50;
+			label88.Text = "Range";
+			// 
+			// nudMonsterAttackSpeed
+			// 
+			nudMonsterAttackSpeed.Location = new Point(80, 59);
+			nudMonsterAttackSpeed.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+			nudMonsterAttackSpeed.Name = "nudMonsterAttackSpeed";
+			nudMonsterAttackSpeed.Size = new Size(160, 23);
+			nudMonsterAttackSpeed.TabIndex = 41;
+			nudMonsterAttackSpeed.ThousandsSeparator = true;
+			// 
+			// label87
+			// 
+			label87.AutoSize = true;
+			label87.Location = new Point(16, 61);
+			label87.Name = "label87";
+			label87.Size = new Size(39, 15);
+			label87.TabIndex = 47;
+			label87.Text = "Speed";
+			// 
+			// nudMonsterAttackPowerMax
+			// 
+			nudMonsterAttackPowerMax.Location = new Point(168, 30);
+			nudMonsterAttackPowerMax.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+			nudMonsterAttackPowerMax.Name = "nudMonsterAttackPowerMax";
+			nudMonsterAttackPowerMax.Size = new Size(72, 23);
+			nudMonsterAttackPowerMax.TabIndex = 40;
+			nudMonsterAttackPowerMax.ThousandsSeparator = true;
+			// 
+			// nudMonsterAttackPowerMin
+			// 
+			nudMonsterAttackPowerMin.Location = new Point(80, 30);
+			nudMonsterAttackPowerMin.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+			nudMonsterAttackPowerMin.Name = "nudMonsterAttackPowerMin";
+			nudMonsterAttackPowerMin.Size = new Size(72, 23);
+			nudMonsterAttackPowerMin.TabIndex = 39;
+			nudMonsterAttackPowerMin.ThousandsSeparator = true;
+			// 
+			// label86
+			// 
+			label86.AutoSize = true;
+			label86.Location = new Point(16, 32);
+			label86.Name = "label86";
+			label86.Size = new Size(40, 15);
+			label86.TabIndex = 44;
+			label86.Text = "Power";
+			// 
+			// groupBox34
+			// 
+			groupBox34.Controls.Add(nudMonsterIQ);
+			groupBox34.Controls.Add(label85);
+			groupBox34.Controls.Add(nudMonsterSight);
+			groupBox34.Controls.Add(label84);
+			groupBox34.Controls.Add(nudMonsterGroupMax);
+			groupBox34.Controls.Add(nudMonsterGroupMin);
+			groupBox34.Controls.Add(label83);
+			groupBox34.Controls.Add(cbbMonsterNature);
+			groupBox34.Controls.Add(label82);
+			groupBox34.Controls.Add(cbbMonsterActiveTime);
+			groupBox34.Controls.Add(label81);
+			groupBox34.Controls.Add(cbbMonsterType);
+			groupBox34.Controls.Add(label80);
+			groupBox34.Controls.Add(ckbMonsterIsBoss);
+			groupBox34.Controls.Add(cbbMonsterClass);
+			groupBox34.Controls.Add(label79);
+			groupBox34.Controls.Add(nudMonsterLevel);
+			groupBox34.Controls.Add(label78);
+			groupBox34.Location = new Point(270, 12);
+			groupBox34.Name = "groupBox34";
+			groupBox34.Size = new Size(256, 268);
+			groupBox34.TabIndex = 5;
+			groupBox34.TabStop = false;
+			groupBox34.Text = "States";
+			// 
+			// nudMonsterIQ
+			// 
+			nudMonsterIQ.Location = new Point(80, 232);
+			nudMonsterIQ.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+			nudMonsterIQ.Name = "nudMonsterIQ";
+			nudMonsterIQ.Size = new Size(160, 23);
+			nudMonsterIQ.TabIndex = 21;
+			nudMonsterIQ.ThousandsSeparator = true;
+			// 
+			// label85
+			// 
+			label85.AutoSize = true;
+			label85.Location = new Point(16, 234);
+			label85.Name = "label85";
+			label85.Size = new Size(19, 15);
+			label85.TabIndex = 46;
+			label85.Text = "IQ";
+			// 
+			// nudMonsterSight
+			// 
+			nudMonsterSight.Location = new Point(80, 203);
+			nudMonsterSight.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+			nudMonsterSight.Name = "nudMonsterSight";
+			nudMonsterSight.Size = new Size(160, 23);
+			nudMonsterSight.TabIndex = 20;
+			nudMonsterSight.ThousandsSeparator = true;
+			// 
+			// label84
+			// 
+			label84.AutoSize = true;
+			label84.Location = new Point(16, 205);
+			label84.Name = "label84";
+			label84.Size = new Size(34, 15);
+			label84.TabIndex = 44;
+			label84.Text = "Sight";
+			// 
+			// nudMonsterGroupMax
+			// 
+			nudMonsterGroupMax.Location = new Point(168, 174);
+			nudMonsterGroupMax.Name = "nudMonsterGroupMax";
+			nudMonsterGroupMax.Size = new Size(72, 23);
+			nudMonsterGroupMax.TabIndex = 19;
+			nudMonsterGroupMax.ThousandsSeparator = true;
+			// 
+			// nudMonsterGroupMin
+			// 
+			nudMonsterGroupMin.Location = new Point(80, 174);
+			nudMonsterGroupMin.Name = "nudMonsterGroupMin";
+			nudMonsterGroupMin.Size = new Size(72, 23);
+			nudMonsterGroupMin.TabIndex = 18;
+			nudMonsterGroupMin.ThousandsSeparator = true;
+			// 
+			// label83
+			// 
+			label83.AutoSize = true;
+			label83.Location = new Point(16, 176);
+			label83.Name = "label83";
+			label83.Size = new Size(40, 15);
+			label83.TabIndex = 41;
+			label83.Text = "Group";
+			// 
+			// cbbMonsterNature
+			// 
+			cbbMonsterNature.FormattingEnabled = true;
+			cbbMonsterNature.Location = new Point(80, 145);
+			cbbMonsterNature.Name = "cbbMonsterNature";
+			cbbMonsterNature.Size = new Size(160, 23);
+			cbbMonsterNature.TabIndex = 17;
+			// 
+			// label82
+			// 
+			label82.AutoSize = true;
+			label82.Location = new Point(16, 148);
+			label82.Name = "label82";
+			label82.Size = new Size(43, 15);
+			label82.TabIndex = 39;
+			label82.Text = "Nature";
+			// 
+			// cbbMonsterActiveTime
+			// 
+			cbbMonsterActiveTime.FormattingEnabled = true;
+			cbbMonsterActiveTime.Location = new Point(80, 116);
+			cbbMonsterActiveTime.Name = "cbbMonsterActiveTime";
+			cbbMonsterActiveTime.Size = new Size(160, 23);
+			cbbMonsterActiveTime.TabIndex = 16;
+			// 
+			// label81
+			// 
+			label81.AutoSize = true;
+			label81.Location = new Point(16, 119);
+			label81.Name = "label81";
+			label81.Size = new Size(47, 15);
+			label81.TabIndex = 37;
+			label81.Text = "Activity";
+			// 
+			// cbbMonsterType
+			// 
+			cbbMonsterType.FormattingEnabled = true;
+			cbbMonsterType.Location = new Point(80, 87);
+			cbbMonsterType.Name = "cbbMonsterType";
+			cbbMonsterType.Size = new Size(160, 23);
+			cbbMonsterType.TabIndex = 15;
+			// 
+			// label80
+			// 
+			label80.AutoSize = true;
+			label80.Location = new Point(16, 90);
+			label80.Name = "label80";
+			label80.Size = new Size(31, 15);
+			label80.TabIndex = 35;
+			label80.Text = "Type";
+			// 
+			// ckbMonsterIsBoss
+			// 
+			ckbMonsterIsBoss.AutoSize = true;
+			ckbMonsterIsBoss.Location = new Point(182, 60);
+			ckbMonsterIsBoss.Name = "ckbMonsterIsBoss";
+			ckbMonsterIsBoss.Size = new Size(61, 19);
+			ckbMonsterIsBoss.TabIndex = 14;
+			ckbMonsterIsBoss.Text = "Is Boss";
+			ckbMonsterIsBoss.UseVisualStyleBackColor = true;
+			// 
+			// cbbMonsterClass
+			// 
+			cbbMonsterClass.FormattingEnabled = true;
+			cbbMonsterClass.Location = new Point(80, 58);
+			cbbMonsterClass.Name = "cbbMonsterClass";
+			cbbMonsterClass.Size = new Size(96, 23);
+			cbbMonsterClass.TabIndex = 13;
+			// 
+			// label79
+			// 
+			label79.AutoSize = true;
+			label79.Location = new Point(16, 61);
+			label79.Name = "label79";
+			label79.Size = new Size(34, 15);
+			label79.TabIndex = 30;
+			label79.Text = "Class";
+			// 
+			// nudMonsterLevel
+			// 
+			nudMonsterLevel.Location = new Point(80, 30);
+			nudMonsterLevel.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+			nudMonsterLevel.Name = "nudMonsterLevel";
+			nudMonsterLevel.Size = new Size(160, 23);
+			nudMonsterLevel.TabIndex = 12;
+			nudMonsterLevel.ThousandsSeparator = true;
+			// 
+			// label78
+			// 
+			label78.AutoSize = true;
+			label78.Location = new Point(16, 32);
+			label78.Name = "label78";
+			label78.Size = new Size(34, 15);
+			label78.TabIndex = 28;
+			label78.Text = "Level";
+			// 
+			// groupBox33
+			// 
+			groupBox33.Controls.Add(nudMonsterArrowPosMax);
+			groupBox33.Controls.Add(nudMonsterArrowPosMin);
+			groupBox33.Controls.Add(label77);
+			groupBox33.Controls.Add(txtMonsterModelEvent);
+			groupBox33.Controls.Add(label76);
+			groupBox33.Controls.Add(cbbMonsterShadowSize);
+			groupBox33.Controls.Add(label75);
+			groupBox33.Controls.Add(label74);
+			groupBox33.Controls.Add(nudMonsterModelSize);
+			groupBox33.Controls.Add(txtMonsterModelFile);
+			groupBox33.Controls.Add(label67);
+			groupBox33.Location = new Point(8, 210);
+			groupBox33.Name = "groupBox33";
+			groupBox33.Size = new Size(256, 180);
+			groupBox33.TabIndex = 3;
+			groupBox33.TabStop = false;
+			groupBox33.Text = "Appearance (3D Model Data)";
+			// 
+			// nudMonsterArrowPosMax
+			// 
+			nudMonsterArrowPosMax.Location = new Point(168, 146);
+			nudMonsterArrowPosMax.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+			nudMonsterArrowPosMax.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
+			nudMonsterArrowPosMax.Name = "nudMonsterArrowPosMax";
+			nudMonsterArrowPosMax.Size = new Size(72, 23);
+			nudMonsterArrowPosMax.TabIndex = 9;
+			nudMonsterArrowPosMax.ThousandsSeparator = true;
+			// 
+			// nudMonsterArrowPosMin
+			// 
+			nudMonsterArrowPosMin.Location = new Point(80, 146);
+			nudMonsterArrowPosMin.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+			nudMonsterArrowPosMin.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
+			nudMonsterArrowPosMin.Name = "nudMonsterArrowPosMin";
+			nudMonsterArrowPosMin.Size = new Size(72, 23);
+			nudMonsterArrowPosMin.TabIndex = 8;
+			nudMonsterArrowPosMin.ThousandsSeparator = true;
+			// 
+			// label77
+			// 
+			label77.AutoSize = true;
+			label77.Location = new Point(16, 148);
+			label77.Name = "label77";
+			label77.Size = new Size(61, 15);
+			label77.TabIndex = 35;
+			label77.Text = "Arrow Pos";
+			// 
+			// txtMonsterModelEvent
+			// 
+			txtMonsterModelEvent.Location = new Point(80, 117);
+			txtMonsterModelEvent.Name = "txtMonsterModelEvent";
+			txtMonsterModelEvent.Size = new Size(160, 23);
+			txtMonsterModelEvent.TabIndex = 7;
+			// 
+			// label76
+			// 
+			label76.AutoSize = true;
+			label76.Location = new Point(16, 120);
+			label76.Name = "label76";
+			label76.Size = new Size(57, 15);
+			label76.TabIndex = 33;
+			label76.Text = "Event File";
+			// 
+			// cbbMonsterShadowSize
+			// 
+			cbbMonsterShadowSize.FormattingEnabled = true;
+			cbbMonsterShadowSize.Location = new Point(80, 88);
+			cbbMonsterShadowSize.Name = "cbbMonsterShadowSize";
+			cbbMonsterShadowSize.Size = new Size(160, 23);
+			cbbMonsterShadowSize.TabIndex = 6;
+			// 
+			// label75
+			// 
+			label75.AutoSize = true;
+			label75.Location = new Point(16, 91);
+			label75.Name = "label75";
+			label75.Size = new Size(49, 15);
+			label75.TabIndex = 31;
+			label75.Text = "Shadow";
+			// 
+			// label74
+			// 
+			label74.AutoSize = true;
+			label74.Location = new Point(16, 61);
+			label74.Name = "label74";
+			label74.Size = new Size(27, 15);
+			label74.TabIndex = 30;
+			label74.Text = "Size";
+			// 
+			// nudMonsterModelSize
+			// 
+			nudMonsterModelSize.DecimalPlaces = 1;
+			nudMonsterModelSize.Location = new Point(80, 59);
+			nudMonsterModelSize.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+			nudMonsterModelSize.Name = "nudMonsterModelSize";
+			nudMonsterModelSize.Size = new Size(160, 23);
+			nudMonsterModelSize.TabIndex = 5;
+			nudMonsterModelSize.ThousandsSeparator = true;
+			// 
+			// txtMonsterModelFile
+			// 
+			txtMonsterModelFile.Location = new Point(80, 30);
+			txtMonsterModelFile.Name = "txtMonsterModelFile";
+			txtMonsterModelFile.Size = new Size(160, 23);
+			txtMonsterModelFile.TabIndex = 4;
+			// 
+			// label67
+			// 
+			label67.AutoSize = true;
+			label67.Location = new Point(16, 33);
+			label67.Name = "label67";
+			label67.Size = new Size(25, 15);
+			label67.TabIndex = 3;
+			label67.Text = "File";
 			// 
 			// groupBox5
 			// 
@@ -2695,16 +3659,36 @@
 			// 
 			// groupBox6
 			// 
+			groupBox6.Controls.Add(nudMonsterDistinctionCode);
+			groupBox6.Controls.Add(label117);
 			groupBox6.Controls.Add(txtMonsterServerName);
 			groupBox6.Controls.Add(label61);
 			groupBox6.Controls.Add(txtMonsterName);
 			groupBox6.Controls.Add(label66);
 			groupBox6.Location = new Point(8, 84);
 			groupBox6.Name = "groupBox6";
-			groupBox6.Size = new Size(256, 92);
+			groupBox6.Size = new Size(256, 120);
 			groupBox6.TabIndex = 2;
 			groupBox6.TabStop = false;
 			groupBox6.Text = "Identity";
+			// 
+			// nudMonsterDistinctionCode
+			// 
+			nudMonsterDistinctionCode.Location = new Point(80, 87);
+			nudMonsterDistinctionCode.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+			nudMonsterDistinctionCode.Name = "nudMonsterDistinctionCode";
+			nudMonsterDistinctionCode.Size = new Size(160, 23);
+			nudMonsterDistinctionCode.TabIndex = 4;
+			nudMonsterDistinctionCode.ThousandsSeparator = true;
+			// 
+			// label117
+			// 
+			label117.AutoSize = true;
+			label117.Location = new Point(16, 89);
+			label117.Name = "label117";
+			label117.Size = new Size(35, 15);
+			label117.TabIndex = 30;
+			label117.Text = "Code";
 			// 
 			// txtMonsterServerName
 			// 
@@ -2740,6 +3724,11 @@
 			// 
 			// tabPage8
 			// 
+			tabPage8.Controls.Add(groupBox32);
+			tabPage8.Controls.Add(groupBox43);
+			tabPage8.Controls.Add(groupBox42);
+			tabPage8.Controls.Add(groupBox41);
+			tabPage8.Controls.Add(groupBox40);
 			tabPage8.Location = new Point(4, 24);
 			tabPage8.Name = "tabPage8";
 			tabPage8.Padding = new Padding(3);
@@ -2747,6 +3736,354 @@
 			tabPage8.TabIndex = 1;
 			tabPage8.Text = "Page 2";
 			tabPage8.UseVisualStyleBackColor = true;
+			// 
+			// groupBox32
+			// 
+			groupBox32.Controls.Add(cbbMonsterSoundCode);
+			groupBox32.Controls.Add(label73);
+			groupBox32.Location = new Point(8, 12);
+			groupBox32.Name = "groupBox32";
+			groupBox32.Size = new Size(256, 64);
+			groupBox32.TabIndex = 9;
+			groupBox32.TabStop = false;
+			groupBox32.Text = "Sound Effects";
+			// 
+			// cbbMonsterSoundCode
+			// 
+			cbbMonsterSoundCode.FormattingEnabled = true;
+			cbbMonsterSoundCode.Location = new Point(80, 29);
+			cbbMonsterSoundCode.Name = "cbbMonsterSoundCode";
+			cbbMonsterSoundCode.Size = new Size(160, 23);
+			cbbMonsterSoundCode.TabIndex = 1;
+			// 
+			// label73
+			// 
+			label73.AutoSize = true;
+			label73.Location = new Point(16, 32);
+			label73.Name = "label73";
+			label73.Size = new Size(41, 15);
+			label73.TabIndex = 8;
+			label73.Text = "Sound";
+			// 
+			// groupBox43
+			// 
+			groupBox43.Controls.Add(tabControl6);
+			groupBox43.Location = new Point(273, 12);
+			groupBox43.Name = "groupBox43";
+			groupBox43.Size = new Size(669, 512);
+			groupBox43.TabIndex = 13;
+			groupBox43.TabStop = false;
+			groupBox43.Text = "Loots";
+			// 
+			// tabControl6
+			// 
+			tabControl6.Controls.Add(tabPage13);
+			tabControl6.Controls.Add(tabPage14);
+			tabControl6.Dock = DockStyle.Fill;
+			tabControl6.Location = new Point(3, 19);
+			tabControl6.Name = "tabControl6";
+			tabControl6.SelectedIndex = 0;
+			tabControl6.Size = new Size(663, 490);
+			tabControl6.TabIndex = 19;
+			// 
+			// tabPage13
+			// 
+			tabPage13.Controls.Add(dgvMonsterLoots);
+			tabPage13.Location = new Point(4, 24);
+			tabPage13.Name = "tabPage13";
+			tabPage13.Padding = new Padding(3);
+			tabPage13.Size = new Size(655, 462);
+			tabPage13.TabIndex = 0;
+			tabPage13.Text = "General";
+			tabPage13.UseVisualStyleBackColor = true;
+			// 
+			// dgvMonsterLoots
+			// 
+			dgvMonsterLoots.AllowUserToResizeColumns = false;
+			dgvMonsterLoots.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+			dgvMonsterLoots.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			dgvMonsterLoots.Columns.AddRange(new DataGridViewColumn[] { dgvtxtMonsterLootRate, dgvcbbMonsterLootType, dgvtxtMonsterLoot });
+			dgvMonsterLoots.Dock = DockStyle.Fill;
+			dgvMonsterLoots.Location = new Point(3, 3);
+			dgvMonsterLoots.MultiSelect = false;
+			dgvMonsterLoots.Name = "dgvMonsterLoots";
+			dgvMonsterLoots.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+			dgvMonsterLoots.RowHeadersWidth = 24;
+			dgvMonsterLoots.RowTemplate.Height = 25;
+			dgvMonsterLoots.Size = new Size(649, 456);
+			dgvMonsterLoots.TabIndex = 0;
+			dgvMonsterLoots.RowValidated += dgvMonsterLoots_RowValidated;
+			dgvMonsterLoots.Validated += dgvMonsterLoots_Validated;
+			// 
+			// dgvtxtMonsterLootRate
+			// 
+			dgvtxtMonsterLootRate.HeaderText = "Rate";
+			dgvtxtMonsterLootRate.Name = "dgvtxtMonsterLootRate";
+			dgvtxtMonsterLootRate.Resizable = DataGridViewTriState.False;
+			dgvtxtMonsterLootRate.Width = 128;
+			// 
+			// dgvcbbMonsterLootType
+			// 
+			dgvcbbMonsterLootType.HeaderText = "Type";
+			dgvcbbMonsterLootType.Name = "dgvcbbMonsterLootType";
+			dgvcbbMonsterLootType.Width = 128;
+			// 
+			// dgvtxtMonsterLoot
+			// 
+			dgvtxtMonsterLoot.HeaderText = "Loot";
+			dgvtxtMonsterLoot.Name = "dgvtxtMonsterLoot";
+			dgvtxtMonsterLoot.Resizable = DataGridViewTriState.False;
+			dgvtxtMonsterLoot.Width = 366;
+			// 
+			// tabPage14
+			// 
+			tabPage14.Controls.Add(dgvMonsterLootPlus);
+			tabPage14.Location = new Point(4, 24);
+			tabPage14.Name = "tabPage14";
+			tabPage14.Padding = new Padding(3);
+			tabPage14.Size = new Size(655, 462);
+			tabPage14.TabIndex = 1;
+			tabPage14.Text = "Additional";
+			tabPage14.UseVisualStyleBackColor = true;
+			// 
+			// dgvMonsterLootPlus
+			// 
+			dgvMonsterLootPlus.AllowUserToResizeColumns = false;
+			dgvMonsterLootPlus.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+			dgvMonsterLootPlus.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			dgvMonsterLootPlus.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dgvcbbMonsterLootPlusType, dataGridViewTextBoxColumn2 });
+			dgvMonsterLootPlus.Dock = DockStyle.Fill;
+			dgvMonsterLootPlus.Location = new Point(3, 3);
+			dgvMonsterLootPlus.MultiSelect = false;
+			dgvMonsterLootPlus.Name = "dgvMonsterLootPlus";
+			dgvMonsterLootPlus.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+			dgvMonsterLootPlus.RowHeadersWidth = 24;
+			dgvMonsterLootPlus.RowTemplate.Height = 25;
+			dgvMonsterLootPlus.Size = new Size(649, 456);
+			dgvMonsterLootPlus.TabIndex = 1;
+			// 
+			// dataGridViewTextBoxColumn1
+			// 
+			dataGridViewTextBoxColumn1.HeaderText = "Rate";
+			dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+			dataGridViewTextBoxColumn1.Resizable = DataGridViewTriState.False;
+			dataGridViewTextBoxColumn1.Width = 128;
+			// 
+			// dgvcbbMonsterLootPlusType
+			// 
+			dgvcbbMonsterLootPlusType.HeaderText = "Type";
+			dgvcbbMonsterLootPlusType.Name = "dgvcbbMonsterLootPlusType";
+			dgvcbbMonsterLootPlusType.Width = 128;
+			// 
+			// dataGridViewTextBoxColumn2
+			// 
+			dataGridViewTextBoxColumn2.HeaderText = "Loot";
+			dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+			dataGridViewTextBoxColumn2.Resizable = DataGridViewTriState.False;
+			dataGridViewTextBoxColumn2.Width = 366;
+			// 
+			// groupBox42
+			// 
+			groupBox42.Controls.Add(nudMonsterFallMax);
+			groupBox42.Controls.Add(label116);
+			groupBox42.Controls.Add(ckbMonsterAllSeeLoot);
+			groupBox42.Controls.Add(label115);
+			groupBox42.Controls.Add(nudMonsterLootCount);
+			groupBox42.Controls.Add(label114);
+			groupBox42.Controls.Add(nudMonsterExperience);
+			groupBox42.Controls.Add(label113);
+			groupBox42.Location = new Point(6, 306);
+			groupBox42.Name = "groupBox42";
+			groupBox42.Size = new Size(256, 156);
+			groupBox42.TabIndex = 12;
+			groupBox42.TabStop = false;
+			groupBox42.Text = "Loots";
+			// 
+			// nudMonsterFallMax
+			// 
+			nudMonsterFallMax.Location = new Point(80, 115);
+			nudMonsterFallMax.Maximum = new decimal(new int[] { 1215752192, 23, 0, 0 });
+			nudMonsterFallMax.Name = "nudMonsterFallMax";
+			nudMonsterFallMax.ReadOnly = true;
+			nudMonsterFallMax.Size = new Size(160, 23);
+			nudMonsterFallMax.TabIndex = 10;
+			nudMonsterFallMax.ThousandsSeparator = true;
+			// 
+			// label116
+			// 
+			label116.AutoSize = true;
+			label116.Location = new Point(16, 117);
+			label116.Name = "label116";
+			label116.Size = new Size(56, 15);
+			label116.TabIndex = 37;
+			label116.Text = "Rate Max";
+			// 
+			// ckbMonsterAllSeeLoot
+			// 
+			ckbMonsterAllSeeLoot.AutoSize = true;
+			ckbMonsterAllSeeLoot.Location = new Point(80, 90);
+			ckbMonsterAllSeeLoot.Name = "ckbMonsterAllSeeLoot";
+			ckbMonsterAllSeeLoot.Size = new Size(92, 19);
+			ckbMonsterAllSeeLoot.TabIndex = 9;
+			ckbMonsterAllSeeLoot.Text = "All see items";
+			ckbMonsterAllSeeLoot.UseVisualStyleBackColor = true;
+			// 
+			// label115
+			// 
+			label115.AutoSize = true;
+			label115.Location = new Point(16, 91);
+			label115.Name = "label115";
+			label115.Size = new Size(51, 15);
+			label115.TabIndex = 35;
+			label115.Text = "Visibility";
+			// 
+			// nudMonsterLootCount
+			// 
+			nudMonsterLootCount.Location = new Point(80, 59);
+			nudMonsterLootCount.Maximum = new decimal(new int[] { 1215752192, 23, 0, 0 });
+			nudMonsterLootCount.Name = "nudMonsterLootCount";
+			nudMonsterLootCount.Size = new Size(160, 23);
+			nudMonsterLootCount.TabIndex = 8;
+			nudMonsterLootCount.ThousandsSeparator = true;
+			// 
+			// label114
+			// 
+			label114.AutoSize = true;
+			label114.Location = new Point(16, 61);
+			label114.Name = "label114";
+			label114.Size = new Size(40, 15);
+			label114.TabIndex = 33;
+			label114.Text = "Count";
+			// 
+			// nudMonsterExperience
+			// 
+			nudMonsterExperience.Location = new Point(80, 30);
+			nudMonsterExperience.Maximum = new decimal(new int[] { 1215752192, 23, 0, 0 });
+			nudMonsterExperience.Name = "nudMonsterExperience";
+			nudMonsterExperience.Size = new Size(160, 23);
+			nudMonsterExperience.TabIndex = 7;
+			nudMonsterExperience.ThousandsSeparator = true;
+			// 
+			// label113
+			// 
+			label113.AutoSize = true;
+			label113.Location = new Point(16, 32);
+			label113.Name = "label113";
+			label113.Size = new Size(64, 15);
+			label113.TabIndex = 8;
+			label113.Text = "Experience";
+			// 
+			// groupBox41
+			// 
+			groupBox41.Controls.Add(label111);
+			groupBox41.Controls.Add(txtMonsterEventItem);
+			groupBox41.Controls.Add(nudMonsterEventInfo);
+			groupBox41.Controls.Add(label109);
+			groupBox41.Controls.Add(nudMonsterEventCode);
+			groupBox41.Controls.Add(label110);
+			groupBox41.Location = new Point(8, 178);
+			groupBox41.Name = "groupBox41";
+			groupBox41.Size = new Size(256, 122);
+			groupBox41.TabIndex = 11;
+			groupBox41.TabStop = false;
+			groupBox41.Text = "Event";
+			// 
+			// label111
+			// 
+			label111.AutoSize = true;
+			label111.Location = new Point(16, 91);
+			label111.Name = "label111";
+			label111.Size = new Size(31, 15);
+			label111.TabIndex = 35;
+			label111.Text = "Item";
+			// 
+			// txtMonsterEventItem
+			// 
+			txtMonsterEventItem.Location = new Point(80, 88);
+			txtMonsterEventItem.Name = "txtMonsterEventItem";
+			txtMonsterEventItem.Size = new Size(160, 23);
+			txtMonsterEventItem.TabIndex = 6;
+			// 
+			// nudMonsterEventInfo
+			// 
+			nudMonsterEventInfo.Location = new Point(80, 59);
+			nudMonsterEventInfo.Name = "nudMonsterEventInfo";
+			nudMonsterEventInfo.Size = new Size(160, 23);
+			nudMonsterEventInfo.TabIndex = 5;
+			nudMonsterEventInfo.ThousandsSeparator = true;
+			// 
+			// label109
+			// 
+			label109.AutoSize = true;
+			label109.Location = new Point(16, 61);
+			label109.Name = "label109";
+			label109.Size = new Size(28, 15);
+			label109.TabIndex = 32;
+			label109.Text = "Info";
+			// 
+			// nudMonsterEventCode
+			// 
+			nudMonsterEventCode.Location = new Point(80, 30);
+			nudMonsterEventCode.Name = "nudMonsterEventCode";
+			nudMonsterEventCode.Size = new Size(160, 23);
+			nudMonsterEventCode.TabIndex = 4;
+			nudMonsterEventCode.ThousandsSeparator = true;
+			// 
+			// label110
+			// 
+			label110.AutoSize = true;
+			label110.Location = new Point(16, 32);
+			label110.Name = "label110";
+			label110.Size = new Size(35, 15);
+			label110.TabIndex = 30;
+			label110.Text = "Code";
+			// 
+			// groupBox40
+			// 
+			groupBox40.Controls.Add(nudMonsterPotionRate);
+			groupBox40.Controls.Add(label107);
+			groupBox40.Controls.Add(nudMonsterPotionCount);
+			groupBox40.Controls.Add(label108);
+			groupBox40.Location = new Point(8, 82);
+			groupBox40.Name = "groupBox40";
+			groupBox40.Size = new Size(256, 90);
+			groupBox40.TabIndex = 10;
+			groupBox40.TabStop = false;
+			groupBox40.Text = "Potion";
+			// 
+			// nudMonsterPotionRate
+			// 
+			nudMonsterPotionRate.Location = new Point(80, 59);
+			nudMonsterPotionRate.Name = "nudMonsterPotionRate";
+			nudMonsterPotionRate.Size = new Size(160, 23);
+			nudMonsterPotionRate.TabIndex = 3;
+			nudMonsterPotionRate.ThousandsSeparator = true;
+			// 
+			// label107
+			// 
+			label107.AutoSize = true;
+			label107.Location = new Point(16, 61);
+			label107.Name = "label107";
+			label107.Size = new Size(30, 15);
+			label107.TabIndex = 32;
+			label107.Text = "Rate";
+			// 
+			// nudMonsterPotionCount
+			// 
+			nudMonsterPotionCount.Location = new Point(80, 30);
+			nudMonsterPotionCount.Name = "nudMonsterPotionCount";
+			nudMonsterPotionCount.Size = new Size(160, 23);
+			nudMonsterPotionCount.TabIndex = 2;
+			nudMonsterPotionCount.ThousandsSeparator = true;
+			// 
+			// label108
+			// 
+			label108.AutoSize = true;
+			label108.Location = new Point(16, 32);
+			label108.Name = "label108";
+			label108.Size = new Size(40, 15);
+			label108.TabIndex = 30;
+			label108.Text = "Count";
 			// 
 			// groupBox2
 			// 
@@ -3524,12 +4861,79 @@
 			gbMonsterInformation.ResumeLayout(false);
 			tabControl3.ResumeLayout(false);
 			tabPage7.ResumeLayout(false);
-			groupBox32.ResumeLayout(false);
-			groupBox32.PerformLayout();
+			groupBox39.ResumeLayout(false);
+			groupBox39.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)nudMonsterMoveRange).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterMoveSpeed).EndInit();
+			groupBox37.ResumeLayout(false);
+			groupBox37.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)nudMonsterLife).EndInit();
+			groupBox38.ResumeLayout(false);
+			groupBox38.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)nudMonsterElementalPoison).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterElementalLightning).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterElementalIce).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterElementalFire).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterElementalOrganic).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterBlockRate).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterAbsortion).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterDefense).EndInit();
+			groupBox36.ResumeLayout(false);
+			groupBox36.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)nudMonsterSpecialAttack).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterStunRate).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterSkillCurse).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterSkillRate).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterSkillRange).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterSkillDistance).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterSkillPowerMax).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterSkillPowerMin).EndInit();
+			groupBox35.ResumeLayout(false);
+			groupBox35.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)nudMonsterAttackRate).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterAttackRange).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterAttackSpeed).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterAttackPowerMax).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterAttackPowerMin).EndInit();
+			groupBox34.ResumeLayout(false);
+			groupBox34.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)nudMonsterIQ).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterSight).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterGroupMax).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterGroupMin).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterLevel).EndInit();
+			groupBox33.ResumeLayout(false);
+			groupBox33.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)nudMonsterArrowPosMax).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterArrowPosMin).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterModelSize).EndInit();
 			groupBox5.ResumeLayout(false);
 			groupBox5.PerformLayout();
 			groupBox6.ResumeLayout(false);
 			groupBox6.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)nudMonsterDistinctionCode).EndInit();
+			tabPage8.ResumeLayout(false);
+			groupBox32.ResumeLayout(false);
+			groupBox32.PerformLayout();
+			groupBox43.ResumeLayout(false);
+			tabControl6.ResumeLayout(false);
+			tabPage13.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)dgvMonsterLoots).EndInit();
+			tabPage14.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)dgvMonsterLootPlus).EndInit();
+			groupBox42.ResumeLayout(false);
+			groupBox42.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)nudMonsterFallMax).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterLootCount).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterExperience).EndInit();
+			groupBox41.ResumeLayout(false);
+			groupBox41.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)nudMonsterEventInfo).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterEventCode).EndInit();
+			groupBox40.ResumeLayout(false);
+			groupBox40.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)nudMonsterPotionRate).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudMonsterPotionCount).EndInit();
 			groupBox2.ResumeLayout(false);
 			groupBox2.PerformLayout();
 			toolStrip3.ResumeLayout(false);
@@ -3854,8 +5258,125 @@
 		private ToolStripTextBox txtItemFilesSearch;
 		private ToolStripSeparator toolStripSeparator2;
 		private ToolStripTextBox txtMonsterFilesSearch;
+		private GroupBox groupBox33;
+		private TextBox txtMonsterModelFile;
+		private Label label67;
+		private Label label74;
+		private NumericUpDown nudMonsterModelSize;
+		private ComboBox cbbMonsterShadowSize;
+		private Label label75;
+		private TextBox txtMonsterModelEvent;
+		private Label label76;
+		private NumericUpDown nudMonsterArrowPosMax;
+		private NumericUpDown nudMonsterArrowPosMin;
+		private Label label77;
+		private GroupBox groupBox34;
+		private NumericUpDown nudMonsterLevel;
+		private Label label78;
+		private ComboBox cbbMonsterClass;
+		private Label label79;
+		private CheckBox ckbMonsterIsBoss;
+		private ComboBox cbbMonsterType;
+		private Label label80;
+		private ComboBox cbbMonsterActiveTime;
+		private Label label81;
+		private ComboBox cbbMonsterNature;
+		private Label label82;
+		private NumericUpDown nudMonsterSight;
+		private Label label84;
+		private NumericUpDown nudMonsterGroupMax;
+		private NumericUpDown nudMonsterGroupMin;
+		private Label label83;
+		private NumericUpDown nudMonsterIQ;
+		private Label label85;
+		private GroupBox groupBox35;
+		private NumericUpDown nudMonsterAttackPowerMax;
+		private NumericUpDown nudMonsterAttackPowerMin;
+		private Label label86;
+		private NumericUpDown nudMonsterAttackRate;
+		private Label label89;
+		private NumericUpDown nudMonsterAttackRange;
+		private Label label88;
+		private NumericUpDown nudMonsterAttackSpeed;
+		private Label label87;
+		private GroupBox groupBox36;
+		private NumericUpDown nudMonsterSpecialAttack;
+		private Label label96;
+		private NumericUpDown nudMonsterStunRate;
+		private Label label95;
+		private NumericUpDown nudMonsterSkillCurse;
+		private Label label94;
+		private NumericUpDown nudMonsterSkillRate;
+		private Label label90;
+		private NumericUpDown nudMonsterSkillRange;
+		private Label label91;
+		private NumericUpDown nudMonsterSkillDistance;
+		private Label label92;
+		private NumericUpDown nudMonsterSkillPowerMax;
+		private NumericUpDown nudMonsterSkillPowerMin;
+		private Label label93;
+		private GroupBox groupBox37;
+		private GroupBox groupBox38;
+		private NumericUpDown nudMonsterElementalPoison;
+		private Label label97;
+		private NumericUpDown nudMonsterElementalLightning;
+		private Label label98;
+		private NumericUpDown nudMonsterElementalIce;
+		private Label label99;
+		private NumericUpDown nudMonsterElementalFire;
+		private Label label100;
+		private NumericUpDown nudMonsterElementalOrganic;
+		private Label label101;
+		private NumericUpDown nudMonsterBlockRate;
+		private Label label102;
+		private NumericUpDown nudMonsterAbsortion;
+		private Label label103;
+		private NumericUpDown nudMonsterDefense;
+		private Label label104;
+		private NumericUpDown nudMonsterLife;
+		private Label label105;
+		private GroupBox groupBox39;
+		private NumericUpDown nudMonsterMoveRange;
+		private Label label106;
+		private NumericUpDown nudMonsterMoveSpeed;
+		private Label label112;
+		private GroupBox groupBox40;
+		private NumericUpDown nudMonsterPotionRate;
+		private Label label107;
+		private NumericUpDown nudMonsterPotionCount;
+		private Label label108;
+		private GroupBox groupBox41;
+		private Label label111;
+		private TextBox txtMonsterEventItem;
+		private NumericUpDown nudMonsterEventInfo;
+		private Label label109;
+		private NumericUpDown nudMonsterEventCode;
+		private Label label110;
+		private GroupBox groupBox42;
+		private NumericUpDown nudMonsterExperience;
+		private Label label113;
+		private NumericUpDown nudMonsterLootCount;
+		private Label label114;
+		private NumericUpDown nudMonsterFallMax;
+		private Label label116;
+		private CheckBox ckbMonsterAllSeeLoot;
+		private Label label115;
+		private GroupBox groupBox43;
+		private TabControl tabControl6;
+		private TabPage tabPage13;
+		private DataGridView dgvMonsterLoots;
+		private TabPage tabPage14;
+		private DataGridViewTextBoxColumn dgvtxtMonsterLootRate;
+		private DataGridViewComboBoxColumn dgvcbbMonsterLootType;
+		private DataGridViewTextBoxColumn dgvtxtMonsterLoot;
 		private GroupBox groupBox32;
 		private ComboBox cbbMonsterSoundCode;
 		private Label label73;
+		private NumericUpDown nudMonsterDistinctionCode;
+		private Label label117;
+		private DataGridView dgvMonsterLootPlus;
+		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+		private DataGridViewComboBoxColumn dgvcbbMonsterLootPlusType;
+		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
 	}
 }

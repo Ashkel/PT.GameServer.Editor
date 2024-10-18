@@ -6,6 +6,7 @@ public partial class Item
 	{
 		// Identifiers
 		public static readonly string Id = "*코드";
+		public static readonly string[] Name = new string[] { "*NAME", "*이름", "*A_NAME", "*B_NAME", "*C_NAME", "*E_NAME", "*J_NAME", "*T_NAME", "*TH_NAME", "*V_NAME" };
 		public static readonly string ServerName = "*이름";
 
 		// Misc

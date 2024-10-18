@@ -1,11 +1,13 @@
-﻿namespace GameServer.Framework.Characters;
+﻿using System.Security.Policy;
+
+namespace GameServer.Framework.Characters;
 
 public partial class Monster
 {
 	public static class Keywords
 	{
 		// Identifiers
-		public static readonly string[] Name = new string[] { "*이름", "*NAME", "*A_NAME", "*B_NAME", "*C_NAME", "*E_NAME", "*J_NAME", "*T_NAME", "*TH_NAME", "*V_NAME" };
+		public static readonly string[] Name = new string[] { "*NAME", "*이름", "*A_NAME", "*B_NAME", "*C_NAME", "*E_NAME", "*J_NAME", "*T_NAME", "*TH_NAME", "*V_NAME", };
 		public static readonly string ServerName = "*이름";
 		public static readonly string DistinctionCode = "*구별코드";
 
@@ -28,7 +30,7 @@ public partial class Monster
 		public static readonly string RealSight = "*시야";
 		public static readonly string IQ = "*지능";
 		public static readonly string IsUndead = "*언데드";
-		public static readonly string[] Undead = new string[] { "유", "있음" };
+		public static readonly string[] Undead = new string[] { "유", "있음", };
 
 		// Attack
 		public static readonly string AttackPower = "*공격력";
@@ -40,14 +42,14 @@ public partial class Monster
 		public static readonly string SkillRange = "*기술공격범위";
 		public static readonly string SkillRate = "*기술공격률";
 		public static readonly string SkillCurse = "*저주기술";
-		public static readonly string[] StunRate = new string[] { "*스턴율", "*스턴률" };
+		public static readonly string[] StunRate = new string[] { "*스턴율", "*스턴률", };
 		public static readonly string SpecialAttackRate = "*특수공격률";
 
 		// Defense
 		public static readonly string Defense = "*방어력";
 		public static readonly string Absorption = "*흡수율";
 		public static readonly string BlockRate = "*블럭율";
-		public static readonly string[] Life = new string[] { "*생명력", "*라이프" };
+		public static readonly string[] Life = new string[] { "*생명력", "*라이프", };
 		public static readonly string Organic = "*생체";
 		public static readonly string Water = "*물";
 		public static readonly string Lightning = "*번개";
@@ -68,7 +70,7 @@ public partial class Monster
 		public static readonly string PotionRate = "*물약보유률";
 
 		// Sound Effects
-		public static readonly string[] SoundCode = new string[] { "*소리", "*효과음" };
+		public static readonly string[] SoundCode = new string[] { "*소리", "*효과음", };
 
 		// Loot
 		public static readonly string EventCode = "*이벤트코드";
@@ -91,7 +93,6 @@ public partial class Monster
 		// Zhoon File
 		public static readonly string ExternalFile = "*연결파일";
 
-		// Chat of NPC's
-		public static readonly string[] Chat = new string[] { "*대화", "*A_CHAT", "*B_CHAT", "*C_CHAT", "*E_CHAT", "*J_CHAT", "*T_CHAT", "*TH_CHAT", "*V_CHAT" };
+		public static readonly string[] LootType = new string[] { "Nothing", "Money", "Coin", "Items", };
 	}
 }

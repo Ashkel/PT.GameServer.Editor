@@ -177,11 +177,10 @@ public partial class MainForm
 		{
 			gbNPCInformation.Text = "Information of: " + _loadedNPC.Name;
 
-			txtNPCId.Text = _loadedNPC.Id;
 			txtNPCName.Text = _loadedNPC.Name;
 			txtNPCServerName.Text = _loadedNPC.ServerName;
 
-			txtNPCModelName.Text = _loadedNPC.ModelName;
+			txtNPCModelName.Text = _loadedNPC.ModelFile;
 
 
 			lbNPCChat.Items.Clear();
@@ -206,11 +205,10 @@ public partial class MainForm
 	{
 		try
 		{
-			_loadedNPC.Id = txtNPCId.Text;
 			_loadedNPC.Name = txtNPCName.Text;
 			_loadedNPC.ServerName = txtNPCServerName.Text;
 
-			_loadedNPC.ModelName = txtNPCModelName.Text;
+			_loadedNPC.ModelFile = txtNPCModelName.Text;
 
 
             if (lbNPCChat.Items.Count > 0)

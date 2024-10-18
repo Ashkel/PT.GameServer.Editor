@@ -424,7 +424,7 @@ public partial class MainForm
 			if (!checkbox.Checked)
 				continue;
 
-			JobType job = Jobs.Parse(checkbox.Name);
+			JobType job = Job.Parse(checkbox.Name);
 			if (job != JobType.Unknown)
 			{
 				availableJobs.Add(job);

@@ -47,14 +47,14 @@ public partial class Monster : GameInfo
 	public string ModelFile { get; set; } = string.Empty;
 
 	/// <summary>
-	/// Get or Set size type, controls size of shadows.
-	/// </summary>
-	public ShadowSize ShadowSize { get; set; } = ShadowSize.Unknown;
-
-	/// <summary>
 	/// Get or Set the size multiplier of the model being used
 	/// </summary>
 	public float ModelSize { get; set; }
+
+	/// <summary>
+	/// Get or Set size type, controls size of shadows.
+	/// </summary>
+	public ShadowSize ShadowSize { get; set; } = ShadowSize.Unknown;
 
 	/// <summary>
 	/// Get or Set the path for the .ini file responsible for calling
@@ -115,7 +115,7 @@ public partial class Monster : GameInfo
 	/// <summary>
 	/// Get or Set the monster field of vision(Sight).
 	/// </summary>
-	public float RealSight { get; set; }
+	public int RealSight { get; set; }
 
 	/// <summary>
 	/// Get or Set the monster IQ.
@@ -257,8 +257,7 @@ public partial class Monster : GameInfo
 	/// </summary>
 	public string SoundCode { get; set; } = string.Empty;
 
-
-	// Loot
+	// Events
 
 	/// <summary>
 	/// Get or Set Event Code (generally item drop for quest)
@@ -274,6 +273,8 @@ public partial class Monster : GameInfo
 	/// Get or Set Event Item (generally item drop for quest)
 	/// </summary>
 	public string EventItem { get; set; } = string.Empty;
+
+	// Loots
 
 	/// <summary>
 	/// Get or Set the experience given by the monster.
@@ -354,8 +355,8 @@ public partial class Monster : GameInfo
 
 		// Appearance (3D Model Data)
 		ModelFile = string.Empty;
-		ShadowSize = ShadowSize.Unknown;
 		ModelSize = 1.0f;
+		ShadowSize = ShadowSize.Unknown;
 		ModelEvent = string.Empty;
 		ArrowPosition = Point.Empty;
 
@@ -404,10 +405,12 @@ public partial class Monster : GameInfo
 		// Sound Effects
 		SoundCode = string.Empty;
 
-		// Loots
+		// Events
 		EventCode = 0;
 		EventInfo = 0;
 		EventItem = string.Empty;
+
+		// Loots
 		Experience = 0u;
 		AllSeeLoot = false;
 		FallItemMax = 0;
@@ -460,16 +463,16 @@ public partial class Monster : GameInfo
 			if (!string.IsNullOrEmpty(model))
 				ModelFile = model;
 		}
+		else if (string.Compare(keyword, Keywords.ModelSize) == 0)
+		{
+			ModelSize = FileHelper.ParseFloat(line, ref position);
+		}
 		else if (string.Compare(keyword, Keywords.ShadowSize) == 0)
 		{
 			var str = FileHelper.GetWord(line, ref position);
 			var size = Parse<ShadowSize>(str);
 
 			ShadowSize = (ShadowSize)size;
-		}
-		else if (string.Compare(keyword, Keywords.ModelSize) == 0)
-		{
-			ModelSize = FileHelper.ParseFloat(line, ref position);
 		}
 		else if (string.Compare(keyword, Keywords.ModelEvent) == 0)
 		{
@@ -530,7 +533,7 @@ public partial class Monster : GameInfo
 		}
 		else if (string.Compare(keyword, Keywords.RealSight) == 0)
 		{
-			RealSight = FileHelper.ParseFloat(line, ref position);
+			RealSight = FileHelper.ParseInteger(line, ref position);
 		}
 		else if (string.Compare(keyword, Keywords.IQ) == 0)
 		{
@@ -681,7 +684,7 @@ public partial class Monster : GameInfo
 			}
 		}
 
-		// Loot
+		// Events
 		else if (string.Compare(keyword, Keywords.EventCode) == 0)
 		{
 			EventCode = FileHelper.ParseInteger(line, ref position);
@@ -697,6 +700,8 @@ public partial class Monster : GameInfo
 			if (!string.IsNullOrEmpty(str))
 				EventItem = str;
 		}
+
+		// Loots
 		else if (string.Compare(keyword, Keywords.Experience) == 0)
 		{
 			Experience = FileHelper.ParseLong(line, ref position);
@@ -738,15 +743,15 @@ public partial class Monster : GameInfo
 					Rate = rate,
 				};
 
-				if (string.Compare(str, Keywords.LootNothing) == 0)
-				{
-					// Nothing
-				}
-				else if (string.Compare(str, Keywords.LootMoney) == 0)
+				if (string.Compare(str, Keywords.LootMoney) == 0)
 				{
 					loot.Money = FileHelper.ParseRange(line, ref position);
 				}
-				else
+				else if (string.Compare(str, Keywords.LootCoin) == 0)
+				{
+					loot.Coin = FileHelper.ParseRange(line, ref position);
+				}
+				else if (string.Compare(str, Keywords.LootNothing) != 0) // Not Nothing
 				{
 					loot.Items = new List<string>();
 
@@ -785,6 +790,7 @@ public partial class Monster : GameInfo
 		sb.AppendLine("// Priston Tale - Monster file");
 		sb.AppendLine("// Identifiers");
 		sb.AppendLine($"{Keywords.ServerName}\t\t\"{ServerName}\"");
+		sb.AppendLine($"{Keywords.Name[0]}\t\t\"{Name}\"");
 
 		if(DistinctionCode != 0)
 			sb.AppendLine($"{Keywords.DistinctionCode}\t\t{DistinctionCode}");
@@ -794,10 +800,11 @@ public partial class Monster : GameInfo
 
 		sb.AppendLine("// Appearance (3D Model Data)");
 		sb.AppendLine($"{Keywords.ModelFile}\t\t\"{ModelFile}\"");
-		sb.AppendLine($"{Keywords.ShadowSize}\t\t{Parse(ShadowSize)}");
 
 		if (ModelSize > 0.000f)
 			sb.AppendLine($"{Keywords.ModelSize}\t\t{ModelSize}");
+
+		sb.AppendLine($"{Keywords.ShadowSize}\t\t{Parse(ShadowSize)}");
 
 		if(!string.IsNullOrEmpty(ModelEvent))
 			sb.AppendLine($"{Keywords.ModelEvent}\t\t\"{ModelEvent}\"");
@@ -873,15 +880,22 @@ public partial class Monster : GameInfo
 		sb.AppendLine($"{Keywords.Wind}\t\t{_resistance.Wind}");
 		sb.AppendLine();
 
+
 		sb.AppendLine("// Movement");
-		sb.AppendLine($"{Keywords.MovementType}\t\t{MovementType}");
-		sb.AppendLine($"{Keywords.MovementSpeed}\t\t{MovementSpeed}");
-		sb.AppendLine($"{Keywords.MovementRange}\t\t{MovementRange}");
+		if(MovementType != 0)
+			sb.AppendLine($"{Keywords.MovementType}\t\t{MovementType}");
+		if (MovementSpeed != 0)
+			sb.AppendLine($"{Keywords.MovementSpeed}\t\t{MovementSpeed}");
+		if (MovementRange != 0)
+			sb.AppendLine($"{Keywords.MovementRange}\t\t{MovementRange}");
 		sb.AppendLine();
 
+
 		sb.AppendLine("// Potion");
-		sb.AppendLine($"{Keywords.PotionCount}\t\t{PotionCount}");
-		sb.AppendLine($"{Keywords.PotionRate}\t\t{PotionRate}");
+		if (PotionCount != 0)
+			sb.AppendLine($"{Keywords.PotionCount}\t\t{PotionCount}");
+		if (PotionRate != 0)
+			sb.AppendLine($"{Keywords.PotionRate}\t\t{PotionRate}");
 		sb.AppendLine();
 
 		sb.AppendLine("// Sound Effects");
@@ -891,11 +905,9 @@ public partial class Monster : GameInfo
 		sb.AppendLine();
 
 
-		sb.AppendLine("// Loots");
-
+		sb.AppendLine("// Events");
 		if (EventCode != 0)
 			sb.AppendLine($"{Keywords.EventCode}\t\t{EventCode}");
-
 		if (EventInfo != 0)
 			sb.AppendLine($"{Keywords.EventInfo}\t\t{EventInfo}");
 
@@ -904,6 +916,8 @@ public partial class Monster : GameInfo
 			sb.AppendLine($"{Keywords.EventItem}\t\t{EventItem}");
 			sb.AppendLine();
 		}
+
+		sb.AppendLine("// Loots");
 
 		sb.AppendLine($"{Keywords.Experience}\t\t{Experience}");
 

@@ -8,9 +8,22 @@ namespace GameServer.Framework.Items
 		#region Item Data
 
 		// Identifiers
+
+		/// <summary>
+		/// Get or Set Item Code
+		/// </summary>
 		public string Id { get; set; } = string.Empty;
+
+		/// <summary>
+		/// Get or Set the name being displayed for players
+		/// </summary>
 		public string Name { get; set; } = string.Empty;
+
+		/// <summary>
+		/// Get or Set the original korean name of the item
+		/// </summary>
 		public string ServerName { get; set; } = string.Empty;
+
 
 		// Misc
 		public Range Durability
@@ -456,7 +469,7 @@ namespace GameServer.Framework.Items
 			{
 				string spec = FileHelper.GetWord(line, ref position);
 
-				MainJob = Jobs.Parse(spec);
+				MainJob = Job.Parse(spec);
 			}
 			else if (string.Compare(keyword, Keywords.AvailableJobs) == 0)
 			{
@@ -464,7 +477,7 @@ namespace GameServer.Framework.Items
 
 				while (!string.IsNullOrEmpty(specs))
 				{
-					var job = Jobs.Parse(specs);
+					var job = Job.Parse(specs);
 					if (job != JobType.Unknown)
 						AvailableJobs.Add(job);
 
@@ -566,6 +579,7 @@ namespace GameServer.Framework.Items
 			sb.AppendLine("// Identifiers");
 			sb.AppendLine($"{Keywords.Id}\t\t\"{Id}\"");
 			sb.AppendLine($"{Keywords.ServerName}\t\t\"{ServerName}\"");
+			sb.AppendLine($"{Keywords.Name[0]}\t\t\"{Name}\"");
 			sb.AppendLine();
 
 			sb.AppendLine("// Misc");

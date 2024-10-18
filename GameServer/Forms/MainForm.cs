@@ -1,4 +1,5 @@
 ﻿using GameServer.Framework;
+using GameServer.Framework.Characters;
 using GameServer.Helpers;
 using System.Diagnostics;
 using System.Globalization;
@@ -42,6 +43,24 @@ public partial class MainForm : Form
 
 		cbbItemMainJob.DataSource = Enum.GetValues(typeof(JobType));
 		cbbItemMainJob.SelectedItem = JobType.Unknown;
+
+		cbbMonsterShadowSize.DataSource = Enum.GetValues(typeof(ShadowSize));
+		cbbMonsterShadowSize.SelectedItem = ShadowSize.Unknown;
+
+		cbbMonsterClass.DataSource = Enum.GetValues(typeof(MonsterClass));
+		cbbMonsterClass.SelectedItem = MonsterClass.Normal;
+
+		cbbMonsterType.DataSource = Enum.GetValues(typeof(MonsterType));
+		cbbMonsterType.SelectedItem = MonsterType.Normal;
+
+		cbbMonsterActiveTime.DataSource = Enum.GetValues(typeof(ActiveTime));
+		cbbMonsterActiveTime.SelectedItem = ActiveTime.All;
+
+		cbbMonsterNature.DataSource = Enum.GetValues(typeof(MonsterNature));
+		cbbMonsterNature.SelectedItem = MonsterNature.Neutral;
+
+		dgvcbbMonsterLootType.DataSource = Monster.Keywords.LootType;
+		dgvcbbMonsterLootPlusType.DataSource = Monster.Keywords.LootType;
 
 		if (!EnsureWorkingDirectory(Globals.GameServerPath))
 			return;
@@ -263,7 +282,7 @@ public partial class MainForm : Form
 		return string.Empty;
 	}
 
-	private void ListControls(Control control, StreamWriter stream)
+	private static void ListControls(Control control, StreamWriter stream)
 	{
 		if (stream == null)
 			return;

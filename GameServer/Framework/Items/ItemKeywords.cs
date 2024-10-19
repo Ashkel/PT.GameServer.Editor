@@ -40,7 +40,7 @@ public partial class Item
 		public static readonly string Wind = "*바람";
 
 		// Mobility
-		public static readonly string MoveSpeed = "*이동속도";
+		public static readonly string MovementSpeed = "*이동속도";
 
 		// Potions
 		public static readonly string PotionSpace = "*보유공간";
@@ -81,7 +81,7 @@ public partial class Item
 		public static readonly string JobDefense = "**방어력";
 		public static readonly string JobBlockRate = "**블럭율";
 
-		public static readonly string JobMoveSpeed = "**이동속도";
+		public static readonly string JobMovementSpeed = "**이동속도";
 
 		public static readonly string JobMagicMastery = "**마법숙련도";
 

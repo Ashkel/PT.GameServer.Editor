@@ -116,7 +116,7 @@ namespace GameServer.Framework.Items
 		private Elemental _resistance = new();
 
 		// Move for boots
-		public RangeF MoveSpeed
+		public RangeF MovementSpeed
 		{
 			get => _moveSpeed;
 			set => _moveSpeed = value;
@@ -219,7 +219,7 @@ namespace GameServer.Framework.Items
 			BlockRate = RangeF.Empty;
 			Resistance = new Elemental();
 
-			MoveSpeed = RangeF.Empty;
+			MovementSpeed = RangeF.Empty;
 
 			PotionSpace = 0;
 			PotionRecovery = new Status();
@@ -236,338 +236,658 @@ namespace GameServer.Framework.Items
 			Specialization = new Specialization();
 		}
 
+		//protected override void ParseLine(string line)
+		//{
+		//	int position = 0;
+		//	string keyword = FileHelper.GetWord(line, ref position);
+
+		//	if (string.IsNullOrEmpty(keyword))
+		//		return;
+
+
+		//	// Identifiers
+		//	if (string.Compare(keyword, Keywords.Id) == 0)
+		//	{
+		//		Id = FileHelper.ParseString(line, ref position);
+		//	}
+		//	else if (string.Compare(keyword, Keywords.ServerName) == 0)
+		//	{
+		//		ServerName = FileHelper.ParseString(line, ref position);
+		//	}
+		//	//else if ((string.Compare(keyword, "*B_NAME", true) == 0) ||
+		//	//		 (string.Compare(keyword, "*E_NAME", true) == 0) ||
+		//	//		 (string.Compare(keyword, "*J_NAME", true) == 0) ||
+		//	//		 (string.Compare(keyword, "*K_NAME", true) == 0) ||
+		//	//		 (string.Compare(keyword, "*NAME", true) == 0))
+		//	if (keyword.StartsWith('*') &&
+		//		keyword.ToUpper().Contains("NAME", StringComparison.InvariantCultureIgnoreCase))
+		//	{
+		//		var name = FileHelper.ParseString(line, ref position);
+		//		if (!string.IsNullOrEmpty(name))
+		//			Name = name;
+		//	}
+
+		//	// Misc
+		//	else if (string.Compare(keyword, Keywords.Durability) == 0)
+		//	{
+		//		Durability = FileHelper.ParseRange(line, ref position);
+		//	}
+		//	else if (string.Compare(keyword, Keywords.Weight) == 0)
+		//	{
+		//		Weight = FileHelper.ParseInteger(line, ref position);
+		//	}
+		//	else if (string.Compare(keyword, Keywords.Price) == 0)
+		//	{
+		//		Price = FileHelper.ParseInteger(line, ref position);
+		//	}
+
+		//	// Unique Items
+		//	else if (string.Compare(keyword, Keywords.Unique) == 0)
+		//	{
+		//		Unique = FileHelper.ParseLong(line, ref position);
+		//	}
+		//	else if (string.Compare(keyword, Keywords.DispEffect) == 0)
+		//	{
+		//		DispEffect = FileHelper.ParseLong(line, ref position);
+		//	}
+		//	else if (string.Compare(keyword, Keywords.EffectColor) == 0)
+		//	{
+		//		int R = FileHelper.ParseInteger(line, ref position);
+		//		int G = FileHelper.ParseInteger(line, ref position);
+		//		int B = FileHelper.ParseInteger(line, ref position);
+		//		int A = FileHelper.ParseInteger(line, ref position);
+		//		int effectBlink = FileHelper.ParseInteger(line, ref position);
+		//		int effectBlinkMax = (R + G + B + A + (int)DispEffect);
+
+		//		ScaleBlink = FileHelper.ParseFloat(line, ref position);
+		//		EffectColor = Color.FromArgb(A, R, G, B);
+		//		EffectBlink = new Range(effectBlink, effectBlinkMax);
+		//	}
+
+		//	// Offensive power
+		//	else if (string.Compare(keyword, Keywords.AttackPower) == 0)
+		//	{
+		//		AttackPowerMin = FileHelper.ParseRange(line, ref position);
+		//		AttackPowerMax = FileHelper.ParseRange(line, ref position);
+		//	}
+		//	else if (string.Compare(keyword, Keywords.AttackRange) == 0)
+		//	{
+		//		AttackRange = FileHelper.ParseInteger(line, ref position);
+		//	}
+		//	else if (string.Compare(keyword, Keywords.AttackSpeed) == 0)
+		//	{
+		//		AttackSpeed = FileHelper.ParseInteger(line, ref position);
+		//	}
+		//	else if (string.Compare(keyword, Keywords.AttackRate) == 0)
+		//	{
+		//		AttackRate = FileHelper.ParseRange(line, ref position);
+		//	}
+		//	else if (string.Compare(keyword, Keywords.CriticalRate) == 0)
+		//	{
+		//		CriticalRate = FileHelper.ParseInteger(line, ref position);
+		//	}
+
+		//	// Defensive power
+		//	else if (string.Compare(keyword, Keywords.Defense) == 0)
+		//	{
+		//		Defense = FileHelper.ParseRange(line, ref position);
+		//	}
+		//	else if (string.Compare(keyword, Keywords.Absortion) == 0)
+		//	{
+		//		Absortion = FileHelper.ParseRangeF(line, ref position);
+		//	}
+		//	else if (string.Compare(keyword, Keywords.BlockRate) == 0)
+		//	{
+		//		BlockRate = FileHelper.ParseRangeF(line, ref position);
+		//	}
+		//	else if (string.Compare(keyword, Keywords.Organic) == 0)
+		//	{
+		//		_resistance.Organic = FileHelper.ParseInteger(line, ref position);
+		//	}
+		//	else if (string.Compare(keyword, Keywords.Earth) == 0)
+		//	{
+		//		_resistance.Earth = FileHelper.ParseInteger(line, ref position);
+		//	}
+		//	else if (string.Compare(keyword, Keywords.Fire) == 0)
+		//	{
+		//		_resistance.Fire = FileHelper.ParseInteger(line, ref position);
+		//	}
+		//	else if (string.Compare(keyword, Keywords.Ice) == 0)
+		//	{
+		//		_resistance.Ice = FileHelper.ParseInteger(line, ref position);
+		//	}
+		//	else if (string.Compare(keyword, Keywords.Lightning) == 0)
+		//	{
+		//		_resistance.Lightning = FileHelper.ParseInteger(line, ref position);
+		//	}
+		//	else if (string.Compare(keyword, Keywords.Poison) == 0)
+		//	{
+		//		_resistance.Poison = FileHelper.ParseInteger(line, ref position);
+		//	}
+		//	else if (string.Compare(keyword, Keywords.Water) == 0)
+		//	{
+		//		_resistance.Water = FileHelper.ParseInteger(line, ref position);
+		//	}
+		//	else if (string.Compare(keyword, Keywords.Wind) == 0)
+		//	{
+		//		_resistance.Wind = FileHelper.ParseInteger(line, ref position);
+		//	}
+
+		//	// Mobility
+		//	else if (string.Compare(keyword, Keywords.MovementSpeed) == 0)
+		//	{
+		//		MovementSpeed = FileHelper.ParseRangeF(line, ref position);
+		//	}
+
+		//	// Potions
+		//	else if (string.Compare(keyword, Keywords.PotionSpace) == 0)
+		//	{
+		//		PotionSpace = FileHelper.ParseInteger(line, ref position);
+		//	}
+		//	else if ((string.Compare(keyword, Keywords.PotionHP[0]) == 0) ||
+		//			 (string.Compare(keyword, Keywords.PotionHP[1]) == 0))
+		//	{
+		//		_potionRecovery.Hp = FileHelper.ParseRangeF(line, ref position);
+		//	}
+		//	else if ((string.Compare(keyword, Keywords.PotionMP[0]) == 0) ||
+		//			 (string.Compare(keyword, Keywords.PotionMP[1]) == 0))
+		//	{
+		//		_potionRecovery.Mp = FileHelper.ParseRangeF(line, ref position);
+		//	}
+		//	else if ((string.Compare(keyword, Keywords.PotionSP[0]) == 0) ||
+		//			 (string.Compare(keyword, Keywords.PotionSP[1]) == 0))
+		//	{
+		//		_potionRecovery.Sp = FileHelper.ParseRangeF(line, ref position);
+		//	}
+
+		//	// Skills training
+		//	else if (string.Compare(keyword, Keywords.MagicMastery) == 0)
+		//	{
+		//		MagicMastery = FileHelper.ParseRange(line, ref position);
+		//	}
+
+		//	// Status increase/regeneration
+		//	else if ((string.Compare(keyword, Keywords.AdditionalHP[0]) == 0) ||
+		//			 (string.Compare(keyword, Keywords.AdditionalHP[1]) == 0))
+		//	{
+		//		_additional.Hp = FileHelper.ParseRangeF(line, ref position);
+		//	}
+		//	else if ((string.Compare(keyword, Keywords.AdditionalMP[0]) == 0) ||
+		//			 (string.Compare(keyword, Keywords.AdditionalMP[1]) == 0))
+		//	{
+		//		_additional.Mp = FileHelper.ParseRangeF(line, ref position);
+		//	}
+		//	else if ((string.Compare(keyword, Keywords.AdditionalSP[0]) == 0) ||
+		//			 (string.Compare(keyword, Keywords.AdditionalSP[1]) == 0))
+		//	{
+		//		_additional.Sp = FileHelper.ParseRangeF(line, ref position);
+		//	}
+		//	else if ((string.Compare(keyword, Keywords.RegenerationHP[0]) == 0) ||
+		//			 (string.Compare(keyword, Keywords.RegenerationHP[1]) == 0))
+		//	{
+		//		_regeneration.Hp = FileHelper.ParseRangeF(line, ref position);
+		//	}
+		//	else if ((string.Compare(keyword, Keywords.RegenerationMP[0]) == 0) ||
+		//			 (string.Compare(keyword, Keywords.RegenerationMP[1]) == 0))
+		//	{
+		//		_regeneration.Mp = FileHelper.ParseRangeF(line, ref position);
+		//	}
+		//	else if ((string.Compare(keyword, Keywords.RegenerationSP[0]) == 0) ||
+		//			 (string.Compare(keyword, Keywords.RegenerationSP[1]) == 0))
+		//	{
+		//		_regeneration.Sp = FileHelper.ParseRangeF(line, ref position);
+		//	}
+
+
+		//	// Requirements for usage
+		//	else if (string.Compare(keyword, Keywords.Level) == 0)
+		//	{
+		//		_requeriments.Level = FileHelper.ParseInteger(line, ref position);
+		//	}
+		//	else if (string.Compare(keyword, Keywords.Strength) == 0)
+		//	{
+		//		_requeriments.Strength = FileHelper.ParseInteger(line, ref position);
+		//	}
+		//	else if (string.Compare(keyword, Keywords.Intelligence) == 0)
+		//	{
+		//		_requeriments.Intelligence = FileHelper.ParseInteger(line, ref position);
+		//	}
+		//	else if (string.Compare(keyword, Keywords.Talent) == 0)
+		//	{
+		//		_requeriments.Talent = FileHelper.ParseInteger(line, ref position);
+		//	}
+		//	else if (string.Compare(keyword, Keywords.Dexterity) == 0)
+		//	{
+		//		_requeriments.Dexterity = FileHelper.ParseInteger(line, ref position);
+		//	}
+		//	else if (string.Compare(keyword, Keywords.Health) == 0)
+		//	{
+		//		_requeriments.Health = FileHelper.ParseInteger(line, ref position);
+		//	}
+
+		//	// Specialization
+		//	else if (string.Compare(keyword, Keywords.MainJob) == 0)
+		//	{
+		//		string spec = FileHelper.GetWord(line, ref position);
+
+		//		MainJob = Job.Parse(spec);
+		//	}
+		//	else if (string.Compare(keyword, Keywords.AvailableJobs) == 0)
+		//	{
+		//		string specs = FileHelper.GetWord(line, ref position);
+
+		//		while (!string.IsNullOrEmpty(specs))
+		//		{
+		//			var job = Job.Parse(specs);
+		//			if (job != JobType.Unknown)
+		//				AvailableJobs.Add(job);
+
+		//			specs = FileHelper.GetWord(line, ref position);
+		//		}
+		//	}
+
+		//	else if (string.Compare(keyword, Keywords.JobAttackPower) == 0)
+		//	{
+		//		_specialization.AttackPower = FileHelper.ParseRange(line, ref position);
+		//	}
+		//	else if (string.Compare(keyword, Keywords.JobAttackRate) == 0)
+		//	{
+		//		_specialization.AttackRate = FileHelper.ParseRange(line, ref position);
+		//	}
+		//	else if (string.Compare(keyword, Keywords.JobAttackSpeed) == 0)
+		//	{
+		//		_specialization.AttackSpeed = FileHelper.ParseInteger(line, ref position);
+		//	}
+		//	else if (string.Compare(keyword, Keywords.JobAttackRange) == 0)
+		//	{
+		//		_specialization.AttackRange = FileHelper.ParseInteger(line, ref position);
+		//	}
+		//	else if (string.Compare(keyword, Keywords.JobCriticalRate) == 0)
+		//	{
+		//		_specialization.CriticalRate = FileHelper.ParseInteger(line, ref position);
+		//	}
+
+		//	else if (string.Compare(keyword, Keywords.JobDefense) == 0)
+		//	{
+		//		_specialization.Defense = FileHelper.ParseRange(line, ref position);
+		//	}
+		//	else if (string.Compare(keyword, Keywords.JobAbsortion) == 0)
+		//	{
+		//		_specialization.Absortion = FileHelper.ParseRangeF(line, ref position);
+		//	}
+		//	else if (string.Compare(keyword, Keywords.JobBlockRate) == 0)
+		//	{
+		//		_specialization.BlockRate = FileHelper.ParseFloat(line, ref position);
+		//	}
+
+		//	else if (string.Compare(keyword, Keywords.JobMovementSpeed) == 0)
+		//	{
+		//		_specialization.MovementSpeed = FileHelper.ParseRangeF(line, ref position);
+		//	}
+
+		//	else if (string.Compare(keyword, Keywords.JobMagicMastery) == 0)
+		//	{
+		//		_specialization.MagicMastery = FileHelper.ParseRange(line, ref position);
+		//	}
+
+		//	else if ((string.Compare(keyword, Keywords.JobAdditionalHP[0]) == 0) ||
+		//			 (string.Compare(keyword, Keywords.JobAdditionalHP[1]) == 0))
+		//	{
+		//		_specialization.Additional.Hp = FileHelper.ParseRangeF(line, ref position);
+		//	}
+		//	else if ((string.Compare(keyword, Keywords.JobAdditionalMP[0]) == 0) ||
+		//			 (string.Compare(keyword, Keywords.JobAdditionalMP[1]) == 0))
+		//	{
+		//		_specialization.Additional.Mp = FileHelper.ParseRangeF(line, ref position);
+		//	}
+		//	//else if ((string.Compare(keyword, "**마나추가") == 0) ||
+		//	//		 (string.Compare(keyword, "**기력추가") == 0))
+		//	//{
+		//	//	_specialization.Additional.Sp = FileHelper.ParseRangeF(line, ref position);
+		//	//}
+		//	else if ((string.Compare(keyword, Keywords.JobRegenerationHP[0]) == 0) ||
+		//			 (string.Compare(keyword, Keywords.JobRegenerationHP[1]) == 0))
+		//	{
+		//		_specialization.Regeneration.Hp = FileHelper.ParseRangeF(line, ref position);
+		//	}
+		//	else if ((string.Compare(keyword, Keywords.JobRegenerationMP[0]) == 0) ||
+		//			 (string.Compare(keyword, Keywords.JobRegenerationMP[1]) == 0))
+		//	{
+		//		_specialization.Regeneration.Mp = FileHelper.ParseRangeF(line, ref position);
+		//	}
+		//	//else if ((string.Compare(keyword, "**마나추가") == 0) ||
+		//	//		 (string.Compare(keyword, "**기력추가") == 0))
+		//	//{
+		//	//	_specialization.Regeneration.Sp = FileHelper.ParseRangeF(line, ref position);
+		//	//}
+
+		//	// Zhoon File
+		//	else if (string.Compare(keyword, Keywords.ExternalFile) == 0)
+		//	{
+		//		ExternalFile = FileHelper.ParseString(line, ref position);
+
+		//		var path = Path.Combine(Globals.OpenItemPath, ExternalFile);
+		//		if (File.Exists(path))
+		//			Process(path);
+		//	}
+		//}
+
 		protected override void ParseLine(string line)
 		{
 			int position = 0;
 			string keyword = FileHelper.GetWord(line, ref position);
 
-			if (keyword == null)
+			if (string.IsNullOrEmpty(keyword))
 				return;
 
-			// Identifiers
-			if (string.Compare(keyword, Keywords.Id) == 0)
-			{
-				Id = FileHelper.ParseString(line, ref position);
-			}
-			else if (string.Compare(keyword, Keywords.ServerName) == 0)
-			{
-				ServerName = FileHelper.ParseString(line, ref position);
-			}
-			//else if ((string.Compare(keyword, "*B_NAME", true) == 0) ||
-			//		 (string.Compare(keyword, "*E_NAME", true) == 0) ||
-			//		 (string.Compare(keyword, "*J_NAME", true) == 0) ||
-			//		 (string.Compare(keyword, "*K_NAME", true) == 0) ||
-			//		 (string.Compare(keyword, "*NAME", true) == 0))
-			if (keyword.StartsWith('*') &&
-				keyword.ToUpper().Contains("NAME"))
-			{
-				var name = FileHelper.ParseString(line, ref position);
-				if (!string.IsNullOrEmpty(name))
-					Name = name;
-			}
+			// Helper functions for parsing data
+			string ParseString() => FileHelper.ParseString(line, ref position);
+			int ParseInteger() => FileHelper.ParseInteger(line, ref position);
+			float ParseFloat() => FileHelper.ParseFloat(line, ref position);
+			long ParseLong() => FileHelper.ParseLong(line, ref position);
+			Range ParseRange() => FileHelper.ParseRange(line, ref position);
+			RangeF ParseRangeF() => FileHelper.ParseRangeF(line, ref position);
 
-			// Misc
-			else if (string.Compare(keyword, Keywords.Durability) == 0)
+			switch (keyword)
 			{
-				Durability = FileHelper.ParseRange(line, ref position);
-			}
-			else if (string.Compare(keyword, Keywords.Weight) == 0)
-			{
-				Weight = FileHelper.ParseInteger(line, ref position);
-			}
-			else if (string.Compare(keyword, Keywords.Price) == 0)
-			{
-				Price = FileHelper.ParseInteger(line, ref position);
-			}
+				// Identifiers
+				case var text when text.Equals(Keywords.Id):
+					Id = ParseString();
+					break;
 
-			// Unique Items
-			else if (string.Compare(keyword, Keywords.Unique) == 0)
-			{
-				Unique = FileHelper.ParseLong(line, ref position);
-			}
-			else if (string.Compare(keyword, Keywords.DispEffect) == 0)
-			{
-				DispEffect = FileHelper.ParseLong(line, ref position);
-			}
-			else if (string.Compare(keyword, Keywords.EffectColor) == 0)
-			{
-				int R = FileHelper.ParseInteger(line, ref position);
-				int G = FileHelper.ParseInteger(line, ref position);
-				int B = FileHelper.ParseInteger(line, ref position);
-				int A = FileHelper.ParseInteger(line, ref position);
-				int effectBlink = FileHelper.ParseInteger(line, ref position);
-				int effectBlinkMax = (R + G + B + A + (int)DispEffect);
+				case var text when text.StartsWith('*') && text.Contains("NAME", StringComparison.OrdinalIgnoreCase):
+					var name = ParseString();
+					if (!string.IsNullOrEmpty(name))
+						Name = name;
+					break;
 
-				ScaleBlink = FileHelper.ParseFloat(line, ref position);
-				EffectColor = Color.FromArgb(A, R, G, B);
-				EffectBlink = new Range(effectBlink, effectBlinkMax);
-			}
+				case var text when text.Equals(Keywords.ServerName):
+					ServerName = ParseString();
+					break;
 
-			// Offensive power
-			else if (string.Compare(keyword, Keywords.AttackPower) == 0)
-			{
-				AttackPowerMin = FileHelper.ParseRange(line, ref position);
-				AttackPowerMax = FileHelper.ParseRange(line, ref position);
-			}
-			else if (string.Compare(keyword, Keywords.AttackRange) == 0)
-			{
-				AttackRange = FileHelper.ParseInteger(line, ref position);
-			}
-			else if (string.Compare(keyword, Keywords.AttackSpeed) == 0)
-			{
-				AttackSpeed = FileHelper.ParseInteger(line, ref position);
-			}
-			else if (string.Compare(keyword, Keywords.AttackRate) == 0)
-			{
-				AttackRate = FileHelper.ParseRange(line, ref position);
-			}
-			else if (string.Compare(keyword, Keywords.CriticalRate) == 0)
-			{
-				CriticalRate = FileHelper.ParseInteger(line, ref position);
-			}
+				// Misc
+				case var text when text.Equals(Keywords.Durability):
+					Durability = ParseRange();
+					break;
 
-			// Defensive power
-			else if (string.Compare(keyword, Keywords.Defense) == 0)
-			{
-				Defense = FileHelper.ParseRange(line, ref position);
-			}
-			else if (string.Compare(keyword, Keywords.Absortion) == 0)
-			{
-				Absortion = FileHelper.ParseRangeF(line, ref position);
-			}
-			else if (string.Compare(keyword, Keywords.BlockRate) == 0)
-			{
-				BlockRate = FileHelper.ParseRangeF(line, ref position);
-			}
-			else if (string.Compare(keyword, Keywords.Organic) == 0)
-			{
-				_resistance.Organic = FileHelper.ParseInteger(line, ref position);
-			}
-			else if (string.Compare(keyword, Keywords.Earth) == 0)
-			{
-				_resistance.Earth = FileHelper.ParseInteger(line, ref position);
-			}
-			else if (string.Compare(keyword, Keywords.Fire) == 0)
-			{
-				_resistance.Fire = FileHelper.ParseInteger(line, ref position);
-			}
-			else if (string.Compare(keyword, Keywords.Ice) == 0)
-			{
-				_resistance.Ice = FileHelper.ParseInteger(line, ref position);
-			}
-			else if (string.Compare(keyword, Keywords.Lightning) == 0)
-			{
-				_resistance.Lightning = FileHelper.ParseInteger(line, ref position);
-			}
-			else if (string.Compare(keyword, Keywords.Poison) == 0)
-			{
-				_resistance.Poison = FileHelper.ParseInteger(line, ref position);
-			}
-			else if (string.Compare(keyword, Keywords.Water) == 0)
-			{
-				_resistance.Water = FileHelper.ParseInteger(line, ref position);
-			}
-			else if (string.Compare(keyword, Keywords.Wind) == 0)
-			{
-				_resistance.Wind = FileHelper.ParseInteger(line, ref position);
-			}
+				case var text when text.Equals(Keywords.Weight):
+					Weight = ParseInteger();
+					break;
 
-			// Mobility
-			else if (string.Compare(keyword, Keywords.MoveSpeed) == 0)
-			{
-				MoveSpeed = FileHelper.ParseRangeF(line, ref position);
-			}
+				case var text when text.Equals(Keywords.Price):
+					Price = ParseInteger();
+					break;
 
-			// Potions
-			else if (string.Compare(keyword, Keywords.PotionSpace) == 0)
-			{
-				PotionSpace = FileHelper.ParseInteger(line, ref position);
-			}
-			else if ((string.Compare(keyword, Keywords.PotionHP[0]) == 0) ||
-					 (string.Compare(keyword, Keywords.PotionHP[1]) == 0))
-			{
-				_potionRecovery.Hp = FileHelper.ParseRangeF(line, ref position);
-			}
-			else if ((string.Compare(keyword, Keywords.PotionMP[0]) == 0) ||
-					 (string.Compare(keyword, Keywords.PotionMP[1]) == 0))
-			{
-				_potionRecovery.Mp = FileHelper.ParseRangeF(line, ref position);
-			}
-			else if ((string.Compare(keyword, Keywords.PotionSP[0]) == 0) ||
-					 (string.Compare(keyword, Keywords.PotionSP[1]) == 0))
-			{
-				_potionRecovery.Sp = FileHelper.ParseRangeF(line, ref position);
-			}
-
-			// Skills training
-			else if (string.Compare(keyword, Keywords.MagicMastery) == 0)
-			{
-				MagicMastery = FileHelper.ParseRange(line, ref position);
-			}
-
-			// Status increase/regeneration
-			else if ((string.Compare(keyword, Keywords.AdditionalHP[0]) == 0) ||
-					 (string.Compare(keyword, Keywords.AdditionalHP[1]) == 0))
-			{
-				_additional.Hp = FileHelper.ParseRangeF(line, ref position);
-			}
-			else if ((string.Compare(keyword, Keywords.AdditionalMP[0]) == 0) ||
-					 (string.Compare(keyword, Keywords.AdditionalMP[1]) == 0))
-			{
-				_additional.Mp = FileHelper.ParseRangeF(line, ref position);
-			}
-			else if ((string.Compare(keyword, Keywords.AdditionalSP[0]) == 0) ||
-					 (string.Compare(keyword, Keywords.AdditionalSP[1]) == 0))
-			{
-				_additional.Sp = FileHelper.ParseRangeF(line, ref position);
-			}
-			else if ((string.Compare(keyword, Keywords.RegenerationHP[0]) == 0) ||
-					 (string.Compare(keyword, Keywords.RegenerationHP[1]) == 0))
-			{
-				_regeneration.Hp = FileHelper.ParseRangeF(line, ref position);
-			}
-			else if ((string.Compare(keyword, Keywords.RegenerationMP[0]) == 0) ||
-					 (string.Compare(keyword, Keywords.RegenerationMP[1]) == 0))
-			{
-				_regeneration.Mp = FileHelper.ParseRangeF(line, ref position);
-			}
-			else if ((string.Compare(keyword, Keywords.RegenerationSP[0]) == 0) ||
-					 (string.Compare(keyword, Keywords.RegenerationSP[1]) == 0))
-			{
-				_regeneration.Sp = FileHelper.ParseRangeF(line, ref position);
-			}
-
-
-			// Requirements for usage
-			else if (string.Compare(keyword, Keywords.Level) == 0)
-			{
-				_requeriments.Level = FileHelper.ParseInteger(line, ref position);
-			}
-			else if (string.Compare(keyword, Keywords.Strength) == 0)
-			{
-				_requeriments.Strength = FileHelper.ParseInteger(line, ref position);
-			}
-			else if (string.Compare(keyword, Keywords.Intelligence) == 0)
-			{
-				_requeriments.Intelligence = FileHelper.ParseInteger(line, ref position);
-			}
-			else if (string.Compare(keyword, Keywords.Talent) == 0)
-			{
-				_requeriments.Talent = FileHelper.ParseInteger(line, ref position);
-			}
-			else if (string.Compare(keyword, Keywords.Dexterity) == 0)
-			{
-				_requeriments.Dexterity = FileHelper.ParseInteger(line, ref position);
-			}
-			else if (string.Compare(keyword, Keywords.Health) == 0)
-			{
-				_requeriments.Health = FileHelper.ParseInteger(line, ref position);
-			}
-
-			// Specialization
-			else if (string.Compare(keyword, Keywords.MainJob) == 0)
-			{
-				string spec = FileHelper.GetWord(line, ref position);
-
-				MainJob = Job.Parse(spec);
-			}
-			else if (string.Compare(keyword, Keywords.AvailableJobs) == 0)
-			{
-				string specs = FileHelper.GetWord(line, ref position);
-
-				while (!string.IsNullOrEmpty(specs))
+				// Unique Items
+				case var text when text.Equals(Keywords.Unique):
+					Unique = ParseLong();
+					break;
+					
+				case var text when text.Equals(Keywords.DispEffect):
+					DispEffect = ParseLong();
+					break;
+					
+				case var text when text.Equals(Keywords.EffectColor):
 				{
-					var job = Job.Parse(specs);
-					if (job != JobType.Unknown)
-						AvailableJobs.Add(job);
+					int R = ParseInteger();
+					int G = ParseInteger();
+					int B = ParseInteger();
+					int A = ParseInteger();
+					int effectBlink = ParseInteger();
+					int effectBlinkMax = (R + G + B + A + (int)DispEffect);
 
-					specs = FileHelper.GetWord(line, ref position);
+					ScaleBlink = ParseInteger();
+					EffectColor = Color.FromArgb(A, R, G, B);
+					EffectBlink = new Range(effectBlink, effectBlinkMax);
+
+					break;
 				}
-			}
 
-			else if (string.Compare(keyword, Keywords.JobAttackPower) == 0)
-			{
-				_specialization.AttackPower = FileHelper.ParseRange(line, ref position);
-			}
-			else if (string.Compare(keyword, Keywords.JobAttackRate) == 0)
-			{
-				_specialization.AttackRate = FileHelper.ParseRange(line, ref position);
-			}
-			else if (string.Compare(keyword, Keywords.JobAttackSpeed) == 0)
-			{
-				_specialization.AttackSpeed = FileHelper.ParseInteger(line, ref position);
-			}
-			else if (string.Compare(keyword, Keywords.JobAttackRange) == 0)
-			{
-				_specialization.AttackRange = FileHelper.ParseInteger(line, ref position);
-			}
-			else if (string.Compare(keyword, Keywords.JobCriticalRate) == 0)
-			{
-				_specialization.CriticalRate = FileHelper.ParseInteger(line, ref position);
-			}
+				// Attack properties
+				case var text when text.Equals(Keywords.AttackPower):
+					AttackPowerMin = ParseRange();
+					AttackPowerMax = ParseRange();
+					break;
 
-			else if (string.Compare(keyword, Keywords.JobDefense) == 0)
-			{
-				_specialization.Defense = FileHelper.ParseRange(line, ref position);
-			}
-			else if (string.Compare(keyword, Keywords.JobAbsortion) == 0)
-			{
-				_specialization.Absortion = FileHelper.ParseRangeF(line, ref position);
-			}
-			else if (string.Compare(keyword, Keywords.JobBlockRate) == 0)
-			{
-				_specialization.BlockRate = FileHelper.ParseFloat(line, ref position);
-			}
+				case var text when text.Equals(Keywords.AttackRange):
+					AttackRange = ParseInteger();
+					break;
 
-			else if (string.Compare(keyword, Keywords.JobMoveSpeed) == 0)
-			{
-				_specialization.MoveSpeed = FileHelper.ParseRangeF(line, ref position);
-			}
+				case var text when text.Equals(Keywords.AttackSpeed):
+					AttackRange = ParseInteger();
+					break;
 
-			else if (string.Compare(keyword, Keywords.JobMagicMastery) == 0)
-			{
-				_specialization.MagicMastery = FileHelper.ParseRange(line, ref position);
-			}
+				case var text when text.Equals(Keywords.AttackRate):
+					AttackRate = ParseRange();
+					break;
 
-			else if ((string.Compare(keyword, Keywords.JobAdditionalHP[0]) == 0) ||
-					 (string.Compare(keyword, Keywords.JobAdditionalHP[1]) == 0))
-			{
-				_specialization.Additional.Hp = FileHelper.ParseRangeF(line, ref position);
-			}
-			else if ((string.Compare(keyword, Keywords.JobAdditionalMP[0]) == 0) ||
-					 (string.Compare(keyword, Keywords.JobAdditionalMP[1]) == 0))
-			{
-				_specialization.Additional.Mp = FileHelper.ParseRangeF(line, ref position);
-			}
-			//else if ((string.Compare(keyword, "**마나추가") == 0) ||
-			//		 (string.Compare(keyword, "**기력추가") == 0))
-			//{
-			//	_specialization.Additional.Sp = FileHelper.ParseRangeF(line, ref position);
-			//}
-			else if ((string.Compare(keyword, Keywords.JobRegenerationHP[0]) == 0) ||
-					 (string.Compare(keyword, Keywords.JobRegenerationHP[1]) == 0))
-			{
-				_specialization.Regeneration.Hp = FileHelper.ParseRangeF(line, ref position);
-			}
-			else if ((string.Compare(keyword, Keywords.JobRegenerationMP[0]) == 0) ||
-					 (string.Compare(keyword, Keywords.JobRegenerationMP[1]) == 0))
-			{
-				_specialization.Regeneration.Mp = FileHelper.ParseRangeF(line, ref position);
-			}
-			//else if ((string.Compare(keyword, "**마나추가") == 0) ||
-			//		 (string.Compare(keyword, "**기력추가") == 0))
-			//{
-			//	_specialization.Regeneration.Sp = FileHelper.ParseRangeF(line, ref position);
-			//}
+				case var text when text.Equals(Keywords.CriticalRate):
+					CriticalRate = ParseInteger();
+					break;
 
-			// Zhoon File
-			else if (string.Compare(keyword, Keywords.ExternalFile) == 0)
-			{
-				ExternalFile = FileHelper.ParseString(line, ref position);
+				// Defense properties
+				case var text when text.Equals(Keywords.Defense):
+					Defense = ParseRange();
+					break;
+					
+				case var text when text.Equals(Keywords.Absortion):
+					Absortion = ParseRangeF();
+					break;
+					
+				case var text when text.Equals(Keywords.BlockRate):
+					BlockRate = ParseRangeF();
+					break;
 
-				var path = Path.Combine(Globals.OpenItemPath, ExternalFile);
-				if (File.Exists(path))
-					Process(path);
+				// Magic Resistance properties
+				case var text when text.Equals(Keywords.Organic):
+					_resistance.Organic = ParseInteger();
+					break;
+
+				case var text when text.Equals(Keywords.Earth):
+					_resistance.Earth = ParseInteger();
+					break;
+
+				case var text when text.Equals(Keywords.Fire):
+					_resistance.Fire = ParseInteger();
+					break;
+
+				case var text when text.Equals(Keywords.Ice):
+					_resistance.Ice = ParseInteger();
+					break;
+
+				case var text when text.Equals(Keywords.Lightning):
+					_resistance.Lightning = ParseInteger();
+					break;
+
+				case var text when text.Equals(Keywords.Poison):
+					_resistance.Poison = ParseInteger();
+					break;
+
+				case var text when text.Equals(Keywords.Water):
+					_resistance.Water = ParseInteger();
+					break;
+
+				case var text when text.Equals(Keywords.Wind):
+					_resistance.Wind = ParseInteger();
+					break;
+
+				// Movement properties
+				case var text when text.Equals(Keywords.MovementSpeed):
+					MovementSpeed = ParseRangeF();
+					break;
+
+				// Potions properties
+				case var text when text.Equals(Keywords.PotionSpace):
+					PotionSpace = ParseInteger();
+					break;
+
+				case var text when text.Equals(Keywords.PotionHP[0]) || text.Equals(Keywords.PotionHP[1]):
+					_potionRecovery.Hp = ParseRangeF();
+					break;
+
+				case var text when text.Equals(Keywords.PotionMP[0]) || text.Equals(Keywords.PotionMP[1]):
+					_potionRecovery.Mp = ParseRangeF();
+					break;
+
+				case var text when text.Equals(Keywords.PotionSP[0]) || text.Equals(Keywords.PotionSP[1]):
+					_potionRecovery.Sp = ParseRangeF();
+					break;
+
+				// Skills training
+				case var text when text.Equals(Keywords.MagicMastery):
+					MagicMastery = ParseRange();
+					break;
+
+				// Status additional
+				case var text when text.Equals(Keywords.AdditionalHP[0]) || text.Equals(Keywords.AdditionalHP[1]):
+					_additional.Hp = ParseRangeF();
+					break;
+
+				case var text when text.Equals(Keywords.AdditionalMP[0]) || text.Equals(Keywords.AdditionalMP[1]):
+					_additional.Mp = ParseRangeF();
+					break;
+
+				case var text when text.Equals(Keywords.AdditionalSP[0]) || text.Equals(Keywords.AdditionalSP[1]):
+					_additional.Sp = ParseRangeF();
+					break;
+
+				// Status regeneration
+				case var text when text.Equals(Keywords.RegenerationHP[0]) || text.Equals(Keywords.RegenerationHP[1]):
+					_regeneration.Hp = ParseRangeF();
+					break;
+
+				case var text when text.Equals(Keywords.RegenerationMP[0]) || text.Equals(Keywords.RegenerationMP[1]):
+					_regeneration.Mp = ParseRangeF();
+					break;
+
+				case var text when text.Equals(Keywords.RegenerationSP[0]) || text.Equals(Keywords.RegenerationSP[1]):
+					_regeneration.Sp = ParseRangeF();
+					break;
+
+				// Requirements for usage
+				case var text when text.Equals(Keywords.Level):
+					_requeriments.Level = ParseInteger();
+					break;
+					
+				case var text when text.Equals(Keywords.Strength):
+					_requeriments.Strength = ParseInteger();
+					break;
+					
+				case var text when text.Equals(Keywords.Intelligence):
+					_requeriments.Intelligence = ParseInteger();
+					break;
+					
+				case var text when text.Equals(Keywords.Talent):
+					_requeriments.Talent = ParseInteger();
+					break;
+					
+				case var text when text.Equals(Keywords.Dexterity):
+					_requeriments.Dexterity = ParseInteger();
+					break;
+					
+				case var text when text.Equals(Keywords.Health):
+					_requeriments.Health = ParseInteger();
+					break;
+
+				// Specialization
+				case var text when text.Equals(Keywords.MainJob):
+				{
+					string spec = FileHelper.GetWord(line, ref position);
+
+					MainJob = Job.Parse(spec);
+
+					break;
+				}
+				
+				case var text when text.Equals(Keywords.AvailableJobs):
+				{
+					string specs = FileHelper.GetWord(line, ref position);
+
+					while (!string.IsNullOrEmpty(specs))
+					{
+						var job = Job.Parse(specs);
+						if (job != JobType.Unknown)
+							AvailableJobs.Add(job);
+
+						specs = FileHelper.GetWord(line, ref position);
+					}
+
+					break;
+				}
+
+				// Specialization Attack properties
+				case var text when text.Equals(Keywords.JobAttackPower):
+					_specialization.AttackPower = ParseRange();
+					break;
+
+				case var text when text.Equals(Keywords.JobAttackRange):
+					_specialization.AttackRange = ParseInteger();
+					break;
+
+				case var text when text.Equals(Keywords.JobAttackSpeed):
+					_specialization.AttackRange = ParseInteger();
+					break;
+
+				case var text when text.Equals(Keywords.JobAttackRate):
+					_specialization.AttackRate = ParseRange();
+					break;
+
+				case var text when text.Equals(Keywords.JobCriticalRate):
+					_specialization.CriticalRate = ParseInteger();
+					break;
+
+				// Specialization Defense properties
+				case var text when text.Equals(Keywords.JobDefense):
+					_specialization.Defense = ParseRange();
+					break;
+
+				case var text when text.Equals(Keywords.JobAbsortion):
+					_specialization.Absortion = ParseRangeF();
+					break;
+
+				case var text when text.Equals(Keywords.JobBlockRate):
+					_specialization.BlockRate = ParseFloat();
+					break;
+
+				// Specialization Movement properties
+				case var text when text.Equals(Keywords.JobMovementSpeed):
+					_specialization.MovementSpeed = ParseRangeF();
+					break;
+
+				// Specialization Skills training
+				case var text when text.Equals(Keywords.JobMagicMastery):
+					_specialization.MagicMastery = ParseRange();
+					break;
+
+				// Specialization Status additional
+				case var text when text.Equals(Keywords.JobAdditionalHP[0]) || text.Equals(Keywords.JobAdditionalHP[1]):
+					_specialization.Additional.Hp = ParseRangeF();
+					break;
+
+				case var text when text.Equals(Keywords.JobAdditionalMP[0]) || text.Equals(Keywords.JobAdditionalMP[1]):
+					_specialization.Additional.Mp = ParseRangeF();
+					break;
+
+				// Specialization Status regeneration
+				case var text when text.Equals(Keywords.JobRegenerationHP[0]) || text.Equals(Keywords.JobRegenerationHP[1]):
+					_specialization.Regeneration.Hp = ParseRangeF();
+					break;
+
+				case var text when text.Equals(Keywords.JobRegenerationMP[0]) || text.Equals(Keywords.JobRegenerationMP[1]):
+					_specialization.Regeneration.Mp = ParseRangeF();
+					break;
+
+				// External file processing
+				case var text when text.Equals(Keywords.ExternalFile):
+					ExternalFile = ParseString();
+					var path = Path.Combine(Globals.OpenItemPath, ExternalFile);
+					if (File.Exists(path))
+						Process(path);
+					break;
+
+				default:
+					// Unknown keyword, handle appropriately if needed
+					break;
 			}
 		}
 
@@ -596,7 +916,7 @@ namespace GameServer.Framework.Items
 			if (DispEffect != 0)
 				sb.AppendLine($"{Keywords.DispEffect}\t\t{DispEffect}");
 
-            if (EffectBlink.Min != EffectBlink.Max)
+			if (EffectBlink.Min != EffectBlink.Max)
 				sb.AppendLine($"{Keywords.EffectColor}\t\t{EffectColor.R} {EffectColor.G} {EffectColor.B} {EffectColor.A}\t{EffectBlink.Min}\t{ScaleBlink}");
 
 			sb.AppendLine();
@@ -628,7 +948,7 @@ namespace GameServer.Framework.Items
 			sb.AppendLine();
 
 			sb.AppendLine("// Mobility");
-			sb.AppendLine($"{Keywords.MoveSpeed}\t\t{MoveSpeed.Min} {MoveSpeed.Max}");
+			sb.AppendLine($"{Keywords.MovementSpeed}\t\t{MovementSpeed.Min} {MovementSpeed.Max}");
 			sb.AppendLine();
 
 			sb.AppendLine("// Potions");
@@ -675,7 +995,7 @@ namespace GameServer.Framework.Items
 			sb.AppendLine($"{Keywords.JobAbsortion}\t\t{_specialization.Absortion.Min} {_specialization.Absortion.Max}");
 			sb.AppendLine($"{Keywords.JobBlockRate}\t\t{_specialization.BlockRate}");
 			sb.AppendLine("// Spec MoveSpeed");
-			sb.AppendLine($"{Keywords.JobMoveSpeed}\t\t{_specialization.MoveSpeed.Min} {_specialization.MoveSpeed.Max}");
+			sb.AppendLine($"{Keywords.JobMovementSpeed}\t\t{_specialization.MovementSpeed.Min} {_specialization.MovementSpeed.Max}");
 			sb.AppendLine("// Spec Skill training");
 			sb.AppendLine($"{Keywords.JobMagicMastery}\t\t{_specialization.MagicMastery.Min} {_specialization.MagicMastery.Max}");
 			sb.AppendLine();

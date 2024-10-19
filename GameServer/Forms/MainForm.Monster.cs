@@ -94,9 +94,6 @@ public partial class MainForm
 			txtMonsterExternalFile.Text = fileName;
 	}
 
-	private void dgvMonsterLoots_Validated(object sender, EventArgs e) => SetFallItemPerMax();
-	private void dgvMonsterLoots_RowValidated(object sender, DataGridViewCellEventArgs e) => SetFallItemPerMax();
-
 	#endregion
 
 
@@ -212,7 +209,7 @@ public partial class MainForm
 			PopulateLootData(dgvMonsterLoots, _loadedMonster.FallItems);
 			PopulateLootData(dgvMonsterLootPlus, _loadedMonster.FallItemsPlus);
 
-			SetFallItemPerMax();
+			nudMonsterFallMax.Value = (decimal)_loadedMonster.FallItemPerMax;
 
 			txtMonsterExternalFile.Text = _loadedMonster.ExternalFile;
 		}
@@ -300,7 +297,7 @@ public partial class MainForm
 
 			RetrieveLootData(dgvMonsterLoots, _loadedMonster.FallItems);
 			RetrieveLootData(dgvMonsterLootPlus, _loadedMonster.FallItemsPlus);
-			
+
 			_loadedMonster.ExternalFile = txtMonsterExternalFile.Text;
 		}
 		catch (Exception ex)
@@ -325,7 +322,7 @@ public partial class MainForm
 
 		// Loop through each loot and add it to the DataGridView
 		foreach (var loot in loots)
-        {
+		{
 			var index = dataGridView.Rows.Add();
 			var row = dataGridView.Rows[index];
 
@@ -335,7 +332,7 @@ public partial class MainForm
 			// Use a switch expression to handle loot types
 			row.Cells[typeCellIndex].Value = loot switch
 			{
-				{ Nothing: true } => Monster.Keywords.LootType[0],
+				//{ Nothing: true } => Monster.Keywords.LootType[0],
 				{ Money: { } } => Monster.Keywords.LootType[1],
 				{ Coin: { } } => Monster.Keywords.LootType[2],
 				{ Items: { } } => Monster.Keywords.LootType[3],
@@ -345,7 +342,7 @@ public partial class MainForm
 			// Set the loot value based on type
 			row.Cells[valueCellIndex].Value = loot switch
 			{
-				{ Nothing: true } => null,
+				//{ Nothing: true } => null,
 				{ Money: { } } => $"{loot.Money.Value.Min} {loot.Money.Value.Max}",
 				{ Coin: { } } => $"{loot.Coin.Value.Min} {loot.Coin.Value.Max}",
 				{ Items: { } } => string.Join(" ", loot.Items),
@@ -402,16 +399,11 @@ public partial class MainForm
 						loot.Items = valueStr.Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries).ToList();
 						break;
 				}
-			}	
+			}
 
 			// Add loot to the collection
 			loots.Add(loot);
 		}
-	}
-
-	private void SetFallItemPerMax()
-	{
-		nudMonsterFallMax.Value = (decimal)_loadedMonster.FallItemPerMax;
 	}
 
 	#endregion

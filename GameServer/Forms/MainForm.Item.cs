@@ -198,8 +198,8 @@ public partial class MainForm
 			nudItemElementalLightning.Value = _loadedItem.Resistance.Lightning;
 			nudItemElementalPoison.Value = _loadedItem.Resistance.Poison;
 
-			nudItemMoveSpeedMin.Value = (decimal)_loadedItem.MoveSpeed.Min;
-			nudItemMoveSpeedMax.Value = (decimal)_loadedItem.MoveSpeed.Max;
+			nudItemMoveSpeedMin.Value = (decimal)_loadedItem.MovementSpeed.Min;
+			nudItemMoveSpeedMax.Value = (decimal)_loadedItem.MovementSpeed.Max;
 
 			nudItemPotionSpace.Value = _loadedItem.PotionSpace;
 			nudItemPotionHpMin.Value = (decimal)_loadedItem.PotionRecovery.Hp.Min;
@@ -255,8 +255,8 @@ public partial class MainForm
 			nudItemSpecElemIce.Value = _loadedItem.Specialization.Resistance.Ice;
 			nudItemSpecElemLightning.Value = _loadedItem.Specialization.Resistance.Lightning;
 			nudItemSpecElemPoison.Value = _loadedItem.Specialization.Resistance.Poison;
-			nudItemSpecMoveSpeedMin.Value = (decimal)_loadedItem.Specialization.MoveSpeed.Min;
-			nudItemSpecMoveSpeedMax.Value = (decimal)_loadedItem.Specialization.MoveSpeed.Max;
+			nudItemSpecMoveSpeedMin.Value = (decimal)_loadedItem.Specialization.MovementSpeed.Min;
+			nudItemSpecMoveSpeedMax.Value = (decimal)_loadedItem.Specialization.MovementSpeed.Max;
 			nudItemSpecMasteryMin.Value = (decimal)_loadedItem.Specialization.MagicMastery.Min;
 			nudItemSpecMasteryMax.Value = (decimal)_loadedItem.Specialization.MagicMastery.Max;
 
@@ -314,7 +314,7 @@ public partial class MainForm
 				Poison = (int)nudItemElementalPoison.Value,
 			};
 
-			_loadedItem.MoveSpeed = new Framework.RangeF((float)nudItemMoveSpeedMin.Value, (float)nudItemMoveSpeedMax.Value);
+			_loadedItem.MovementSpeed = new Framework.RangeF((float)nudItemMoveSpeedMin.Value, (float)nudItemMoveSpeedMax.Value);
 
 			_loadedItem.PotionSpace = (int)nudItemPotionSpace.Value;
 			_loadedItem.PotionRecovery = new Status()
@@ -374,7 +374,7 @@ public partial class MainForm
 					Poison = (int)nudItemSpecElemPoison.Value,
 				},
 
-				MoveSpeed = new Framework.RangeF((int)nudItemSpecMoveSpeedMin.Value, (int)nudItemSpecMoveSpeedMax.Value),
+				MovementSpeed = new Framework.RangeF((int)nudItemSpecMoveSpeedMin.Value, (int)nudItemSpecMoveSpeedMax.Value),
 
 				MagicMastery = new Framework.Range((int)nudItemSpecMasteryMin.Value, (int)nudItemSpecMasteryMax.Value),
 

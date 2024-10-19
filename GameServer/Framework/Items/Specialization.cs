@@ -24,7 +24,7 @@ namespace GameServer.Framework.Items
 		public Elemental Resistance { get; set; } = new();
 
 		// Move for boots
-		public RangeF MoveSpeed { get; set; }
+		public RangeF MovementSpeed { get; set; }
 
 		// Additional skill mastery of staffs/wand/phantoms
 		public Range MagicMastery { get; set; }

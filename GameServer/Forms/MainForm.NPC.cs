@@ -185,15 +185,9 @@ public partial class MainForm
 
 			lbNPCChat.Items.Clear();
 
-            foreach (var message in _loadedNPC.Messages)
-            {
-				if (string.IsNullOrEmpty(message))
-					continue;
+			PopulateMessages();
 
-				lbNPCChat.Items.Add(message);
-            }
-
-            txtNPCExternalFile.Text = _loadedNPC.ExternalFile;
+			txtNPCExternalFile.Text = _loadedNPC.ExternalFile;
 		}
 		catch (Exception ex)
 		{
@@ -210,31 +204,44 @@ public partial class MainForm
 
 			_loadedNPC.ModelFile = txtNPCModelName.Text;
 
+			RetrieveMessages();
 
-            if (lbNPCChat.Items.Count > 0)
-            {
-				int count = 0;
-
-                foreach (var item in lbNPCChat.Items)
-                {
-					if (count >= NPC.MESSAGE_MAX)
-						break;
-
-					string? message = item.ToString();
-					if (!string.IsNullOrEmpty(message))
-					{
-						_loadedNPC.Messages[count++] = message;
-					}
-				}
-            }
-            
-
-
-            _loadedNPC.ExternalFile = txtNPCExternalFile.Text;
+			_loadedNPC.ExternalFile = txtNPCExternalFile.Text;
 		}
 		catch (Exception ex)
 		{
 			LogError(ex);
+		}
+	}
+
+	private void PopulateMessages()
+	{
+		foreach (var message in _loadedNPC.Messages)
+		{
+			if (string.IsNullOrEmpty(message))
+				continue;
+
+			lbNPCChat.Items.Add(message);
+		}
+	}
+
+	private void RetrieveMessages()
+	{
+		if (lbNPCChat.Items.Count <= 0)
+			return;
+
+		int count = 0;
+
+		foreach (var item in lbNPCChat.Items)
+		{
+			if (count >= NPC.MESSAGE_MAX)
+				break;
+
+			string? message = item.ToString();
+			if (!string.IsNullOrEmpty(message))
+			{
+				_loadedNPC.Messages[count++] = message;
+			}
 		}
 	}
 

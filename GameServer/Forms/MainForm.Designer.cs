@@ -1,4 +1,5 @@
-﻿namespace GameServer.Forms
+﻿
+namespace GameServer.Forms
 {
 	partial class MainForm
 	{
@@ -3809,11 +3810,10 @@
 			dgvMonsterLoots.Name = "dgvMonsterLoots";
 			dgvMonsterLoots.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
 			dgvMonsterLoots.RowHeadersWidth = 24;
+			dgvMonsterLoots.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
 			dgvMonsterLoots.RowTemplate.Height = 25;
 			dgvMonsterLoots.Size = new Size(649, 456);
 			dgvMonsterLoots.TabIndex = 0;
-			dgvMonsterLoots.RowValidated += dgvMonsterLoots_RowValidated;
-			dgvMonsterLoots.Validated += dgvMonsterLoots_Validated;
 			// 
 			// dgvtxtMonsterLootRate
 			// 

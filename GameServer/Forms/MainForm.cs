@@ -209,6 +209,7 @@ public partial class MainForm : Form
 		LoadMonsterFiles();
 		LoadMonsterSounds();
 		LoadNPCFiles();
+		LoadNPCList();
 		LoadFieldFiles();
 	}
 
@@ -340,6 +341,23 @@ public partial class MainForm : Form
 		}
 
 		return string.Empty;
+	}
+
+	private static void ListBoxSearch(ListBox listBox, string text)
+	{
+		if (string.IsNullOrEmpty(text))
+			return;
+
+		var file = listBox.Items.OfType<string>()
+			.Where(x => x.StartsWith(text, StringComparison.InvariantCultureIgnoreCase) ||
+						x.Contains(text, StringComparison.InvariantCultureIgnoreCase))
+			.FirstOrDefault();
+
+		if (!string.IsNullOrEmpty(file))
+		{
+			var index = listBox.Items.IndexOf(file);
+			listBox.SelectedIndex = index;
+		}
 	}
 
 	private static void ListControls(Control control, StreamWriter stream)

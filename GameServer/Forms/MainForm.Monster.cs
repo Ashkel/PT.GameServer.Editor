@@ -71,19 +71,7 @@ public partial class MainForm
 
 	private void txtMonsterFilesSearch_TextChanged(object sender, EventArgs e)
 	{
-		if (string.IsNullOrEmpty(txtMonsterFilesSearch.Text))
-			return;
-
-		var file = lbMonsterFiles.Items.OfType<string>()
-			.Where(x => x.StartsWith(txtMonsterFilesSearch.Text, StringComparison.InvariantCultureIgnoreCase) ||
-						x.Contains(txtMonsterFilesSearch.Text, StringComparison.InvariantCultureIgnoreCase))
-			.FirstOrDefault();
-
-		if (!string.IsNullOrEmpty(file))
-		{
-			var index = lbMonsterFiles.Items.IndexOf(file);
-			lbMonsterFiles.SelectedIndex = index;
-		}
+		ListBoxSearch(lbMonsterFiles, txtMonsterFilesSearch.Text);
 	}
 
 	private void btnMonsterBrowseZhoon_Click(object sender, EventArgs e)
@@ -112,19 +100,30 @@ public partial class MainForm
 
 	private void LoadMonsterSounds()
 	{
-		if (Monster.SoundList.Count <= 0)
+		if (!SetCurrentTabFiles(Globals.MonsterPath, "*.inf"))
+			return;
+
+		Monster.SoundList.Clear();
+		_monsterNames.Clear();
+
+		Monster monster = new();
+
+		foreach (var fileName in _currentTabFiles!)
 		{
-			Monster monster = new();
+			monster.Reset();
+			monster.Process(Path.Combine(Globals.MonsterPath, fileName));
 
-			foreach (var fileName in _currentTabFiles!)
-			{
-				monster.Process(Path.Combine(Globals.MonsterPath, fileName));
-			}
-
-			Monster.SoundList.Sort(StringComparer.InvariantCultureIgnoreCase);
-
-			cbbMonsterSoundCode.DataSource = Monster.SoundList;
+			_monsterNames.TryAdd(fileName, monster.ServerName);
 		}
+
+		Monster.SoundList.Sort();
+
+		cbbMonsterSoundCode.DataSource = Monster.SoundList;
+
+		var monsters = _monsterNames.Keys.ToList();
+		monsters.Sort();
+
+		lbFieldMonsters.DataSource = monsters;
 	}
 
 	private void SetMonsterData()

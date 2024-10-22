@@ -1,4 +1,5 @@
 ﻿using GameServer.Framework;
+using GameServer.Framework.Characters;
 using GameServer.Framework.Items;
 using System.Diagnostics;
 
@@ -7,6 +8,9 @@ namespace GameServer.Forms;
 public partial class MainForm
 {
 	#region Field/Properties
+
+	private readonly Dictionary<string, string> _monsterNames = new();
+	private readonly Dictionary<string, string> _npcNames = new();
 
 	#endregion
 
@@ -20,7 +24,7 @@ public partial class MainForm
 
 		// TODO:
 
-		SetNPCData();
+		SetFieldData();
 	}
 
 	private void btnFieldFilesReload_Click(object sender, EventArgs e)
@@ -63,10 +67,80 @@ public partial class MainForm
 		Process.Start(Globals.NotepadPath, $"\"{path}\"");
 	}
 
+	private void txtFieldFilesSearch_TextChanged(object sender, EventArgs e)
+	{
+		ListBoxSearch(lbFieldFiles, txtFieldFilesSearch.Text);
+	}
+
+
+	private void btnFieldMonsterReload_Click(object sender, EventArgs e)
+	{
+		LoadMonsterSounds();
+	}
+
+	private void btnFieldMonsterAdd_Click(object sender, EventArgs e)
+	{
+		if (lbFieldMonsters.SelectedItem is not string fileName)
+			return;
+
+		if(_monsterNames.ContainsKey(fileName))
+		{
+			MessageBox.Show(_monsterNames[fileName]);
+		}
+	}
+
+	private void txtFieldMonsterSearch_TextChanged(object sender, EventArgs e)
+	{
+		ListBoxSearch(lbFieldMonsters, txtFieldMonsterSearch.Text);
+	}
+
+	private void btnFieldNPCReload_Click(object sender, EventArgs e)
+	{
+		LoadNPCList();
+	}
+
+	private void btnFieldNPCAdd_Click(object sender, EventArgs e)
+	{
+		if (lbFieldNPCs.SelectedItem is not string fileName)
+			return;
+
+		if (_npcNames.ContainsKey(fileName))
+		{
+			MessageBox.Show(_npcNames[fileName]);
+		}
+	}
+
+	private void txtFieldNPCSearch_TextChanged(object sender, EventArgs e)
+	{
+		ListBoxSearch(lbFieldNPCs, txtFieldNPCSearch.Text);
+	}
+
 	#endregion
 
 
 	#region Helper methods
+
+	private void LoadNPCList()
+	{
+		if (!SetCurrentTabFiles(Globals.NPCPath, "*.npc"))
+			return;
+
+		_npcNames.Clear();
+
+		NPC npc = new();
+
+		foreach (var fileName in _currentTabFiles!)
+		{
+			npc.Process(Path.Combine(Globals.NPCPath, fileName));
+
+			_npcNames.TryAdd(fileName, npc.ServerName);
+		}
+
+		var npcs = _npcNames.Keys.ToList();
+		npcs.Sort();
+
+		lbFieldNPCs.DataSource = npcs;
+	}
 
 	private void LoadFieldFiles()
 	{

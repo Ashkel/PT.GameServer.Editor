@@ -799,7 +799,9 @@ public partial class Monster : GameInfo
 			case var text when text.StartsWith('*') && text.Contains("NAME", StringComparison.OrdinalIgnoreCase):
 				var name = ParseString();
 				if (!string.IsNullOrEmpty(name))
+				{
 					Name = name;
+				}
 				break;
 
 			case var text when text.Equals(Keywords.ServerName):

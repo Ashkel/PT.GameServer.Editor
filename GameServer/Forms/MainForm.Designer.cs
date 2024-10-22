@@ -261,6 +261,8 @@ namespace GameServer.Forms
 			nudMonsterLife = new NumericUpDown();
 			label105 = new Label();
 			groupBox38 = new GroupBox();
+			nudMonsterElementalMagic = new NumericUpDown();
+			label135 = new Label();
 			nudMonsterElementalPoison = new NumericUpDown();
 			label97 = new Label();
 			nudMonsterElementalLightning = new NumericUpDown();
@@ -506,11 +508,29 @@ namespace GameServer.Forms
 			btnNPCFilesCopy = new ToolStripButton();
 			btnNPCFilesSave = new ToolStripButton();
 			btnNPCFilesOpenRaw = new ToolStripButton();
+			toolStripSeparator6 = new ToolStripSeparator();
+			txtNPCFilesSearch = new ToolStripTextBox();
 			tabPage4 = new TabPage();
 			gbFieldInformation = new GroupBox();
 			tabControl5 = new TabControl();
 			tabPage11 = new TabPage();
+			groupBox51 = new GroupBox();
+			lbFieldMonsters = new ListBox();
+			toolStrip10 = new ToolStrip();
+			btnFieldMonsterReload = new ToolStripButton();
+			btnFieldMonsterAdd = new ToolStripButton();
+			toolStripSeparator4 = new ToolStripSeparator();
+			toolStripLabel1 = new ToolStripLabel();
+			txtFieldMonsterSearch = new ToolStripTextBox();
 			tabPage12 = new TabPage();
+			groupBox52 = new GroupBox();
+			lbFieldNPCs = new ListBox();
+			toolStrip11 = new ToolStrip();
+			btnFieldNPCReload = new ToolStripButton();
+			btnFieldNPCAdd = new ToolStripButton();
+			toolStripSeparator5 = new ToolStripSeparator();
+			toolStripLabel2 = new ToolStripLabel();
+			txtFieldNPCSearch = new ToolStripTextBox();
 			groupBox4 = new GroupBox();
 			lbFieldFiles = new ListBox();
 			toolStrip5 = new ToolStrip();
@@ -520,9 +540,9 @@ namespace GameServer.Forms
 			btnFieldFilesCopy = new ToolStripButton();
 			btnFieldFilesSave = new ToolStripButton();
 			btnFieldFilesOpenRaw = new ToolStripButton();
+			toolStripSeparator7 = new ToolStripSeparator();
+			txtFieldFilesSearch = new ToolStripTextBox();
 			statusStrip1 = new StatusStrip();
-			nudMonsterElementalMagic = new NumericUpDown();
-			label135 = new Label();
 			menuStrip1.SuspendLayout();
 			tabControl1.SuspendLayout();
 			tabPage1.SuspendLayout();
@@ -650,6 +670,7 @@ namespace GameServer.Forms
 			groupBox37.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)nudMonsterLife).BeginInit();
 			groupBox38.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)nudMonsterElementalMagic).BeginInit();
 			((System.ComponentModel.ISupportInitialize)nudMonsterElementalPoison).BeginInit();
 			((System.ComponentModel.ISupportInitialize)nudMonsterElementalLightning).BeginInit();
 			((System.ComponentModel.ISupportInitialize)nudMonsterElementalIce).BeginInit();
@@ -751,9 +772,14 @@ namespace GameServer.Forms
 			tabPage4.SuspendLayout();
 			gbFieldInformation.SuspendLayout();
 			tabControl5.SuspendLayout();
+			tabPage11.SuspendLayout();
+			groupBox51.SuspendLayout();
+			toolStrip10.SuspendLayout();
+			tabPage12.SuspendLayout();
+			groupBox52.SuspendLayout();
+			toolStrip11.SuspendLayout();
 			groupBox4.SuspendLayout();
 			toolStrip5.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)nudMonsterElementalMagic).BeginInit();
 			SuspendLayout();
 			// 
 			// menuStrip1
@@ -3063,6 +3089,24 @@ namespace GameServer.Forms
 			groupBox38.TabIndex = 33;
 			groupBox38.TabStop = false;
 			groupBox38.Text = "Magic Resistance";
+			// 
+			// nudMonsterElementalMagic
+			// 
+			nudMonsterElementalMagic.Location = new Point(80, 160);
+			nudMonsterElementalMagic.Minimum = new decimal(new int[] { 100, 0, 0, int.MinValue });
+			nudMonsterElementalMagic.Name = "nudMonsterElementalMagic";
+			nudMonsterElementalMagic.Size = new Size(128, 23);
+			nudMonsterElementalMagic.TabIndex = 39;
+			nudMonsterElementalMagic.ThousandsSeparator = true;
+			// 
+			// label135
+			// 
+			label135.AutoSize = true;
+			label135.Location = new Point(16, 162);
+			label135.Name = "label135";
+			label135.Size = new Size(40, 15);
+			label135.TabIndex = 40;
+			label135.Text = "Magic";
 			// 
 			// nudMonsterElementalPoison
 			// 
@@ -5418,7 +5462,7 @@ namespace GameServer.Forms
 			// 
 			// toolStrip4
 			// 
-			toolStrip4.Items.AddRange(new ToolStripItem[] { btnNPCFilesReload, btnNPCFilesNew, btnNPCFilesDelete, btnNPCFilesCopy, btnNPCFilesSave, btnNPCFilesOpenRaw });
+			toolStrip4.Items.AddRange(new ToolStripItem[] { btnNPCFilesReload, btnNPCFilesNew, btnNPCFilesDelete, btnNPCFilesCopy, btnNPCFilesSave, btnNPCFilesOpenRaw, toolStripSeparator6, txtNPCFilesSearch });
 			toolStrip4.Location = new Point(4, 16);
 			toolStrip4.Name = "toolStrip4";
 			toolStrip4.Size = new Size(248, 25);
@@ -5485,6 +5529,17 @@ namespace GameServer.Forms
 			btnNPCFilesOpenRaw.Text = "Open Raw";
 			btnNPCFilesOpenRaw.Click += btnNPCFilesOpenRaw_Click;
 			// 
+			// toolStripSeparator6
+			// 
+			toolStripSeparator6.Name = "toolStripSeparator6";
+			toolStripSeparator6.Size = new Size(6, 25);
+			// 
+			// txtNPCFilesSearch
+			// 
+			txtNPCFilesSearch.Name = "txtNPCFilesSearch";
+			txtNPCFilesSearch.Size = new Size(92, 25);
+			txtNPCFilesSearch.TextChanged += txtNPCFilesSearch_TextChanged;
+			// 
 			// tabPage4
 			// 
 			tabPage4.Controls.Add(gbFieldInformation);
@@ -5520,23 +5575,163 @@ namespace GameServer.Forms
 			// 
 			// tabPage11
 			// 
+			tabPage11.Controls.Add(groupBox51);
 			tabPage11.Location = new Point(4, 24);
 			tabPage11.Name = "tabPage11";
 			tabPage11.Padding = new Padding(3);
 			tabPage11.Size = new Size(954, 536);
 			tabPage11.TabIndex = 0;
-			tabPage11.Text = "Page 1";
+			tabPage11.Text = "Mobs";
 			tabPage11.UseVisualStyleBackColor = true;
+			// 
+			// groupBox51
+			// 
+			groupBox51.Controls.Add(lbFieldMonsters);
+			groupBox51.Controls.Add(toolStrip10);
+			groupBox51.Location = new Point(692, 6);
+			groupBox51.Name = "groupBox51";
+			groupBox51.Padding = new Padding(4, 0, 4, 1);
+			groupBox51.Size = new Size(256, 524);
+			groupBox51.TabIndex = 2;
+			groupBox51.TabStop = false;
+			groupBox51.Text = "Monsters";
+			// 
+			// lbFieldMonsters
+			// 
+			lbFieldMonsters.Dock = DockStyle.Fill;
+			lbFieldMonsters.FormattingEnabled = true;
+			lbFieldMonsters.ItemHeight = 15;
+			lbFieldMonsters.Location = new Point(4, 41);
+			lbFieldMonsters.Name = "lbFieldMonsters";
+			lbFieldMonsters.Size = new Size(248, 482);
+			lbFieldMonsters.TabIndex = 1;
+			// 
+			// toolStrip10
+			// 
+			toolStrip10.Items.AddRange(new ToolStripItem[] { btnFieldMonsterReload, btnFieldMonsterAdd, toolStripSeparator4, toolStripLabel1, txtFieldMonsterSearch });
+			toolStrip10.Location = new Point(4, 16);
+			toolStrip10.Name = "toolStrip10";
+			toolStrip10.Size = new Size(248, 25);
+			toolStrip10.TabIndex = 0;
+			toolStrip10.Text = "toolStrip10";
+			// 
+			// btnFieldMonsterReload
+			// 
+			btnFieldMonsterReload.DisplayStyle = ToolStripItemDisplayStyle.Image;
+			btnFieldMonsterReload.Image = Properties.Resources._1;
+			btnFieldMonsterReload.ImageTransparentColor = Color.Magenta;
+			btnFieldMonsterReload.Name = "btnFieldMonsterReload";
+			btnFieldMonsterReload.Size = new Size(23, 22);
+			btnFieldMonsterReload.Text = "Reload Files";
+			btnFieldMonsterReload.Click += btnFieldMonsterReload_Click;
+			// 
+			// btnFieldMonsterAdd
+			// 
+			btnFieldMonsterAdd.DisplayStyle = ToolStripItemDisplayStyle.Image;
+			btnFieldMonsterAdd.Image = Properties.Resources._2;
+			btnFieldMonsterAdd.ImageTransparentColor = Color.Magenta;
+			btnFieldMonsterAdd.Name = "btnFieldMonsterAdd";
+			btnFieldMonsterAdd.Size = new Size(23, 22);
+			btnFieldMonsterAdd.Text = "New File";
+			btnFieldMonsterAdd.Click += btnFieldMonsterAdd_Click;
+			// 
+			// toolStripSeparator4
+			// 
+			toolStripSeparator4.Name = "toolStripSeparator4";
+			toolStripSeparator4.Size = new Size(6, 25);
+			// 
+			// toolStripLabel1
+			// 
+			toolStripLabel1.Name = "toolStripLabel1";
+			toolStripLabel1.Size = new Size(42, 22);
+			toolStripLabel1.Text = "Search";
+			// 
+			// txtFieldMonsterSearch
+			// 
+			txtFieldMonsterSearch.Alignment = ToolStripItemAlignment.Right;
+			txtFieldMonsterSearch.Name = "txtFieldMonsterSearch";
+			txtFieldMonsterSearch.Size = new Size(140, 25);
+			txtFieldMonsterSearch.TextChanged += txtFieldMonsterSearch_TextChanged;
 			// 
 			// tabPage12
 			// 
+			tabPage12.Controls.Add(groupBox52);
 			tabPage12.Location = new Point(4, 24);
 			tabPage12.Name = "tabPage12";
 			tabPage12.Padding = new Padding(3);
 			tabPage12.Size = new Size(954, 536);
 			tabPage12.TabIndex = 1;
-			tabPage12.Text = "Page 2";
+			tabPage12.Text = "NPCs";
 			tabPage12.UseVisualStyleBackColor = true;
+			// 
+			// groupBox52
+			// 
+			groupBox52.Controls.Add(lbFieldNPCs);
+			groupBox52.Controls.Add(toolStrip11);
+			groupBox52.Location = new Point(692, 9);
+			groupBox52.Name = "groupBox52";
+			groupBox52.Padding = new Padding(4, 0, 4, 1);
+			groupBox52.Size = new Size(256, 524);
+			groupBox52.TabIndex = 3;
+			groupBox52.TabStop = false;
+			groupBox52.Text = "NPCs";
+			// 
+			// lbFieldNPCs
+			// 
+			lbFieldNPCs.Dock = DockStyle.Fill;
+			lbFieldNPCs.FormattingEnabled = true;
+			lbFieldNPCs.ItemHeight = 15;
+			lbFieldNPCs.Location = new Point(4, 41);
+			lbFieldNPCs.Name = "lbFieldNPCs";
+			lbFieldNPCs.Size = new Size(248, 482);
+			lbFieldNPCs.TabIndex = 1;
+			// 
+			// toolStrip11
+			// 
+			toolStrip11.Items.AddRange(new ToolStripItem[] { btnFieldNPCReload, btnFieldNPCAdd, toolStripSeparator5, toolStripLabel2, txtFieldNPCSearch });
+			toolStrip11.Location = new Point(4, 16);
+			toolStrip11.Name = "toolStrip11";
+			toolStrip11.Size = new Size(248, 25);
+			toolStrip11.TabIndex = 0;
+			toolStrip11.Text = "toolStrip11";
+			// 
+			// btnFieldNPCReload
+			// 
+			btnFieldNPCReload.DisplayStyle = ToolStripItemDisplayStyle.Image;
+			btnFieldNPCReload.Image = Properties.Resources._1;
+			btnFieldNPCReload.ImageTransparentColor = Color.Magenta;
+			btnFieldNPCReload.Name = "btnFieldNPCReload";
+			btnFieldNPCReload.Size = new Size(23, 22);
+			btnFieldNPCReload.Text = "Reload Files";
+			btnFieldNPCReload.Click += btnFieldNPCReload_Click;
+			// 
+			// btnFieldNPCAdd
+			// 
+			btnFieldNPCAdd.DisplayStyle = ToolStripItemDisplayStyle.Image;
+			btnFieldNPCAdd.Image = Properties.Resources._2;
+			btnFieldNPCAdd.ImageTransparentColor = Color.Magenta;
+			btnFieldNPCAdd.Name = "btnFieldNPCAdd";
+			btnFieldNPCAdd.Size = new Size(23, 22);
+			btnFieldNPCAdd.Text = "New File";
+			btnFieldNPCAdd.Click += btnFieldNPCAdd_Click;
+			// 
+			// toolStripSeparator5
+			// 
+			toolStripSeparator5.Name = "toolStripSeparator5";
+			toolStripSeparator5.Size = new Size(6, 25);
+			// 
+			// toolStripLabel2
+			// 
+			toolStripLabel2.Name = "toolStripLabel2";
+			toolStripLabel2.Size = new Size(42, 22);
+			toolStripLabel2.Text = "Search";
+			// 
+			// txtFieldNPCSearch
+			// 
+			txtFieldNPCSearch.Alignment = ToolStripItemAlignment.Right;
+			txtFieldNPCSearch.Name = "txtFieldNPCSearch";
+			txtFieldNPCSearch.Size = new Size(140, 25);
+			txtFieldNPCSearch.TextChanged += txtFieldNPCSearch_TextChanged;
 			// 
 			// groupBox4
 			// 
@@ -5563,7 +5758,7 @@ namespace GameServer.Forms
 			// 
 			// toolStrip5
 			// 
-			toolStrip5.Items.AddRange(new ToolStripItem[] { btnFieldFilesReload, btnFieldFilesNew, btnFieldFilesDelete, btnFieldFilesCopy, btnFieldFilesSave, btnFieldFilesOpenRaw });
+			toolStrip5.Items.AddRange(new ToolStripItem[] { btnFieldFilesReload, btnFieldFilesNew, btnFieldFilesDelete, btnFieldFilesCopy, btnFieldFilesSave, btnFieldFilesOpenRaw, toolStripSeparator7, txtFieldFilesSearch });
 			toolStrip5.Location = new Point(4, 16);
 			toolStrip5.Name = "toolStrip5";
 			toolStrip5.Size = new Size(248, 25);
@@ -5630,6 +5825,17 @@ namespace GameServer.Forms
 			btnFieldFilesOpenRaw.Text = "Open Raw";
 			btnFieldFilesOpenRaw.Click += btnFieldFilesOpenRaw_Click;
 			// 
+			// toolStripSeparator7
+			// 
+			toolStripSeparator7.Name = "toolStripSeparator7";
+			toolStripSeparator7.Size = new Size(6, 25);
+			// 
+			// txtFieldFilesSearch
+			// 
+			txtFieldFilesSearch.Name = "txtFieldFilesSearch";
+			txtFieldFilesSearch.Size = new Size(92, 25);
+			txtFieldFilesSearch.TextChanged += txtFieldFilesSearch_TextChanged;
+			// 
 			// statusStrip1
 			// 
 			statusStrip1.Location = new Point(0, 698);
@@ -5637,24 +5843,6 @@ namespace GameServer.Forms
 			statusStrip1.Size = new Size(1280, 22);
 			statusStrip1.TabIndex = 3;
 			statusStrip1.Text = "statusStrip1";
-			// 
-			// nudMonsterElementalMagic
-			// 
-			nudMonsterElementalMagic.Location = new Point(80, 160);
-			nudMonsterElementalMagic.Minimum = new decimal(new int[] { 100, 0, 0, int.MinValue });
-			nudMonsterElementalMagic.Name = "nudMonsterElementalMagic";
-			nudMonsterElementalMagic.Size = new Size(128, 23);
-			nudMonsterElementalMagic.TabIndex = 39;
-			nudMonsterElementalMagic.ThousandsSeparator = true;
-			// 
-			// label135
-			// 
-			label135.AutoSize = true;
-			label135.Location = new Point(16, 162);
-			label135.Name = "label135";
-			label135.Size = new Size(40, 15);
-			label135.TabIndex = 40;
-			label135.Text = "Magic";
 			// 
 			// MainForm
 			// 
@@ -5827,6 +6015,7 @@ namespace GameServer.Forms
 			((System.ComponentModel.ISupportInitialize)nudMonsterLife).EndInit();
 			groupBox38.ResumeLayout(false);
 			groupBox38.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)nudMonsterElementalMagic).EndInit();
 			((System.ComponentModel.ISupportInitialize)nudMonsterElementalPoison).EndInit();
 			((System.ComponentModel.ISupportInitialize)nudMonsterElementalLightning).EndInit();
 			((System.ComponentModel.ISupportInitialize)nudMonsterElementalIce).EndInit();
@@ -5960,11 +6149,20 @@ namespace GameServer.Forms
 			tabPage4.ResumeLayout(false);
 			gbFieldInformation.ResumeLayout(false);
 			tabControl5.ResumeLayout(false);
+			tabPage11.ResumeLayout(false);
+			groupBox51.ResumeLayout(false);
+			groupBox51.PerformLayout();
+			toolStrip10.ResumeLayout(false);
+			toolStrip10.PerformLayout();
+			tabPage12.ResumeLayout(false);
+			groupBox52.ResumeLayout(false);
+			groupBox52.PerformLayout();
+			toolStrip11.ResumeLayout(false);
+			toolStrip11.PerformLayout();
 			groupBox4.ResumeLayout(false);
 			groupBox4.PerformLayout();
 			toolStrip5.ResumeLayout(false);
 			toolStrip5.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)nudMonsterElementalMagic).EndInit();
 			ResumeLayout(false);
 			PerformLayout();
 		}
@@ -6464,5 +6662,26 @@ namespace GameServer.Forms
 		private ToolStripMenuItem miHelpAbout;
 		private NumericUpDown nudMonsterElementalMagic;
 		private Label label135;
+		private GroupBox groupBox51;
+		private ListBox lbFieldMonsters;
+		private ToolStrip toolStrip10;
+		private ToolStripButton btnFieldMonsterReload;
+		private ToolStripButton btnFieldMonsterAdd;
+		private ToolStripSeparator toolStripSeparator4;
+		private ToolStripLabel toolStripLabel1;
+		private ToolStripTextBox txtFieldMonsterSearch;
+		private ToolStripButton btnFieldMonsterDelete;
+		private GroupBox groupBox52;
+		private ListBox lbFieldNPCs;
+		private ToolStrip toolStrip11;
+		private ToolStripButton btnFieldNPCReload;
+		private ToolStripButton btnFieldNPCAdd;
+		private ToolStripSeparator toolStripSeparator5;
+		private ToolStripLabel toolStripLabel2;
+		private ToolStripTextBox txtFieldNPCSearch;
+		private ToolStripSeparator toolStripSeparator6;
+		private ToolStripTextBox txtNPCFilesSearch;
+		private ToolStripSeparator toolStripSeparator7;
+		private ToolStripTextBox txtFieldFilesSearch;
 	}
 }

@@ -70,6 +70,11 @@ public partial class MainForm
 		Process.Start(Globals.NotepadPath, $"\"{path}\"");
 	}
 
+	private void txtNPCFilesSearch_TextChanged(object sender, EventArgs e)
+	{
+		ListBoxSearch(lbNPCFiles, txtNPCFilesSearch.Text);
+	}
+
 	private void btnNPCBrowseZhoon_Click(object sender, EventArgs e)
 	{
 		var fileName = BrowseZhoonFile(Globals.NPCPath);
@@ -225,18 +230,6 @@ public partial class MainForm
 		{
 			lbNPCFiles.Items.Clear();
 			lbNPCFiles.Items.AddRange(_currentTabFiles!);
-
-#if DEBUG
-			// Test
-			{
-				NPC npc = new();
-
-				foreach (var item in _currentTabFiles!)
-				{
-					npc.Process(Path.Combine(Globals.NPCPath, item));
-				}
-			}
-#endif
 		}
 	}
 

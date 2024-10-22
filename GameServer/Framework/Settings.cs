@@ -29,6 +29,7 @@ public class Settings
 	public string NotepadPath { get; set; } = string.Empty;
 
 	public Language Language { get; set; } = Language.Unknown;
+	public bool KeepComments { get; set; }
 
 	#endregion
 

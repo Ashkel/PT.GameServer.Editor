@@ -49,7 +49,7 @@ public partial class Item
 		public static readonly string[] PotionSP = new string[] { "*스테미너상승", "*근력상승" };
 
 		// Skills training
-		public static readonly string MagicMastery = "*마법숙련도";
+		public static readonly string[] MagicMastery = new string[] {"*마법숙련도" , "" };
 
 		// Status increase/regeneration
 		public static readonly string[] AdditionalHP = new string[] { "*라이프추가", "*생명력추가" };

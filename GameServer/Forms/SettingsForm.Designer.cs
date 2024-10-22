@@ -42,6 +42,7 @@
 			groupBox2 = new GroupBox();
 			cbbUseLanguage = new ComboBox();
 			label4 = new Label();
+			ckbKeepComments = new CheckBox();
 			groupBox1.SuspendLayout();
 			groupBox2.SuspendLayout();
 			SuspendLayout();
@@ -164,6 +165,7 @@
 			// 
 			// groupBox2
 			// 
+			groupBox2.Controls.Add(ckbKeepComments);
 			groupBox2.Controls.Add(cbbUseLanguage);
 			groupBox2.Controls.Add(label4);
 			groupBox2.Location = new Point(378, 12);
@@ -171,6 +173,7 @@
 			groupBox2.Size = new Size(410, 131);
 			groupBox2.TabIndex = 2;
 			groupBox2.TabStop = false;
+			groupBox2.Text = "File Parsing";
 			// 
 			// cbbUseLanguage
 			// 
@@ -188,6 +191,16 @@
 			label4.Size = new Size(59, 15);
 			label4.TabIndex = 1;
 			label4.Text = "Language";
+			// 
+			// ckbKeepComments
+			// 
+			ckbKeepComments.AutoSize = true;
+			ckbKeepComments.Location = new Point(16, 60);
+			ckbKeepComments.Name = "ckbKeepComments";
+			ckbKeepComments.Size = new Size(131, 19);
+			ckbKeepComments.TabIndex = 3;
+			ckbKeepComments.Text = "Keep file comments";
+			ckbKeepComments.UseVisualStyleBackColor = true;
 			// 
 			// SettingsForm
 			// 
@@ -227,5 +240,6 @@
 		private GroupBox groupBox2;
 		private ComboBox cbbUseLanguage;
 		private Label label4;
+		private CheckBox ckbKeepComments;
 	}
 }

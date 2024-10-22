@@ -12,6 +12,7 @@
 		public int Poison { get; set; }
 		public int Water { get; set; }
 		public int Wind { get; set; }
+		public int Magic { get; set; }
 
 		#endregion
 	}

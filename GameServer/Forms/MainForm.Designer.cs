@@ -36,6 +36,11 @@ namespace GameServer.Forms
 			editToolStripMenuItem = new ToolStripMenuItem();
 			miEditSettings = new ToolStripMenuItem();
 			helpToolStripMenuItem = new ToolStripMenuItem();
+			miHelpOpenLocalFolder = new ToolStripMenuItem();
+			miHelpOpenServerFolder = new ToolStripMenuItem();
+			miHelpOpenClientFolder = new ToolStripMenuItem();
+			toolStripSeparator3 = new ToolStripSeparator();
+			miHelpAbout = new ToolStripMenuItem();
 			toolStrip1 = new ToolStrip();
 			tabControl1 = new TabControl();
 			tabPage1 = new TabPage();
@@ -392,17 +397,67 @@ namespace GameServer.Forms
 			gbNPCInformation = new GroupBox();
 			tabControl4 = new TabControl();
 			tabPage9 = new TabPage();
-			groupBox31 = new GroupBox();
-			txtNPCModelName = new TextBox();
-			label72 = new Label();
+			groupBox47 = new GroupBox();
+			nudNPCQuestClass = new NumericUpDown();
+			label121 = new Label();
+			nudNPCQuestParam = new NumericUpDown();
+			label131 = new Label();
+			nudNPCQuestCode = new NumericUpDown();
+			label132 = new Label();
+			groupBox46 = new GroupBox();
+			nudNPCOpenCountMax = new NumericUpDown();
+			nudNPCOpenCountMin = new NumericUpDown();
+			label134 = new Label();
 			groupBox30 = new GroupBox();
-			groupBox29 = new GroupBox();
-			lbNPCChat = new ListBox();
-			toolStrip6 = new ToolStrip();
-			btnNPCChatNew = new ToolStripButton();
-			btnNPCChatDelete = new ToolStripButton();
-			btnNPCChatCopy = new ToolStripButton();
-			btnNPCChatEdit = new ToolStripButton();
+			txtNPCMediaPlayPath = new TextBox();
+			label123 = new Label();
+			txtNPCMediaPlayTitle = new TextBox();
+			label125 = new Label();
+			gbNPCFuntions = new GroupBox();
+			rbNPCBlessCastleMaster = new RadioButton();
+			rbNPCDonationBox = new RadioButton();
+			rbNPCItemDistributor = new RadioButton();
+			rbNPCClanMaster = new RadioButton();
+			rbNPCEventGirl = new RadioButton();
+			rbNPCSODManager = new RadioButton();
+			rbNPCMixtureResetMaster = new RadioButton();
+			rbNPCItemAgingMaster = new RadioButton();
+			rbNPCManufactureMaster = new RadioButton();
+			rbNPCSmeltingMaster = new RadioButton();
+			rbNPCForceMaster = new RadioButton();
+			rbNPCItemMixMaster = new RadioButton();
+			rbNPCWarehouseMaster = new RadioButton();
+			nudNPCPolling = new NumericUpDown();
+			label124 = new Label();
+			nudNPCTeleport = new NumericUpDown();
+			label122 = new Label();
+			gbNPCEvents = new GroupBox();
+			nudNPCStarPoint = new NumericUpDown();
+			label126 = new Label();
+			nudNPCPuzzleQuest = new NumericUpDown();
+			label127 = new Label();
+			nudNPCWingQuest = new NumericUpDown();
+			label129 = new Label();
+			nudNPCEvent = new NumericUpDown();
+			label130 = new Label();
+			groupBox45 = new GroupBox();
+			ckbNPCSkillMaster = new CheckBox();
+			nudNPCChangeJob = new NumericUpDown();
+			groupBox44 = new GroupBox();
+			nudNPCLevel = new NumericUpDown();
+			label128 = new Label();
+			groupBox31 = new GroupBox();
+			nudNPCArrowPosMax = new NumericUpDown();
+			nudNPCArrowPosMin = new NumericUpDown();
+			label71 = new Label();
+			txtNPCModelEvent = new TextBox();
+			label72 = new Label();
+			cbbNPCShadowSize = new ComboBox();
+			label118 = new Label();
+			label119 = new Label();
+			nudNPCModelSize = new NumericUpDown();
+			txtNPCModelFile = new TextBox();
+			label120 = new Label();
 			groupBox7 = new GroupBox();
 			btnNPCBrowseZhoon = new Button();
 			txtNPCExternalFile = new TextBox();
@@ -412,9 +467,36 @@ namespace GameServer.Forms
 			label69 = new Label();
 			txtNPCName = new TextBox();
 			label70 = new Label();
-			txtNPCId = new TextBox();
-			label71 = new Label();
 			tabPage10 = new TabPage();
+			groupBox50 = new GroupBox();
+			lbNPCSellEtc = new ListBox();
+			toolStrip9 = new ToolStrip();
+			btnNPCEtcNew = new ToolStripButton();
+			btnNPCEtcDelete = new ToolStripButton();
+			btnNPCEtcCopy = new ToolStripButton();
+			btnNPCEtcEdit = new ToolStripButton();
+			groupBox49 = new GroupBox();
+			lbNPCSellDefense = new ListBox();
+			toolStrip8 = new ToolStrip();
+			btnNPCDefenseNew = new ToolStripButton();
+			btnNPCDefenseDelete = new ToolStripButton();
+			btnNPCDefenseCopy = new ToolStripButton();
+			btnNPCDefenseEdit = new ToolStripButton();
+			groupBox48 = new GroupBox();
+			lbNPCSellAttack = new ListBox();
+			toolStrip7 = new ToolStrip();
+			btnNPCAttackNew = new ToolStripButton();
+			btnNPCAttackDelete = new ToolStripButton();
+			btnNPCAttackCopy = new ToolStripButton();
+			btnNPCAttackEdit = new ToolStripButton();
+			tabPage15 = new TabPage();
+			groupBox29 = new GroupBox();
+			lbNPCChat = new ListBox();
+			toolStrip6 = new ToolStrip();
+			btnNPCChatNew = new ToolStripButton();
+			btnNPCChatDelete = new ToolStripButton();
+			btnNPCChatCopy = new ToolStripButton();
+			btnNPCChatEdit = new ToolStripButton();
 			groupBox3 = new GroupBox();
 			lbNPCFiles = new ListBox();
 			toolStrip4 = new ToolStrip();
@@ -439,6 +521,8 @@ namespace GameServer.Forms
 			btnFieldFilesSave = new ToolStripButton();
 			btnFieldFilesOpenRaw = new ToolStripButton();
 			statusStrip1 = new StatusStrip();
+			nudMonsterElementalMagic = new NumericUpDown();
+			label135 = new Label();
 			menuStrip1.SuspendLayout();
 			tabControl1.SuspendLayout();
 			tabPage1.SuspendLayout();
@@ -626,11 +710,42 @@ namespace GameServer.Forms
 			gbNPCInformation.SuspendLayout();
 			tabControl4.SuspendLayout();
 			tabPage9.SuspendLayout();
+			groupBox47.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)nudNPCQuestClass).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudNPCQuestParam).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudNPCQuestCode).BeginInit();
+			groupBox46.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)nudNPCOpenCountMax).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudNPCOpenCountMin).BeginInit();
+			groupBox30.SuspendLayout();
+			gbNPCFuntions.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)nudNPCPolling).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudNPCTeleport).BeginInit();
+			gbNPCEvents.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)nudNPCStarPoint).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudNPCPuzzleQuest).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudNPCWingQuest).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudNPCEvent).BeginInit();
+			groupBox45.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)nudNPCChangeJob).BeginInit();
+			groupBox44.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)nudNPCLevel).BeginInit();
 			groupBox31.SuspendLayout();
-			groupBox29.SuspendLayout();
-			toolStrip6.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)nudNPCArrowPosMax).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudNPCArrowPosMin).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudNPCModelSize).BeginInit();
 			groupBox7.SuspendLayout();
 			groupBox8.SuspendLayout();
+			tabPage10.SuspendLayout();
+			groupBox50.SuspendLayout();
+			toolStrip9.SuspendLayout();
+			groupBox49.SuspendLayout();
+			toolStrip8.SuspendLayout();
+			groupBox48.SuspendLayout();
+			toolStrip7.SuspendLayout();
+			tabPage15.SuspendLayout();
+			groupBox29.SuspendLayout();
+			toolStrip6.SuspendLayout();
 			groupBox3.SuspendLayout();
 			toolStrip4.SuspendLayout();
 			tabPage4.SuspendLayout();
@@ -638,6 +753,7 @@ namespace GameServer.Forms
 			tabControl5.SuspendLayout();
 			groupBox4.SuspendLayout();
 			toolStrip5.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)nudMonsterElementalMagic).BeginInit();
 			SuspendLayout();
 			// 
 			// menuStrip1
@@ -679,9 +795,43 @@ namespace GameServer.Forms
 			// 
 			// helpToolStripMenuItem
 			// 
+			helpToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { miHelpOpenLocalFolder, miHelpOpenServerFolder, miHelpOpenClientFolder, toolStripSeparator3, miHelpAbout });
 			helpToolStripMenuItem.Name = "helpToolStripMenuItem";
 			helpToolStripMenuItem.Size = new Size(44, 20);
 			helpToolStripMenuItem.Text = "&Help";
+			// 
+			// miHelpOpenLocalFolder
+			// 
+			miHelpOpenLocalFolder.Name = "miHelpOpenLocalFolder";
+			miHelpOpenLocalFolder.Size = new Size(174, 22);
+			miHelpOpenLocalFolder.Text = "Open &Local Folder";
+			miHelpOpenLocalFolder.Click += miHelpOpenLocalFolder_Click;
+			// 
+			// miHelpOpenServerFolder
+			// 
+			miHelpOpenServerFolder.Name = "miHelpOpenServerFolder";
+			miHelpOpenServerFolder.Size = new Size(174, 22);
+			miHelpOpenServerFolder.Text = "Open &Server Folder";
+			miHelpOpenServerFolder.Click += miHelpOpenServerFolder_Click;
+			// 
+			// miHelpOpenClientFolder
+			// 
+			miHelpOpenClientFolder.Name = "miHelpOpenClientFolder";
+			miHelpOpenClientFolder.Size = new Size(174, 22);
+			miHelpOpenClientFolder.Text = "Open &Client Folder";
+			miHelpOpenClientFolder.Click += miHelpOpenClientFolder_Click;
+			// 
+			// toolStripSeparator3
+			// 
+			toolStripSeparator3.Name = "toolStripSeparator3";
+			toolStripSeparator3.Size = new Size(171, 6);
+			// 
+			// miHelpAbout
+			// 
+			miHelpAbout.Name = "miHelpAbout";
+			miHelpAbout.Size = new Size(174, 22);
+			miHelpAbout.Text = "&About";
+			miHelpAbout.Click += miHelpAbout_Click;
 			// 
 			// toolStrip1
 			// 
@@ -1175,7 +1325,7 @@ namespace GameServer.Forms
 			groupBox15.Controls.Add(label21);
 			groupBox15.Location = new Point(16, 122);
 			groupBox15.Name = "groupBox15";
-			groupBox15.Size = new Size(224, 187);
+			groupBox15.Size = new Size(224, 180);
 			groupBox15.TabIndex = 33;
 			groupBox15.TabStop = false;
 			groupBox15.Text = "Magic Resistance";
@@ -2895,6 +3045,8 @@ namespace GameServer.Forms
 			// 
 			// groupBox38
 			// 
+			groupBox38.Controls.Add(nudMonsterElementalMagic);
+			groupBox38.Controls.Add(label135);
 			groupBox38.Controls.Add(nudMonsterElementalPoison);
 			groupBox38.Controls.Add(label97);
 			groupBox38.Controls.Add(nudMonsterElementalLightning);
@@ -2907,14 +3059,14 @@ namespace GameServer.Forms
 			groupBox38.Controls.Add(label101);
 			groupBox38.Location = new Point(16, 152);
 			groupBox38.Name = "groupBox38";
-			groupBox38.Size = new Size(224, 187);
+			groupBox38.Size = new Size(224, 190);
 			groupBox38.TabIndex = 33;
 			groupBox38.TabStop = false;
 			groupBox38.Text = "Magic Resistance";
 			// 
 			// nudMonsterElementalPoison
 			// 
-			nudMonsterElementalPoison.Location = new Point(80, 146);
+			nudMonsterElementalPoison.Location = new Point(80, 133);
 			nudMonsterElementalPoison.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
 			nudMonsterElementalPoison.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
 			nudMonsterElementalPoison.Name = "nudMonsterElementalPoison";
@@ -2925,7 +3077,7 @@ namespace GameServer.Forms
 			// label97
 			// 
 			label97.AutoSize = true;
-			label97.Location = new Point(16, 148);
+			label97.Location = new Point(16, 135);
 			label97.Name = "label97";
 			label97.Size = new Size(43, 15);
 			label97.TabIndex = 34;
@@ -2933,7 +3085,7 @@ namespace GameServer.Forms
 			// 
 			// nudMonsterElementalLightning
 			// 
-			nudMonsterElementalLightning.Location = new Point(80, 117);
+			nudMonsterElementalLightning.Location = new Point(80, 106);
 			nudMonsterElementalLightning.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
 			nudMonsterElementalLightning.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
 			nudMonsterElementalLightning.Name = "nudMonsterElementalLightning";
@@ -2944,7 +3096,7 @@ namespace GameServer.Forms
 			// label98
 			// 
 			label98.AutoSize = true;
-			label98.Location = new Point(16, 119);
+			label98.Location = new Point(16, 108);
 			label98.Name = "label98";
 			label98.Size = new Size(58, 15);
 			label98.TabIndex = 32;
@@ -2952,7 +3104,7 @@ namespace GameServer.Forms
 			// 
 			// nudMonsterElementalIce
 			// 
-			nudMonsterElementalIce.Location = new Point(80, 88);
+			nudMonsterElementalIce.Location = new Point(80, 79);
 			nudMonsterElementalIce.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
 			nudMonsterElementalIce.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
 			nudMonsterElementalIce.Name = "nudMonsterElementalIce";
@@ -2963,7 +3115,7 @@ namespace GameServer.Forms
 			// label99
 			// 
 			label99.AutoSize = true;
-			label99.Location = new Point(16, 90);
+			label99.Location = new Point(16, 81);
 			label99.Name = "label99";
 			label99.Size = new Size(22, 15);
 			label99.TabIndex = 30;
@@ -2971,7 +3123,7 @@ namespace GameServer.Forms
 			// 
 			// nudMonsterElementalFire
 			// 
-			nudMonsterElementalFire.Location = new Point(80, 59);
+			nudMonsterElementalFire.Location = new Point(80, 51);
 			nudMonsterElementalFire.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
 			nudMonsterElementalFire.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
 			nudMonsterElementalFire.Name = "nudMonsterElementalFire";
@@ -2982,7 +3134,7 @@ namespace GameServer.Forms
 			// label100
 			// 
 			label100.AutoSize = true;
-			label100.Location = new Point(16, 61);
+			label100.Location = new Point(16, 53);
 			label100.Name = "label100";
 			label100.Size = new Size(26, 15);
 			label100.TabIndex = 28;
@@ -2990,7 +3142,7 @@ namespace GameServer.Forms
 			// 
 			// nudMonsterElementalOrganic
 			// 
-			nudMonsterElementalOrganic.Location = new Point(80, 30);
+			nudMonsterElementalOrganic.Location = new Point(80, 24);
 			nudMonsterElementalOrganic.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
 			nudMonsterElementalOrganic.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
 			nudMonsterElementalOrganic.Name = "nudMonsterElementalOrganic";
@@ -3001,7 +3153,7 @@ namespace GameServer.Forms
 			// label101
 			// 
 			label101.AutoSize = true;
-			label101.Location = new Point(16, 32);
+			label101.Location = new Point(16, 26);
 			label101.Name = "label101";
 			label101.Size = new Size(49, 15);
 			label101.TabIndex = 26;
@@ -3986,7 +4138,7 @@ namespace GameServer.Forms
 			groupBox41.Size = new Size(256, 122);
 			groupBox41.TabIndex = 11;
 			groupBox41.TabStop = false;
-			groupBox41.Text = "Event";
+			groupBox41.Text = "Quest Items";
 			// 
 			// label111
 			// 
@@ -4215,6 +4367,7 @@ namespace GameServer.Forms
 			// 
 			tabControl4.Controls.Add(tabPage9);
 			tabControl4.Controls.Add(tabPage10);
+			tabControl4.Controls.Add(tabPage15);
 			tabControl4.Dock = DockStyle.Fill;
 			tabControl4.Location = new Point(3, 19);
 			tabControl4.Name = "tabControl4";
@@ -4224,9 +4377,14 @@ namespace GameServer.Forms
 			// 
 			// tabPage9
 			// 
-			tabPage9.Controls.Add(groupBox31);
+			tabPage9.Controls.Add(groupBox47);
+			tabPage9.Controls.Add(groupBox46);
 			tabPage9.Controls.Add(groupBox30);
-			tabPage9.Controls.Add(groupBox29);
+			tabPage9.Controls.Add(gbNPCFuntions);
+			tabPage9.Controls.Add(gbNPCEvents);
+			tabPage9.Controls.Add(groupBox45);
+			tabPage9.Controls.Add(groupBox44);
+			tabPage9.Controls.Add(groupBox31);
 			tabPage9.Controls.Add(groupBox7);
 			tabPage9.Controls.Add(groupBox8);
 			tabPage9.Location = new Point(4, 24);
@@ -4234,114 +4392,623 @@ namespace GameServer.Forms
 			tabPage9.Padding = new Padding(3);
 			tabPage9.Size = new Size(954, 536);
 			tabPage9.TabIndex = 0;
-			tabPage9.Text = "Page 1";
+			tabPage9.Text = "General";
 			tabPage9.UseVisualStyleBackColor = true;
+			// 
+			// groupBox47
+			// 
+			groupBox47.Controls.Add(nudNPCQuestClass);
+			groupBox47.Controls.Add(label121);
+			groupBox47.Controls.Add(nudNPCQuestParam);
+			groupBox47.Controls.Add(label131);
+			groupBox47.Controls.Add(nudNPCQuestCode);
+			groupBox47.Controls.Add(label132);
+			groupBox47.Location = new Point(532, 241);
+			groupBox47.Name = "groupBox47";
+			groupBox47.Size = new Size(256, 122);
+			groupBox47.TabIndex = 108;
+			groupBox47.TabStop = false;
+			groupBox47.Text = "Quests";
+			// 
+			// nudNPCQuestClass
+			// 
+			nudNPCQuestClass.Location = new Point(80, 88);
+			nudNPCQuestClass.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+			nudNPCQuestClass.Name = "nudNPCQuestClass";
+			nudNPCQuestClass.Size = new Size(160, 23);
+			nudNPCQuestClass.TabIndex = 33;
+			nudNPCQuestClass.ThousandsSeparator = true;
+			// 
+			// label121
+			// 
+			label121.AutoSize = true;
+			label121.Location = new Point(16, 90);
+			label121.Name = "label121";
+			label121.Size = new Size(34, 15);
+			label121.TabIndex = 34;
+			label121.Text = "Class";
+			// 
+			// nudNPCQuestParam
+			// 
+			nudNPCQuestParam.Location = new Point(80, 59);
+			nudNPCQuestParam.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+			nudNPCQuestParam.Name = "nudNPCQuestParam";
+			nudNPCQuestParam.Size = new Size(160, 23);
+			nudNPCQuestParam.TabIndex = 11;
+			nudNPCQuestParam.ThousandsSeparator = true;
+			// 
+			// label131
+			// 
+			label131.AutoSize = true;
+			label131.Location = new Point(16, 61);
+			label131.Name = "label131";
+			label131.Size = new Size(41, 15);
+			label131.TabIndex = 32;
+			label131.Text = "Param";
+			// 
+			// nudNPCQuestCode
+			// 
+			nudNPCQuestCode.Location = new Point(80, 30);
+			nudNPCQuestCode.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+			nudNPCQuestCode.Name = "nudNPCQuestCode";
+			nudNPCQuestCode.Size = new Size(160, 23);
+			nudNPCQuestCode.TabIndex = 10;
+			nudNPCQuestCode.ThousandsSeparator = true;
+			// 
+			// label132
+			// 
+			label132.AutoSize = true;
+			label132.Location = new Point(16, 32);
+			label132.Name = "label132";
+			label132.Size = new Size(35, 15);
+			label132.TabIndex = 30;
+			label132.Text = "Code";
+			// 
+			// groupBox46
+			// 
+			groupBox46.Controls.Add(nudNPCOpenCountMax);
+			groupBox46.Controls.Add(nudNPCOpenCountMin);
+			groupBox46.Controls.Add(label134);
+			groupBox46.Location = new Point(532, 171);
+			groupBox46.Name = "groupBox46";
+			groupBox46.Size = new Size(256, 64);
+			groupBox46.TabIndex = 107;
+			groupBox46.TabStop = false;
+			groupBox46.Text = "OpenCount";
+			// 
+			// nudNPCOpenCountMax
+			// 
+			nudNPCOpenCountMax.Location = new Point(168, 30);
+			nudNPCOpenCountMax.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+			nudNPCOpenCountMax.Name = "nudNPCOpenCountMax";
+			nudNPCOpenCountMax.Size = new Size(72, 23);
+			nudNPCOpenCountMax.TabIndex = 40;
+			nudNPCOpenCountMax.ThousandsSeparator = true;
+			// 
+			// nudNPCOpenCountMin
+			// 
+			nudNPCOpenCountMin.Location = new Point(80, 30);
+			nudNPCOpenCountMin.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+			nudNPCOpenCountMin.Name = "nudNPCOpenCountMin";
+			nudNPCOpenCountMin.Size = new Size(72, 23);
+			nudNPCOpenCountMin.TabIndex = 39;
+			nudNPCOpenCountMin.ThousandsSeparator = true;
+			// 
+			// label134
+			// 
+			label134.AutoSize = true;
+			label134.Location = new Point(16, 32);
+			label134.Name = "label134";
+			label134.Size = new Size(40, 15);
+			label134.TabIndex = 44;
+			label134.Text = "Count";
+			// 
+			// groupBox30
+			// 
+			groupBox30.Controls.Add(txtNPCMediaPlayPath);
+			groupBox30.Controls.Add(label123);
+			groupBox30.Controls.Add(txtNPCMediaPlayTitle);
+			groupBox30.Controls.Add(label125);
+			groupBox30.Location = new Point(270, 437);
+			groupBox30.Name = "groupBox30";
+			groupBox30.Size = new Size(256, 92);
+			groupBox30.TabIndex = 106;
+			groupBox30.TabStop = false;
+			groupBox30.Text = "Video";
+			// 
+			// txtNPCMediaPlayPath
+			// 
+			txtNPCMediaPlayPath.Location = new Point(80, 58);
+			txtNPCMediaPlayPath.Name = "txtNPCMediaPlayPath";
+			txtNPCMediaPlayPath.Size = new Size(160, 23);
+			txtNPCMediaPlayPath.TabIndex = 3;
+			// 
+			// label123
+			// 
+			label123.AutoSize = true;
+			label123.Location = new Point(16, 61);
+			label123.Name = "label123";
+			label123.Size = new Size(31, 15);
+			label123.TabIndex = 4;
+			label123.Text = "Path";
+			// 
+			// txtNPCMediaPlayTitle
+			// 
+			txtNPCMediaPlayTitle.Location = new Point(80, 29);
+			txtNPCMediaPlayTitle.Name = "txtNPCMediaPlayTitle";
+			txtNPCMediaPlayTitle.Size = new Size(160, 23);
+			txtNPCMediaPlayTitle.TabIndex = 2;
+			// 
+			// label125
+			// 
+			label125.AutoSize = true;
+			label125.Location = new Point(16, 32);
+			label125.Name = "label125";
+			label125.Size = new Size(29, 15);
+			label125.TabIndex = 2;
+			label125.Text = "Title";
+			// 
+			// gbNPCFuntions
+			// 
+			gbNPCFuntions.Controls.Add(rbNPCBlessCastleMaster);
+			gbNPCFuntions.Controls.Add(rbNPCDonationBox);
+			gbNPCFuntions.Controls.Add(rbNPCItemDistributor);
+			gbNPCFuntions.Controls.Add(rbNPCClanMaster);
+			gbNPCFuntions.Controls.Add(rbNPCEventGirl);
+			gbNPCFuntions.Controls.Add(rbNPCSODManager);
+			gbNPCFuntions.Controls.Add(rbNPCMixtureResetMaster);
+			gbNPCFuntions.Controls.Add(rbNPCItemAgingMaster);
+			gbNPCFuntions.Controls.Add(rbNPCManufactureMaster);
+			gbNPCFuntions.Controls.Add(rbNPCSmeltingMaster);
+			gbNPCFuntions.Controls.Add(rbNPCForceMaster);
+			gbNPCFuntions.Controls.Add(rbNPCItemMixMaster);
+			gbNPCFuntions.Controls.Add(rbNPCWarehouseMaster);
+			gbNPCFuntions.Controls.Add(nudNPCPolling);
+			gbNPCFuntions.Controls.Add(label124);
+			gbNPCFuntions.Controls.Add(nudNPCTeleport);
+			gbNPCFuntions.Controls.Add(label122);
+			gbNPCFuntions.Location = new Point(270, 12);
+			gbNPCFuntions.Name = "gbNPCFuntions";
+			gbNPCFuntions.Size = new Size(256, 422);
+			gbNPCFuntions.TabIndex = 105;
+			gbNPCFuntions.TabStop = false;
+			gbNPCFuntions.Text = "Function";
+			// 
+			// rbNPCBlessCastleMaster
+			// 
+			rbNPCBlessCastleMaster.AutoSize = true;
+			rbNPCBlessCastleMaster.Location = new Point(16, 332);
+			rbNPCBlessCastleMaster.Name = "rbNPCBlessCastleMaster";
+			rbNPCBlessCastleMaster.Size = new Size(125, 19);
+			rbNPCBlessCastleMaster.TabIndex = 72;
+			rbNPCBlessCastleMaster.TabStop = true;
+			rbNPCBlessCastleMaster.Text = "Bless Castle Master";
+			rbNPCBlessCastleMaster.UseVisualStyleBackColor = true;
+			// 
+			// rbNPCDonationBox
+			// 
+			rbNPCDonationBox.AutoSize = true;
+			rbNPCDonationBox.Location = new Point(16, 307);
+			rbNPCDonationBox.Name = "rbNPCDonationBox";
+			rbNPCDonationBox.Size = new Size(97, 19);
+			rbNPCDonationBox.TabIndex = 71;
+			rbNPCDonationBox.TabStop = true;
+			rbNPCDonationBox.Text = "Donation Box";
+			rbNPCDonationBox.UseVisualStyleBackColor = true;
+			// 
+			// rbNPCItemDistributor
+			// 
+			rbNPCItemDistributor.AutoSize = true;
+			rbNPCItemDistributor.Location = new Point(16, 282);
+			rbNPCItemDistributor.Name = "rbNPCItemDistributor";
+			rbNPCItemDistributor.Size = new Size(108, 19);
+			rbNPCItemDistributor.TabIndex = 70;
+			rbNPCItemDistributor.TabStop = true;
+			rbNPCItemDistributor.Text = "Item Distributor";
+			rbNPCItemDistributor.UseVisualStyleBackColor = true;
+			// 
+			// rbNPCClanMaster
+			// 
+			rbNPCClanMaster.AutoSize = true;
+			rbNPCClanMaster.Location = new Point(16, 257);
+			rbNPCClanMaster.Name = "rbNPCClanMaster";
+			rbNPCClanMaster.Size = new Size(88, 19);
+			rbNPCClanMaster.TabIndex = 69;
+			rbNPCClanMaster.TabStop = true;
+			rbNPCClanMaster.Text = "Clan Master";
+			rbNPCClanMaster.UseVisualStyleBackColor = true;
+			// 
+			// rbNPCEventGirl
+			// 
+			rbNPCEventGirl.AutoSize = true;
+			rbNPCEventGirl.Location = new Point(16, 232);
+			rbNPCEventGirl.Name = "rbNPCEventGirl";
+			rbNPCEventGirl.Size = new Size(75, 19);
+			rbNPCEventGirl.TabIndex = 68;
+			rbNPCEventGirl.TabStop = true;
+			rbNPCEventGirl.Text = "Event Girl";
+			rbNPCEventGirl.UseVisualStyleBackColor = true;
+			// 
+			// rbNPCSODManager
+			// 
+			rbNPCSODManager.AutoSize = true;
+			rbNPCSODManager.Location = new Point(16, 207);
+			rbNPCSODManager.Name = "rbNPCSODManager";
+			rbNPCSODManager.Size = new Size(98, 19);
+			rbNPCSODManager.TabIndex = 67;
+			rbNPCSODManager.TabStop = true;
+			rbNPCSODManager.Text = "SOD Manager";
+			rbNPCSODManager.UseVisualStyleBackColor = true;
+			// 
+			// rbNPCMixtureResetMaster
+			// 
+			rbNPCMixtureResetMaster.AutoSize = true;
+			rbNPCMixtureResetMaster.Location = new Point(16, 182);
+			rbNPCMixtureResetMaster.Name = "rbNPCMixtureResetMaster";
+			rbNPCMixtureResetMaster.Size = new Size(136, 19);
+			rbNPCMixtureResetMaster.TabIndex = 66;
+			rbNPCMixtureResetMaster.TabStop = true;
+			rbNPCMixtureResetMaster.Text = "Mixture Reset Master";
+			rbNPCMixtureResetMaster.UseVisualStyleBackColor = true;
+			// 
+			// rbNPCItemAgingMaster
+			// 
+			rbNPCItemAgingMaster.AutoSize = true;
+			rbNPCItemAgingMaster.Location = new Point(16, 157);
+			rbNPCItemAgingMaster.Name = "rbNPCItemAgingMaster";
+			rbNPCItemAgingMaster.Size = new Size(123, 19);
+			rbNPCItemAgingMaster.TabIndex = 65;
+			rbNPCItemAgingMaster.TabStop = true;
+			rbNPCItemAgingMaster.Text = "Item Aging Master";
+			rbNPCItemAgingMaster.UseVisualStyleBackColor = true;
+			// 
+			// rbNPCManufactureMaster
+			// 
+			rbNPCManufactureMaster.AutoSize = true;
+			rbNPCManufactureMaster.Location = new Point(16, 132);
+			rbNPCManufactureMaster.Name = "rbNPCManufactureMaster";
+			rbNPCManufactureMaster.Size = new Size(132, 19);
+			rbNPCManufactureMaster.TabIndex = 64;
+			rbNPCManufactureMaster.TabStop = true;
+			rbNPCManufactureMaster.Text = "Manufacture Master";
+			rbNPCManufactureMaster.UseVisualStyleBackColor = true;
+			// 
+			// rbNPCSmeltingMaster
+			// 
+			rbNPCSmeltingMaster.AutoSize = true;
+			rbNPCSmeltingMaster.Location = new Point(16, 107);
+			rbNPCSmeltingMaster.Name = "rbNPCSmeltingMaster";
+			rbNPCSmeltingMaster.Size = new Size(111, 19);
+			rbNPCSmeltingMaster.TabIndex = 63;
+			rbNPCSmeltingMaster.TabStop = true;
+			rbNPCSmeltingMaster.Text = "Smelting Master";
+			rbNPCSmeltingMaster.UseVisualStyleBackColor = true;
+			// 
+			// rbNPCForceMaster
+			// 
+			rbNPCForceMaster.AutoSize = true;
+			rbNPCForceMaster.Location = new Point(16, 82);
+			rbNPCForceMaster.Name = "rbNPCForceMaster";
+			rbNPCForceMaster.Size = new Size(93, 19);
+			rbNPCForceMaster.TabIndex = 62;
+			rbNPCForceMaster.TabStop = true;
+			rbNPCForceMaster.Text = "Force Master";
+			rbNPCForceMaster.UseVisualStyleBackColor = true;
+			// 
+			// rbNPCItemMixMaster
+			// 
+			rbNPCItemMixMaster.AutoSize = true;
+			rbNPCItemMixMaster.Location = new Point(16, 57);
+			rbNPCItemMixMaster.Name = "rbNPCItemMixMaster";
+			rbNPCItemMixMaster.Size = new Size(111, 19);
+			rbNPCItemMixMaster.TabIndex = 61;
+			rbNPCItemMixMaster.TabStop = true;
+			rbNPCItemMixMaster.Text = "Item Mix Master";
+			rbNPCItemMixMaster.UseVisualStyleBackColor = true;
+			// 
+			// rbNPCWarehouseMaster
+			// 
+			rbNPCWarehouseMaster.Location = new Point(16, 32);
+			rbNPCWarehouseMaster.Name = "rbNPCWarehouseMaster";
+			rbNPCWarehouseMaster.Size = new Size(125, 19);
+			rbNPCWarehouseMaster.TabIndex = 60;
+			rbNPCWarehouseMaster.TabStop = true;
+			rbNPCWarehouseMaster.Text = "Warehouse Master";
+			rbNPCWarehouseMaster.UseVisualStyleBackColor = true;
+			// 
+			// nudNPCPolling
+			// 
+			nudNPCPolling.Location = new Point(80, 390);
+			nudNPCPolling.Name = "nudNPCPolling";
+			nudNPCPolling.Size = new Size(160, 23);
+			nudNPCPolling.TabIndex = 57;
+			nudNPCPolling.ThousandsSeparator = true;
+			// 
+			// label124
+			// 
+			label124.AutoSize = true;
+			label124.Location = new Point(16, 392);
+			label124.Name = "label124";
+			label124.Size = new Size(44, 15);
+			label124.TabIndex = 58;
+			label124.Text = "Polling";
+			// 
+			// nudNPCTeleport
+			// 
+			nudNPCTeleport.Location = new Point(80, 361);
+			nudNPCTeleport.Name = "nudNPCTeleport";
+			nudNPCTeleport.Size = new Size(160, 23);
+			nudNPCTeleport.TabIndex = 53;
+			nudNPCTeleport.ThousandsSeparator = true;
+			// 
+			// label122
+			// 
+			label122.AutoSize = true;
+			label122.Location = new Point(16, 363);
+			label122.Name = "label122";
+			label122.Size = new Size(49, 15);
+			label122.TabIndex = 54;
+			label122.Text = "Teleport";
+			// 
+			// gbNPCEvents
+			// 
+			gbNPCEvents.Controls.Add(nudNPCStarPoint);
+			gbNPCEvents.Controls.Add(label126);
+			gbNPCEvents.Controls.Add(nudNPCPuzzleQuest);
+			gbNPCEvents.Controls.Add(label127);
+			gbNPCEvents.Controls.Add(nudNPCWingQuest);
+			gbNPCEvents.Controls.Add(label129);
+			gbNPCEvents.Controls.Add(nudNPCEvent);
+			gbNPCEvents.Controls.Add(label130);
+			gbNPCEvents.Location = new Point(532, 12);
+			gbNPCEvents.Name = "gbNPCEvents";
+			gbNPCEvents.Size = new Size(256, 153);
+			gbNPCEvents.TabIndex = 102;
+			gbNPCEvents.TabStop = false;
+			gbNPCEvents.Text = "Events";
+			// 
+			// nudNPCStarPoint
+			// 
+			nudNPCStarPoint.Location = new Point(80, 115);
+			nudNPCStarPoint.Name = "nudNPCStarPoint";
+			nudNPCStarPoint.Size = new Size(160, 23);
+			nudNPCStarPoint.TabIndex = 50;
+			nudNPCStarPoint.ThousandsSeparator = true;
+			// 
+			// label126
+			// 
+			label126.AutoSize = true;
+			label126.Location = new Point(16, 117);
+			label126.Name = "label126";
+			label126.Size = new Size(55, 15);
+			label126.TabIndex = 51;
+			label126.Text = "StarPoint";
+			// 
+			// nudNPCPuzzleQuest
+			// 
+			nudNPCPuzzleQuest.Location = new Point(80, 86);
+			nudNPCPuzzleQuest.Name = "nudNPCPuzzleQuest";
+			nudNPCPuzzleQuest.Size = new Size(160, 23);
+			nudNPCPuzzleQuest.TabIndex = 48;
+			nudNPCPuzzleQuest.ThousandsSeparator = true;
+			// 
+			// label127
+			// 
+			label127.AutoSize = true;
+			label127.Location = new Point(16, 88);
+			label127.Name = "label127";
+			label127.Size = new Size(40, 15);
+			label127.TabIndex = 49;
+			label127.Text = "Puzzle";
+			// 
+			// nudNPCWingQuest
+			// 
+			nudNPCWingQuest.Location = new Point(80, 57);
+			nudNPCWingQuest.Name = "nudNPCWingQuest";
+			nudNPCWingQuest.Size = new Size(160, 23);
+			nudNPCWingQuest.TabIndex = 46;
+			nudNPCWingQuest.ThousandsSeparator = true;
+			// 
+			// label129
+			// 
+			label129.AutoSize = true;
+			label129.Location = new Point(16, 59);
+			label129.Name = "label129";
+			label129.Size = new Size(35, 15);
+			label129.TabIndex = 47;
+			label129.Text = "Wing";
+			// 
+			// nudNPCEvent
+			// 
+			nudNPCEvent.Location = new Point(80, 30);
+			nudNPCEvent.Name = "nudNPCEvent";
+			nudNPCEvent.Size = new Size(160, 23);
+			nudNPCEvent.TabIndex = 33;
+			nudNPCEvent.ThousandsSeparator = true;
+			// 
+			// label130
+			// 
+			label130.AutoSize = true;
+			label130.Location = new Point(16, 32);
+			label130.Name = "label130";
+			label130.Size = new Size(36, 15);
+			label130.TabIndex = 34;
+			label130.Text = "Event";
+			// 
+			// groupBox45
+			// 
+			groupBox45.Controls.Add(ckbNPCSkillMaster);
+			groupBox45.Controls.Add(nudNPCChangeJob);
+			groupBox45.Location = new Point(8, 440);
+			groupBox45.Name = "groupBox45";
+			groupBox45.Size = new Size(256, 64);
+			groupBox45.TabIndex = 101;
+			groupBox45.TabStop = false;
+			groupBox45.Text = "Skill Master";
+			// 
+			// ckbNPCSkillMaster
+			// 
+			ckbNPCSkillMaster.AutoSize = true;
+			ckbNPCSkillMaster.Location = new Point(16, 32);
+			ckbNPCSkillMaster.Name = "ckbNPCSkillMaster";
+			ckbNPCSkillMaster.Size = new Size(86, 19);
+			ckbNPCSkillMaster.TabIndex = 33;
+			ckbNPCSkillMaster.Text = "Skill Master";
+			ckbNPCSkillMaster.UseVisualStyleBackColor = true;
+			// 
+			// nudNPCChangeJob
+			// 
+			nudNPCChangeJob.Location = new Point(108, 31);
+			nudNPCChangeJob.Name = "nudNPCChangeJob";
+			nudNPCChangeJob.Size = new Size(132, 23);
+			nudNPCChangeJob.TabIndex = 3;
+			nudNPCChangeJob.ThousandsSeparator = true;
+			// 
+			// groupBox44
+			// 
+			groupBox44.Controls.Add(nudNPCLevel);
+			groupBox44.Controls.Add(label128);
+			groupBox44.Location = new Point(8, 369);
+			groupBox44.Name = "groupBox44";
+			groupBox44.Size = new Size(256, 64);
+			groupBox44.TabIndex = 4;
+			groupBox44.TabStop = false;
+			groupBox44.Text = "States";
+			// 
+			// nudNPCLevel
+			// 
+			nudNPCLevel.Location = new Point(80, 30);
+			nudNPCLevel.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+			nudNPCLevel.Name = "nudNPCLevel";
+			nudNPCLevel.Size = new Size(160, 23);
+			nudNPCLevel.TabIndex = 12;
+			nudNPCLevel.ThousandsSeparator = true;
+			// 
+			// label128
+			// 
+			label128.AutoSize = true;
+			label128.Location = new Point(16, 32);
+			label128.Name = "label128";
+			label128.Size = new Size(34, 15);
+			label128.TabIndex = 28;
+			label128.Text = "Level";
 			// 
 			// groupBox31
 			// 
-			groupBox31.Controls.Add(txtNPCModelName);
+			groupBox31.Controls.Add(nudNPCArrowPosMax);
+			groupBox31.Controls.Add(nudNPCArrowPosMin);
+			groupBox31.Controls.Add(label71);
+			groupBox31.Controls.Add(txtNPCModelEvent);
 			groupBox31.Controls.Add(label72);
-			groupBox31.Location = new Point(8, 218);
+			groupBox31.Controls.Add(cbbNPCShadowSize);
+			groupBox31.Controls.Add(label118);
+			groupBox31.Controls.Add(label119);
+			groupBox31.Controls.Add(nudNPCModelSize);
+			groupBox31.Controls.Add(txtNPCModelFile);
+			groupBox31.Controls.Add(label120);
+			groupBox31.Location = new Point(8, 183);
 			groupBox31.Name = "groupBox31";
-			groupBox31.Size = new Size(256, 128);
-			groupBox31.TabIndex = 5;
+			groupBox31.Size = new Size(256, 180);
+			groupBox31.TabIndex = 3;
 			groupBox31.TabStop = false;
-			groupBox31.Text = "Appearance";
+			groupBox31.Text = "Appearance (3D Model Data)";
 			// 
-			// txtNPCModelName
+			// nudNPCArrowPosMax
 			// 
-			txtNPCModelName.Location = new Point(80, 29);
-			txtNPCModelName.Name = "txtNPCModelName";
-			txtNPCModelName.Size = new Size(160, 23);
-			txtNPCModelName.TabIndex = 3;
+			nudNPCArrowPosMax.Location = new Point(168, 146);
+			nudNPCArrowPosMax.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+			nudNPCArrowPosMax.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
+			nudNPCArrowPosMax.Name = "nudNPCArrowPosMax";
+			nudNPCArrowPosMax.Size = new Size(72, 23);
+			nudNPCArrowPosMax.TabIndex = 9;
+			nudNPCArrowPosMax.ThousandsSeparator = true;
+			// 
+			// nudNPCArrowPosMin
+			// 
+			nudNPCArrowPosMin.Location = new Point(80, 146);
+			nudNPCArrowPosMin.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+			nudNPCArrowPosMin.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
+			nudNPCArrowPosMin.Name = "nudNPCArrowPosMin";
+			nudNPCArrowPosMin.Size = new Size(72, 23);
+			nudNPCArrowPosMin.TabIndex = 8;
+			nudNPCArrowPosMin.ThousandsSeparator = true;
+			// 
+			// label71
+			// 
+			label71.AutoSize = true;
+			label71.Location = new Point(16, 148);
+			label71.Name = "label71";
+			label71.Size = new Size(61, 15);
+			label71.TabIndex = 35;
+			label71.Text = "Arrow Pos";
+			// 
+			// txtNPCModelEvent
+			// 
+			txtNPCModelEvent.Location = new Point(80, 117);
+			txtNPCModelEvent.Name = "txtNPCModelEvent";
+			txtNPCModelEvent.Size = new Size(160, 23);
+			txtNPCModelEvent.TabIndex = 7;
 			// 
 			// label72
 			// 
 			label72.AutoSize = true;
-			label72.Location = new Point(16, 32);
+			label72.Location = new Point(16, 120);
 			label72.Name = "label72";
-			label72.Size = new Size(41, 15);
-			label72.TabIndex = 4;
-			label72.Text = "Model";
+			label72.Size = new Size(57, 15);
+			label72.TabIndex = 33;
+			label72.Text = "Event File";
 			// 
-			// groupBox30
+			// cbbNPCShadowSize
 			// 
-			groupBox30.Location = new Point(270, 12);
-			groupBox30.Name = "groupBox30";
-			groupBox30.Size = new Size(256, 128);
-			groupBox30.TabIndex = 10;
-			groupBox30.TabStop = false;
-			groupBox30.Text = "groupBox30";
+			cbbNPCShadowSize.FormattingEnabled = true;
+			cbbNPCShadowSize.Location = new Point(80, 88);
+			cbbNPCShadowSize.Name = "cbbNPCShadowSize";
+			cbbNPCShadowSize.Size = new Size(160, 23);
+			cbbNPCShadowSize.TabIndex = 6;
 			// 
-			// groupBox29
+			// label118
 			// 
-			groupBox29.Controls.Add(lbNPCChat);
-			groupBox29.Controls.Add(toolStrip6);
-			groupBox29.Location = new Point(532, 12);
-			groupBox29.Name = "groupBox29";
-			groupBox29.Size = new Size(416, 512);
-			groupBox29.TabIndex = 3;
-			groupBox29.TabStop = false;
-			groupBox29.Text = "Chat";
+			label118.AutoSize = true;
+			label118.Location = new Point(16, 91);
+			label118.Name = "label118";
+			label118.Size = new Size(49, 15);
+			label118.TabIndex = 31;
+			label118.Text = "Shadow";
 			// 
-			// lbNPCChat
+			// label119
 			// 
-			lbNPCChat.Dock = DockStyle.Fill;
-			lbNPCChat.FormattingEnabled = true;
-			lbNPCChat.ItemHeight = 15;
-			lbNPCChat.Location = new Point(3, 44);
-			lbNPCChat.Name = "lbNPCChat";
-			lbNPCChat.Size = new Size(410, 465);
-			lbNPCChat.TabIndex = 2;
+			label119.AutoSize = true;
+			label119.Location = new Point(16, 61);
+			label119.Name = "label119";
+			label119.Size = new Size(27, 15);
+			label119.TabIndex = 30;
+			label119.Text = "Size";
 			// 
-			// toolStrip6
+			// nudNPCModelSize
 			// 
-			toolStrip6.Items.AddRange(new ToolStripItem[] { btnNPCChatNew, btnNPCChatDelete, btnNPCChatCopy, btnNPCChatEdit });
-			toolStrip6.Location = new Point(3, 19);
-			toolStrip6.Name = "toolStrip6";
-			toolStrip6.Size = new Size(410, 25);
-			toolStrip6.TabIndex = 1;
-			toolStrip6.Text = "toolStrip6";
+			nudNPCModelSize.DecimalPlaces = 1;
+			nudNPCModelSize.Location = new Point(80, 59);
+			nudNPCModelSize.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+			nudNPCModelSize.Name = "nudNPCModelSize";
+			nudNPCModelSize.Size = new Size(160, 23);
+			nudNPCModelSize.TabIndex = 5;
+			nudNPCModelSize.ThousandsSeparator = true;
 			// 
-			// btnNPCChatNew
+			// txtNPCModelFile
 			// 
-			btnNPCChatNew.DisplayStyle = ToolStripItemDisplayStyle.Image;
-			btnNPCChatNew.Image = Properties.Resources._2;
-			btnNPCChatNew.ImageTransparentColor = Color.Magenta;
-			btnNPCChatNew.Name = "btnNPCChatNew";
-			btnNPCChatNew.Size = new Size(23, 22);
-			btnNPCChatNew.Text = "New Text";
-			btnNPCChatNew.Click += btnNPCChatNew_Click;
+			txtNPCModelFile.Location = new Point(80, 30);
+			txtNPCModelFile.Name = "txtNPCModelFile";
+			txtNPCModelFile.Size = new Size(160, 23);
+			txtNPCModelFile.TabIndex = 4;
 			// 
-			// btnNPCChatDelete
+			// label120
 			// 
-			btnNPCChatDelete.DisplayStyle = ToolStripItemDisplayStyle.Image;
-			btnNPCChatDelete.Image = Properties.Resources._3;
-			btnNPCChatDelete.ImageTransparentColor = Color.Magenta;
-			btnNPCChatDelete.Name = "btnNPCChatDelete";
-			btnNPCChatDelete.Size = new Size(23, 22);
-			btnNPCChatDelete.Text = "Delete Text";
-			btnNPCChatDelete.Click += btnNPCChatDelete_Click;
-			// 
-			// btnNPCChatCopy
-			// 
-			btnNPCChatCopy.DisplayStyle = ToolStripItemDisplayStyle.Image;
-			btnNPCChatCopy.Image = Properties.Resources._4;
-			btnNPCChatCopy.ImageTransparentColor = Color.Magenta;
-			btnNPCChatCopy.Name = "btnNPCChatCopy";
-			btnNPCChatCopy.Size = new Size(23, 22);
-			btnNPCChatCopy.Text = "Copy Text";
-			btnNPCChatCopy.Click += btnNPCChatCopy_Click;
-			// 
-			// btnNPCChatEdit
-			// 
-			btnNPCChatEdit.DisplayStyle = ToolStripItemDisplayStyle.Image;
-			btnNPCChatEdit.Image = Properties.Resources._6;
-			btnNPCChatEdit.ImageTransparentColor = Color.Magenta;
-			btnNPCChatEdit.Name = "btnNPCChatEdit";
-			btnNPCChatEdit.Size = new Size(23, 22);
-			btnNPCChatEdit.Text = "Edit Text";
-			btnNPCChatEdit.Click += btnNPCChatEdit_Click;
+			label120.AutoSize = true;
+			label120.Location = new Point(16, 33);
+			label120.Name = "label120";
+			label120.Size = new Size(25, 15);
+			label120.TabIndex = 3;
+			label120.Text = "File";
 			// 
 			// groupBox7
 			// 
@@ -4387,18 +5054,16 @@ namespace GameServer.Forms
 			groupBox8.Controls.Add(label69);
 			groupBox8.Controls.Add(txtNPCName);
 			groupBox8.Controls.Add(label70);
-			groupBox8.Controls.Add(txtNPCId);
-			groupBox8.Controls.Add(label71);
 			groupBox8.Location = new Point(8, 84);
 			groupBox8.Name = "groupBox8";
-			groupBox8.Size = new Size(256, 128);
+			groupBox8.Size = new Size(256, 93);
 			groupBox8.TabIndex = 2;
 			groupBox8.TabStop = false;
 			groupBox8.Text = "Identity";
 			// 
 			// txtNPCServerName
 			// 
-			txtNPCServerName.Location = new Point(80, 87);
+			txtNPCServerName.Location = new Point(80, 58);
 			txtNPCServerName.Name = "txtNPCServerName";
 			txtNPCServerName.Size = new Size(160, 23);
 			txtNPCServerName.TabIndex = 3;
@@ -4406,7 +5071,7 @@ namespace GameServer.Forms
 			// label69
 			// 
 			label69.AutoSize = true;
-			label69.Location = new Point(16, 90);
+			label69.Location = new Point(16, 61);
 			label69.Name = "label69";
 			label69.Size = new Size(48, 15);
 			label69.TabIndex = 4;
@@ -4414,7 +5079,7 @@ namespace GameServer.Forms
 			// 
 			// txtNPCName
 			// 
-			txtNPCName.Location = new Point(80, 58);
+			txtNPCName.Location = new Point(80, 29);
 			txtNPCName.Name = "txtNPCName";
 			txtNPCName.Size = new Size(160, 23);
 			txtNPCName.TabIndex = 2;
@@ -4422,37 +5087,311 @@ namespace GameServer.Forms
 			// label70
 			// 
 			label70.AutoSize = true;
-			label70.Location = new Point(16, 61);
+			label70.Location = new Point(16, 32);
 			label70.Name = "label70";
 			label70.Size = new Size(39, 15);
 			label70.TabIndex = 2;
 			label70.Text = "Name";
 			// 
-			// txtNPCId
-			// 
-			txtNPCId.Location = new Point(80, 29);
-			txtNPCId.Name = "txtNPCId";
-			txtNPCId.Size = new Size(160, 23);
-			txtNPCId.TabIndex = 1;
-			// 
-			// label71
-			// 
-			label71.AutoSize = true;
-			label71.Location = new Point(16, 32);
-			label71.Name = "label71";
-			label71.Size = new Size(17, 15);
-			label71.TabIndex = 0;
-			label71.Text = "Id";
-			// 
 			// tabPage10
 			// 
+			tabPage10.Controls.Add(groupBox50);
+			tabPage10.Controls.Add(groupBox49);
+			tabPage10.Controls.Add(groupBox48);
 			tabPage10.Location = new Point(4, 24);
 			tabPage10.Name = "tabPage10";
 			tabPage10.Padding = new Padding(3);
 			tabPage10.Size = new Size(954, 536);
 			tabPage10.TabIndex = 1;
-			tabPage10.Text = "Page 2";
+			tabPage10.Text = "Merchants";
 			tabPage10.UseVisualStyleBackColor = true;
+			// 
+			// groupBox50
+			// 
+			groupBox50.Controls.Add(lbNPCSellEtc);
+			groupBox50.Controls.Add(toolStrip9);
+			groupBox50.Location = new Point(636, 16);
+			groupBox50.Name = "groupBox50";
+			groupBox50.Size = new Size(312, 509);
+			groupBox50.TabIndex = 7;
+			groupBox50.TabStop = false;
+			groupBox50.Text = "Sell Etc";
+			// 
+			// lbNPCSellEtc
+			// 
+			lbNPCSellEtc.Dock = DockStyle.Fill;
+			lbNPCSellEtc.FormattingEnabled = true;
+			lbNPCSellEtc.ItemHeight = 15;
+			lbNPCSellEtc.Location = new Point(3, 44);
+			lbNPCSellEtc.Name = "lbNPCSellEtc";
+			lbNPCSellEtc.Size = new Size(306, 462);
+			lbNPCSellEtc.TabIndex = 4;
+			// 
+			// toolStrip9
+			// 
+			toolStrip9.Items.AddRange(new ToolStripItem[] { btnNPCEtcNew, btnNPCEtcDelete, btnNPCEtcCopy, btnNPCEtcEdit });
+			toolStrip9.Location = new Point(3, 19);
+			toolStrip9.Name = "toolStrip9";
+			toolStrip9.Size = new Size(306, 25);
+			toolStrip9.TabIndex = 3;
+			toolStrip9.Text = "toolStrip9";
+			// 
+			// btnNPCEtcNew
+			// 
+			btnNPCEtcNew.DisplayStyle = ToolStripItemDisplayStyle.Image;
+			btnNPCEtcNew.Image = Properties.Resources._2;
+			btnNPCEtcNew.ImageTransparentColor = Color.Magenta;
+			btnNPCEtcNew.Name = "btnNPCEtcNew";
+			btnNPCEtcNew.Size = new Size(23, 22);
+			btnNPCEtcNew.Text = "New Text";
+			btnNPCEtcNew.Click += btnNPCEtcNew_Click;
+			// 
+			// btnNPCEtcDelete
+			// 
+			btnNPCEtcDelete.DisplayStyle = ToolStripItemDisplayStyle.Image;
+			btnNPCEtcDelete.Image = Properties.Resources._3;
+			btnNPCEtcDelete.ImageTransparentColor = Color.Magenta;
+			btnNPCEtcDelete.Name = "btnNPCEtcDelete";
+			btnNPCEtcDelete.Size = new Size(23, 22);
+			btnNPCEtcDelete.Text = "Delete Text";
+			btnNPCEtcDelete.Click += btnNPCEtcDelete_Click;
+			// 
+			// btnNPCEtcCopy
+			// 
+			btnNPCEtcCopy.DisplayStyle = ToolStripItemDisplayStyle.Image;
+			btnNPCEtcCopy.Image = Properties.Resources._4;
+			btnNPCEtcCopy.ImageTransparentColor = Color.Magenta;
+			btnNPCEtcCopy.Name = "btnNPCEtcCopy";
+			btnNPCEtcCopy.Size = new Size(23, 22);
+			btnNPCEtcCopy.Text = "Copy Text";
+			btnNPCEtcCopy.Click += btnNPCEtcCopy_Click;
+			// 
+			// btnNPCEtcEdit
+			// 
+			btnNPCEtcEdit.DisplayStyle = ToolStripItemDisplayStyle.Image;
+			btnNPCEtcEdit.Image = Properties.Resources._6;
+			btnNPCEtcEdit.ImageTransparentColor = Color.Magenta;
+			btnNPCEtcEdit.Name = "btnNPCEtcEdit";
+			btnNPCEtcEdit.Size = new Size(23, 22);
+			btnNPCEtcEdit.Text = "Edit Text";
+			btnNPCEtcEdit.Click += btnNPCEtcEdit_Click;
+			// 
+			// groupBox49
+			// 
+			groupBox49.Controls.Add(lbNPCSellDefense);
+			groupBox49.Controls.Add(toolStrip8);
+			groupBox49.Location = new Point(321, 16);
+			groupBox49.Name = "groupBox49";
+			groupBox49.Size = new Size(312, 509);
+			groupBox49.TabIndex = 6;
+			groupBox49.TabStop = false;
+			groupBox49.Text = "Sell Defense";
+			// 
+			// lbNPCSellDefense
+			// 
+			lbNPCSellDefense.Dock = DockStyle.Fill;
+			lbNPCSellDefense.FormattingEnabled = true;
+			lbNPCSellDefense.ItemHeight = 15;
+			lbNPCSellDefense.Location = new Point(3, 44);
+			lbNPCSellDefense.Name = "lbNPCSellDefense";
+			lbNPCSellDefense.Size = new Size(306, 462);
+			lbNPCSellDefense.TabIndex = 4;
+			// 
+			// toolStrip8
+			// 
+			toolStrip8.Items.AddRange(new ToolStripItem[] { btnNPCDefenseNew, btnNPCDefenseDelete, btnNPCDefenseCopy, btnNPCDefenseEdit });
+			toolStrip8.Location = new Point(3, 19);
+			toolStrip8.Name = "toolStrip8";
+			toolStrip8.Size = new Size(306, 25);
+			toolStrip8.TabIndex = 3;
+			toolStrip8.Text = "toolStrip8";
+			// 
+			// btnNPCDefenseNew
+			// 
+			btnNPCDefenseNew.DisplayStyle = ToolStripItemDisplayStyle.Image;
+			btnNPCDefenseNew.Image = Properties.Resources._2;
+			btnNPCDefenseNew.ImageTransparentColor = Color.Magenta;
+			btnNPCDefenseNew.Name = "btnNPCDefenseNew";
+			btnNPCDefenseNew.Size = new Size(23, 22);
+			btnNPCDefenseNew.Text = "New Text";
+			btnNPCDefenseNew.Click += btnNPCDefenseNew_Click;
+			// 
+			// btnNPCDefenseDelete
+			// 
+			btnNPCDefenseDelete.DisplayStyle = ToolStripItemDisplayStyle.Image;
+			btnNPCDefenseDelete.Image = Properties.Resources._3;
+			btnNPCDefenseDelete.ImageTransparentColor = Color.Magenta;
+			btnNPCDefenseDelete.Name = "btnNPCDefenseDelete";
+			btnNPCDefenseDelete.Size = new Size(23, 22);
+			btnNPCDefenseDelete.Text = "Delete Text";
+			btnNPCDefenseDelete.Click += btnNPCDefenseDelete_Click;
+			// 
+			// btnNPCDefenseCopy
+			// 
+			btnNPCDefenseCopy.DisplayStyle = ToolStripItemDisplayStyle.Image;
+			btnNPCDefenseCopy.Image = Properties.Resources._4;
+			btnNPCDefenseCopy.ImageTransparentColor = Color.Magenta;
+			btnNPCDefenseCopy.Name = "btnNPCDefenseCopy";
+			btnNPCDefenseCopy.Size = new Size(23, 22);
+			btnNPCDefenseCopy.Text = "Copy Text";
+			btnNPCDefenseCopy.Click += btnNPCDefenseCopy_Click;
+			// 
+			// btnNPCDefenseEdit
+			// 
+			btnNPCDefenseEdit.DisplayStyle = ToolStripItemDisplayStyle.Image;
+			btnNPCDefenseEdit.Image = Properties.Resources._6;
+			btnNPCDefenseEdit.ImageTransparentColor = Color.Magenta;
+			btnNPCDefenseEdit.Name = "btnNPCDefenseEdit";
+			btnNPCDefenseEdit.Size = new Size(23, 22);
+			btnNPCDefenseEdit.Text = "Edit Text";
+			btnNPCDefenseEdit.Click += btnNPCDefenseEdit_Click;
+			// 
+			// groupBox48
+			// 
+			groupBox48.Controls.Add(lbNPCSellAttack);
+			groupBox48.Controls.Add(toolStrip7);
+			groupBox48.Location = new Point(6, 16);
+			groupBox48.Name = "groupBox48";
+			groupBox48.Size = new Size(312, 509);
+			groupBox48.TabIndex = 5;
+			groupBox48.TabStop = false;
+			groupBox48.Text = "Sell Attack";
+			// 
+			// lbNPCSellAttack
+			// 
+			lbNPCSellAttack.Dock = DockStyle.Fill;
+			lbNPCSellAttack.FormattingEnabled = true;
+			lbNPCSellAttack.ItemHeight = 15;
+			lbNPCSellAttack.Location = new Point(3, 44);
+			lbNPCSellAttack.Name = "lbNPCSellAttack";
+			lbNPCSellAttack.Size = new Size(306, 462);
+			lbNPCSellAttack.TabIndex = 4;
+			// 
+			// toolStrip7
+			// 
+			toolStrip7.Items.AddRange(new ToolStripItem[] { btnNPCAttackNew, btnNPCAttackDelete, btnNPCAttackCopy, btnNPCAttackEdit });
+			toolStrip7.Location = new Point(3, 19);
+			toolStrip7.Name = "toolStrip7";
+			toolStrip7.Size = new Size(306, 25);
+			toolStrip7.TabIndex = 3;
+			toolStrip7.Text = "toolStrip7";
+			// 
+			// btnNPCAttackNew
+			// 
+			btnNPCAttackNew.DisplayStyle = ToolStripItemDisplayStyle.Image;
+			btnNPCAttackNew.Image = Properties.Resources._2;
+			btnNPCAttackNew.ImageTransparentColor = Color.Magenta;
+			btnNPCAttackNew.Name = "btnNPCAttackNew";
+			btnNPCAttackNew.Size = new Size(23, 22);
+			btnNPCAttackNew.Text = "New Text";
+			btnNPCAttackNew.Click += btnNPCAttackNew_Click;
+			// 
+			// btnNPCAttackDelete
+			// 
+			btnNPCAttackDelete.DisplayStyle = ToolStripItemDisplayStyle.Image;
+			btnNPCAttackDelete.Image = Properties.Resources._3;
+			btnNPCAttackDelete.ImageTransparentColor = Color.Magenta;
+			btnNPCAttackDelete.Name = "btnNPCAttackDelete";
+			btnNPCAttackDelete.Size = new Size(23, 22);
+			btnNPCAttackDelete.Text = "Delete Text";
+			btnNPCAttackDelete.Click += btnNPCAttackDelete_Click;
+			// 
+			// btnNPCAttackCopy
+			// 
+			btnNPCAttackCopy.DisplayStyle = ToolStripItemDisplayStyle.Image;
+			btnNPCAttackCopy.Image = Properties.Resources._4;
+			btnNPCAttackCopy.ImageTransparentColor = Color.Magenta;
+			btnNPCAttackCopy.Name = "btnNPCAttackCopy";
+			btnNPCAttackCopy.Size = new Size(23, 22);
+			btnNPCAttackCopy.Text = "Copy Text";
+			btnNPCAttackCopy.Click += btnNPCAttackCopy_Click;
+			// 
+			// btnNPCAttackEdit
+			// 
+			btnNPCAttackEdit.DisplayStyle = ToolStripItemDisplayStyle.Image;
+			btnNPCAttackEdit.Image = Properties.Resources._6;
+			btnNPCAttackEdit.ImageTransparentColor = Color.Magenta;
+			btnNPCAttackEdit.Name = "btnNPCAttackEdit";
+			btnNPCAttackEdit.Size = new Size(23, 22);
+			btnNPCAttackEdit.Text = "Edit Text";
+			btnNPCAttackEdit.Click += btnNPCAttackEdit_Click;
+			// 
+			// tabPage15
+			// 
+			tabPage15.Controls.Add(groupBox29);
+			tabPage15.Location = new Point(4, 24);
+			tabPage15.Name = "tabPage15";
+			tabPage15.Padding = new Padding(3);
+			tabPage15.Size = new Size(954, 536);
+			tabPage15.TabIndex = 2;
+			tabPage15.Text = "Messages";
+			tabPage15.UseVisualStyleBackColor = true;
+			// 
+			// groupBox29
+			// 
+			groupBox29.Controls.Add(lbNPCChat);
+			groupBox29.Controls.Add(toolStrip6);
+			groupBox29.Location = new Point(6, 12);
+			groupBox29.Name = "groupBox29";
+			groupBox29.Size = new Size(942, 512);
+			groupBox29.TabIndex = 5;
+			groupBox29.TabStop = false;
+			groupBox29.Text = "Chat";
+			// 
+			// lbNPCChat
+			// 
+			lbNPCChat.Dock = DockStyle.Fill;
+			lbNPCChat.FormattingEnabled = true;
+			lbNPCChat.ItemHeight = 15;
+			lbNPCChat.Location = new Point(3, 44);
+			lbNPCChat.Name = "lbNPCChat";
+			lbNPCChat.Size = new Size(936, 465);
+			lbNPCChat.TabIndex = 2;
+			// 
+			// toolStrip6
+			// 
+			toolStrip6.Items.AddRange(new ToolStripItem[] { btnNPCChatNew, btnNPCChatDelete, btnNPCChatCopy, btnNPCChatEdit });
+			toolStrip6.Location = new Point(3, 19);
+			toolStrip6.Name = "toolStrip6";
+			toolStrip6.Size = new Size(936, 25);
+			toolStrip6.TabIndex = 1;
+			toolStrip6.Text = "toolStrip6";
+			// 
+			// btnNPCChatNew
+			// 
+			btnNPCChatNew.DisplayStyle = ToolStripItemDisplayStyle.Image;
+			btnNPCChatNew.Image = Properties.Resources._2;
+			btnNPCChatNew.ImageTransparentColor = Color.Magenta;
+			btnNPCChatNew.Name = "btnNPCChatNew";
+			btnNPCChatNew.Size = new Size(23, 22);
+			btnNPCChatNew.Text = "New Text";
+			// 
+			// btnNPCChatDelete
+			// 
+			btnNPCChatDelete.DisplayStyle = ToolStripItemDisplayStyle.Image;
+			btnNPCChatDelete.Image = Properties.Resources._3;
+			btnNPCChatDelete.ImageTransparentColor = Color.Magenta;
+			btnNPCChatDelete.Name = "btnNPCChatDelete";
+			btnNPCChatDelete.Size = new Size(23, 22);
+			btnNPCChatDelete.Text = "Delete Text";
+			// 
+			// btnNPCChatCopy
+			// 
+			btnNPCChatCopy.DisplayStyle = ToolStripItemDisplayStyle.Image;
+			btnNPCChatCopy.Image = Properties.Resources._4;
+			btnNPCChatCopy.ImageTransparentColor = Color.Magenta;
+			btnNPCChatCopy.Name = "btnNPCChatCopy";
+			btnNPCChatCopy.Size = new Size(23, 22);
+			btnNPCChatCopy.Text = "Copy Text";
+			// 
+			// btnNPCChatEdit
+			// 
+			btnNPCChatEdit.DisplayStyle = ToolStripItemDisplayStyle.Image;
+			btnNPCChatEdit.Image = Properties.Resources._6;
+			btnNPCChatEdit.ImageTransparentColor = Color.Magenta;
+			btnNPCChatEdit.Name = "btnNPCChatEdit";
+			btnNPCChatEdit.Size = new Size(23, 22);
+			btnNPCChatEdit.Text = "Edit Text";
 			// 
 			// groupBox3
 			// 
@@ -4699,6 +5638,24 @@ namespace GameServer.Forms
 			statusStrip1.TabIndex = 3;
 			statusStrip1.Text = "statusStrip1";
 			// 
+			// nudMonsterElementalMagic
+			// 
+			nudMonsterElementalMagic.Location = new Point(80, 160);
+			nudMonsterElementalMagic.Minimum = new decimal(new int[] { 100, 0, 0, int.MinValue });
+			nudMonsterElementalMagic.Name = "nudMonsterElementalMagic";
+			nudMonsterElementalMagic.Size = new Size(128, 23);
+			nudMonsterElementalMagic.TabIndex = 39;
+			nudMonsterElementalMagic.ThousandsSeparator = true;
+			// 
+			// label135
+			// 
+			label135.AutoSize = true;
+			label135.Location = new Point(16, 162);
+			label135.Name = "label135";
+			label135.Size = new Size(40, 15);
+			label135.TabIndex = 40;
+			label135.Text = "Magic";
+			// 
 			// MainForm
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
@@ -4942,16 +5899,60 @@ namespace GameServer.Forms
 			gbNPCInformation.ResumeLayout(false);
 			tabControl4.ResumeLayout(false);
 			tabPage9.ResumeLayout(false);
+			groupBox47.ResumeLayout(false);
+			groupBox47.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)nudNPCQuestClass).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudNPCQuestParam).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudNPCQuestCode).EndInit();
+			groupBox46.ResumeLayout(false);
+			groupBox46.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)nudNPCOpenCountMax).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudNPCOpenCountMin).EndInit();
+			groupBox30.ResumeLayout(false);
+			groupBox30.PerformLayout();
+			gbNPCFuntions.ResumeLayout(false);
+			gbNPCFuntions.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)nudNPCPolling).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudNPCTeleport).EndInit();
+			gbNPCEvents.ResumeLayout(false);
+			gbNPCEvents.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)nudNPCStarPoint).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudNPCPuzzleQuest).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudNPCWingQuest).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudNPCEvent).EndInit();
+			groupBox45.ResumeLayout(false);
+			groupBox45.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)nudNPCChangeJob).EndInit();
+			groupBox44.ResumeLayout(false);
+			groupBox44.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)nudNPCLevel).EndInit();
 			groupBox31.ResumeLayout(false);
 			groupBox31.PerformLayout();
-			groupBox29.ResumeLayout(false);
-			groupBox29.PerformLayout();
-			toolStrip6.ResumeLayout(false);
-			toolStrip6.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)nudNPCArrowPosMax).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudNPCArrowPosMin).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudNPCModelSize).EndInit();
 			groupBox7.ResumeLayout(false);
 			groupBox7.PerformLayout();
 			groupBox8.ResumeLayout(false);
 			groupBox8.PerformLayout();
+			tabPage10.ResumeLayout(false);
+			groupBox50.ResumeLayout(false);
+			groupBox50.PerformLayout();
+			toolStrip9.ResumeLayout(false);
+			toolStrip9.PerformLayout();
+			groupBox49.ResumeLayout(false);
+			groupBox49.PerformLayout();
+			toolStrip8.ResumeLayout(false);
+			toolStrip8.PerformLayout();
+			groupBox48.ResumeLayout(false);
+			groupBox48.PerformLayout();
+			toolStrip7.ResumeLayout(false);
+			toolStrip7.PerformLayout();
+			tabPage15.ResumeLayout(false);
+			groupBox29.ResumeLayout(false);
+			groupBox29.PerformLayout();
+			toolStrip6.ResumeLayout(false);
+			toolStrip6.PerformLayout();
 			groupBox3.ResumeLayout(false);
 			groupBox3.PerformLayout();
 			toolStrip4.ResumeLayout(false);
@@ -4963,6 +5964,7 @@ namespace GameServer.Forms
 			groupBox4.PerformLayout();
 			toolStrip5.ResumeLayout(false);
 			toolStrip5.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)nudMonsterElementalMagic).EndInit();
 			ResumeLayout(false);
 			PerformLayout();
 		}
@@ -5241,19 +6243,6 @@ namespace GameServer.Forms
 		private Label label69;
 		private TextBox txtNPCName;
 		private Label label70;
-		private TextBox txtNPCId;
-		private Label label71;
-		private GroupBox groupBox29;
-		private ListBox lbNPCChat;
-		private ToolStrip toolStrip6;
-		private ToolStripButton btnNPCChatNew;
-		private ToolStripButton btnNPCChatDelete;
-		private ToolStripButton btnNPCChatCopy;
-		private ToolStripButton btnNPCChatEdit;
-		private GroupBox groupBox30;
-		private GroupBox groupBox31;
-		private TextBox txtNPCModelName;
-		private Label label72;
 		private ToolStripSeparator toolStripSeparator1;
 		private ToolStripTextBox txtItemFilesSearch;
 		private ToolStripSeparator toolStripSeparator2;
@@ -5378,5 +6367,102 @@ namespace GameServer.Forms
 		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
 		private DataGridViewComboBoxColumn dgvcbbMonsterLootPlusType;
 		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+		private GroupBox groupBox31;
+		private NumericUpDown nudNPCArrowPosMax;
+		private NumericUpDown nudNPCArrowPosMin;
+		private Label label71;
+		private TextBox txtNPCModelEvent;
+		private Label label72;
+		private ComboBox cbbNPCShadowSize;
+		private Label label118;
+		private Label label119;
+		private NumericUpDown nudNPCModelSize;
+		private TextBox txtNPCModelFile;
+		private Label label120;
+		private GroupBox groupBox44;
+		private NumericUpDown nudNPCLevel;
+		private Label label128;
+		private GroupBox groupBox45;
+		private NumericUpDown nudNPCChangeJob;
+		private CheckBox ckbNPCSkillMaster;
+		private GroupBox gbNPCEvents;
+		private NumericUpDown nudNPCStarPoint;
+		private Label label126;
+		private NumericUpDown nudNPCPuzzleQuest;
+		private Label label127;
+		private NumericUpDown nudNPCWingQuest;
+		private Label label129;
+		private NumericUpDown nudNPCEvent;
+		private Label label130;
+		private GroupBox gbNPCFuntions;
+		private RadioButton rbNPCBlessCastleMaster;
+		private RadioButton rbNPCDonationBox;
+		private RadioButton rbNPCItemDistributor;
+		private RadioButton rbNPCClanMaster;
+		private RadioButton rbNPCEventGirl;
+		private RadioButton rbNPCSODManager;
+		private RadioButton rbNPCMixtureResetMaster;
+		private RadioButton rbNPCItemAgingMaster;
+		private RadioButton rbNPCManufactureMaster;
+		private RadioButton rbNPCSmeltingMaster;
+		private RadioButton rbNPCForceMaster;
+		private RadioButton rbNPCItemMixMaster;
+		private RadioButton rbNPCWarehouseMaster;
+		private NumericUpDown nudNPCPolling;
+		private Label label124;
+		private NumericUpDown nudNPCTeleport;
+		private Label label122;
+		private GroupBox groupBox30;
+		private TextBox txtNPCMediaPlayPath;
+		private Label label123;
+		private TextBox txtNPCMediaPlayTitle;
+		private Label label125;
+		private GroupBox groupBox46;
+		private NumericUpDown nudNPCOpenCountMax;
+		private NumericUpDown nudNPCOpenCountMin;
+		private Label label134;
+		private GroupBox groupBox47;
+		private NumericUpDown nudNPCQuestParam;
+		private Label label131;
+		private NumericUpDown nudNPCQuestCode;
+		private Label label132;
+		private GroupBox groupBox49;
+		private GroupBox groupBox48;
+		private GroupBox groupBox50;
+		private TabPage tabPage15;
+		private GroupBox groupBox29;
+		private ListBox lbNPCChat;
+		private ToolStrip toolStrip6;
+		private ToolStripButton btnNPCChatNew;
+		private ToolStripButton btnNPCChatDelete;
+		private ToolStripButton btnNPCChatCopy;
+		private ToolStripButton btnNPCChatEdit;
+		private ListBox lbNPCSellEtc;
+		private ToolStrip toolStrip9;
+		private ToolStripButton btnNPCEtcNew;
+		private ToolStripButton btnNPCEtcDelete;
+		private ToolStripButton btnNPCEtcCopy;
+		private ToolStripButton btnNPCEtcEdit;
+		private ListBox lbNPCSellDefense;
+		private ToolStrip toolStrip8;
+		private ToolStripButton btnNPCDefenseNew;
+		private ToolStripButton btnNPCDefenseDelete;
+		private ToolStripButton btnNPCDefenseCopy;
+		private ToolStripButton btnNPCDefenseEdit;
+		private ListBox lbNPCSellAttack;
+		private ToolStrip toolStrip7;
+		private ToolStripButton btnNPCAttackNew;
+		private ToolStripButton btnNPCAttackDelete;
+		private ToolStripButton btnNPCAttackCopy;
+		private ToolStripButton btnNPCAttackEdit;
+		private NumericUpDown nudNPCQuestClass;
+		private Label label121;
+		private ToolStripMenuItem miHelpOpenLocalFolder;
+		private ToolStripMenuItem miHelpOpenServerFolder;
+		private ToolStripMenuItem miHelpOpenClientFolder;
+		private ToolStripSeparator toolStripSeparator3;
+		private ToolStripMenuItem miHelpAbout;
+		private NumericUpDown nudMonsterElementalMagic;
+		private Label label135;
 	}
 }

@@ -38,8 +38,8 @@ public partial class NPC
 		public static readonly string Teleport = "*텔레포트";
 		public static readonly string BlessCastle = "*블레스캐슬";
 		public static readonly string Polling = "*설문조사";
-		public static readonly string MediaPlay_Title = "*동영상제목";
-		public static readonly string MediaPlay_Path = "*동영상경로";
+		public static readonly string MediaPlayTitle = "*동영상제목";
+		public static readonly string MediaPlayPath = "*동영상경로";
 		public static readonly string OpenCount = "*출현간격";
 		public static readonly string QuestCode = "*퀘스트코드";
 	}

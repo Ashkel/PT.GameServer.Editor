@@ -257,7 +257,7 @@ public partial class Monster : GameInfo
 	/// </summary>
 	public string SoundCode { get; set; } = string.Empty;
 
-	// Events
+	// Quests Items
 
 	/// <summary>
 	/// Get or Set Event Code (generally item drop for quest)
@@ -405,7 +405,7 @@ public partial class Monster : GameInfo
 		// Sound Effects
 		SoundCode = string.Empty;
 
-		// Events
+		// Quests Items
 		EventCode = 0;
 		EventInfo = 0;
 		EventItem = string.Empty;
@@ -650,7 +650,7 @@ public partial class Monster : GameInfo
 	//	{
 	//		MovementType = FileHelper.ParseInteger(line, ref position);
 	//	}
-	//	else if (string.Compare(keyword, Keywords.MovementSpeed) == 0)
+	//	else if (string.Compare(keyword, Keywords.MovementSpeed[0]) == 0)
 	//	{
 	//		MovementSpeed = FileHelper.ParseFloat(line, ref position);
 	//	}
@@ -684,7 +684,7 @@ public partial class Monster : GameInfo
 	//		}
 	//	}
 
-	//	// Events
+	//	// Quests Items
 	//	else if (string.Compare(keyword, Keywords.EventCode) == 0)
 	//	{
 	//		EventCode = FileHelper.ParseInteger(line, ref position);
@@ -975,12 +975,16 @@ public partial class Monster : GameInfo
 				_resistance.Wind = ParseInteger();
 				break;
 
+			case var text when text.Equals(Keywords.Magic):
+				_resistance.Magic = ParseInteger();
+				break;
+
 			// Movement properties
 			case var text when text.Equals(Keywords.MovementType):
 				MovementType = ParseInteger();
 				break;
 
-			case var text when text.Equals(Keywords.MovementSpeed):
+			case var text when text.Equals(Keywords.MovementSpeed[0]) || text.Equals(Keywords.MovementSpeed[1]):
 				MovementSpeed = ParseFloat();
 				break;
 
@@ -1009,7 +1013,7 @@ public partial class Monster : GameInfo
 				}
 				break;
 
-			// Events properties
+			// Quests Items properties
 			case var text when text.Equals(Keywords.EventCode):
 				EventCode = ParseInteger();
 				break;
@@ -1104,6 +1108,12 @@ public partial class Monster : GameInfo
 
 			default:
 				// Unknown keyword, handle appropriately if needed
+				// Handle unknown keywords or skip them
+				if (keyword.StartsWith('*'))
+				{
+					if (!UnhandledKeywords.Contains(keyword))
+						UnhandledKeywords.Add(keyword);
+				}
 				break;
 		}
 	}
@@ -1208,6 +1218,7 @@ public partial class Monster : GameInfo
 		sb.AppendLine($"{Keywords.Poison}\t\t{_resistance.Poison}");
 		sb.AppendLine($"{Keywords.Water}\t\t{_resistance.Water}");
 		sb.AppendLine($"{Keywords.Wind}\t\t{_resistance.Wind}");
+		sb.AppendLine($"{Keywords.Magic}\t\t{_resistance.Magic}");
 		sb.AppendLine();
 
 
@@ -1215,7 +1226,7 @@ public partial class Monster : GameInfo
 		if(MovementType != 0)
 			sb.AppendLine($"{Keywords.MovementType}\t\t{MovementType}");
 		if (MovementSpeed != 0)
-			sb.AppendLine($"{Keywords.MovementSpeed}\t\t{MovementSpeed}");
+			sb.AppendLine($"{Keywords.MovementSpeed[0]}\t\t{MovementSpeed}");
 		if (MovementRange != 0)
 			sb.AppendLine($"{Keywords.MovementRange}\t\t{MovementRange}");
 		sb.AppendLine();
@@ -1235,7 +1246,7 @@ public partial class Monster : GameInfo
 		sb.AppendLine();
 
 
-		sb.AppendLine("// Events");
+		sb.AppendLine("// Quests Items");
 		if (EventCode != 0)
 			sb.AppendLine($"{Keywords.EventCode}\t\t{EventCode}");
 		if (EventInfo != 0)

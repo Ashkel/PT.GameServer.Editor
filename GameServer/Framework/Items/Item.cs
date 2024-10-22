@@ -734,7 +734,7 @@ namespace GameServer.Framework.Items
 					break;
 
 				// Skills training
-				case var text when text.Equals(Keywords.MagicMastery):
+				case var text when text.Equals(Keywords.MagicMastery[0]) || text.Equals(Keywords.MagicMastery[1]):
 					MagicMastery = ParseRange();
 					break;
 
@@ -887,6 +887,12 @@ namespace GameServer.Framework.Items
 
 				default:
 					// Unknown keyword, handle appropriately if needed
+					// Handle unknown keywords or skip them
+					if (keyword.StartsWith('*'))
+					{
+						if (!UnhandledKeywords.Contains(keyword))
+							UnhandledKeywords.Add(keyword);
+					}
 					break;
 			}
 		}
@@ -959,7 +965,7 @@ namespace GameServer.Framework.Items
 			sb.AppendLine();
 
 			sb.AppendLine("// Skills training");
-			sb.AppendLine($"{Keywords.MagicMastery}\t\t{MagicMastery.Min} {MagicMastery.Max}");
+			sb.AppendLine($"{Keywords.MagicMastery[0]}\t\t{MagicMastery.Min} {MagicMastery.Max}");
 			sb.AppendLine();
 
 			sb.AppendLine("// Status increase/regeneration");

@@ -58,11 +58,12 @@ public partial class Monster
 		public static readonly string Earth = "*지동력";
 		public static readonly string Fire = "*불";
 		public static readonly string Poison = "*독";
+		public static readonly string Magic = "*매직";
 
 		// Movement
 		// MovementType is in-game disabled, but keep it anyways
 		public static readonly string MovementType = "*이동타입";
-		public static readonly string MovementSpeed = "*이동력";
+		public static readonly string[] MovementSpeed = new string[] { "*이동력", "*이동속도" };
 		public static readonly string MovementRange = "*이동범위";
 
 		// Potion

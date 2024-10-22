@@ -62,6 +62,22 @@ public partial class MainForm : Form
 		dgvcbbMonsterLootType.DataSource = Monster.Keywords.LootType;
 		dgvcbbMonsterLootPlusType.DataSource = Monster.Keywords.LootType;
 
+		cbbNPCShadowSize.DataSource = Enum.GetValues(typeof(ShadowSize));
+		cbbNPCShadowSize.SelectedItem = ShadowSize.Unknown;
+
+		foreach (var control in gbNPCFuntions.Controls)
+		{
+			if (control is RadioButton rb)
+				rb.CheckedChanged += FunctionNPC_CheckedChanged;
+			else if (control is NumericUpDown nud)
+				nud.ValueChanged += FunctionNPC_ValueChanged;
+		}
+
+		foreach (var control in gbNPCEvents.Controls.OfType<NumericUpDown>())
+		{
+			control.ValueChanged += EventNPC_ValueChanged;
+		}
+
 		if (!EnsureWorkingDirectory(Globals.GameServerPath))
 			return;
 
@@ -101,6 +117,50 @@ public partial class MainForm : Form
 			default:
 				break;
 		}
+	}
+
+	private void miHelpOpenLocalFolder_Click(object sender, EventArgs e)
+	{
+		ProcessStartInfo pi = new()
+		{
+			UseShellExecute = true,
+			FileName = Application.StartupPath,
+			Verb = "open",
+		};
+		Process.Start(pi);
+	}
+
+	private void miHelpOpenServerFolder_Click(object sender, EventArgs e)
+	{
+		ProcessStartInfo pi = new()
+		{
+			UseShellExecute = true,
+			FileName = Globals.Settings.ServerPath,
+			Verb = "open",
+		};
+		Process.Start(pi);
+	}
+
+	private void miHelpOpenClientFolder_Click(object sender, EventArgs e)
+	{
+		ProcessStartInfo pi = new()
+		{
+			UseShellExecute = true,
+			FileName = Globals.Settings.ClientPath,
+			Verb = "open",
+		};
+		Process.Start(pi);
+	}
+
+	private void miHelpAbout_Click(object sender, EventArgs e)
+	{
+		ProcessStartInfo pi = new()
+		{
+			UseShellExecute = true,
+			FileName = "https://github.com/Ashkel/PT.GameServer.Editor",
+			Verb = "open",
+		};
+		Process.Start(pi);
 	}
 
 	#endregion

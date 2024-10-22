@@ -1,6 +1,7 @@
 ﻿using GameServer.Helpers;
 using System.Text;
 using System.Text.Json.Serialization;
+using System.Xml.Linq;
 using System.Xml.Serialization;
 
 namespace GameServer.Framework
@@ -9,11 +10,17 @@ namespace GameServer.Framework
 	{
 		#region Fields/Properties
 
-		public string FileName { get; private set; } = string.Empty;
-
 		[XmlIgnore]
 		[JsonIgnore]
 		public Encoding Encoding { get; protected set; } = Encoding.GetEncoding(949);
+
+		[XmlIgnore]
+		[JsonIgnore]
+		public string FileName { get; private set; } = string.Empty;
+
+		public Dictionary<int, string> Comments { get; private set; } = new();
+
+		public List<string> UnhandledKeywords { get; private set; } = new();
 
 		#endregion
 
@@ -30,6 +37,8 @@ namespace GameServer.Framework
 			int line = 0;
 			string text = string.Empty;
 
+			Comments.Clear();
+
 			try
 			{
 				using var sr = new StreamReader(fileName ?? FileName, Encoding);
@@ -44,8 +53,18 @@ namespace GameServer.Framework
 						continue;
 
 					text = buffer;
+					
+					//if (Globals.Settings.KeepComments &&
+					//	(buffer.StartsWith("//") || buffer.StartsWith(';')))
+					//	Comments.Add(line, buffer);
 
 					ParseLine(buffer);
+				}
+
+				if (UnhandledKeywords.Any())
+				{
+					using var sw = new StreamWriter($"{this.GetType().Name}-UnhandledKeywords.log");
+					sw.WriteLine(string.Join(", ", UnhandledKeywords));
 				}
 			}
 			catch (Exception ex)

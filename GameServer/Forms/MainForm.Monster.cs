@@ -184,6 +184,7 @@ public partial class MainForm
 			nudMonsterElementalIce.Value = _loadedMonster.Resistance.Ice;
 			nudMonsterElementalLightning.Value = _loadedMonster.Resistance.Lightning;
 			nudMonsterElementalPoison.Value = _loadedMonster.Resistance.Poison;
+			nudMonsterElementalMagic.Value = _loadedMonster.Resistance.Magic;
 
 			// Movement
 			nudMonsterMoveSpeed.Value = (decimal)_loadedMonster.MovementSpeed;

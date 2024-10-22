@@ -17,6 +17,7 @@ namespace GameServer.Forms
 			txtServerPath.Text = Globals.Settings.ServerPath;
 			txtClientPath.Text = Globals.Settings.ClientPath;
 			txtNotepadPath.Text = Globals.Settings.NotepadPath;
+			ckbKeepComments.Checked = Globals.Settings.KeepComments;
 			cbbUseLanguage.SelectedItem = Globals.Settings.Language;
 		}
 
@@ -51,6 +52,7 @@ namespace GameServer.Forms
 			Globals.Settings.ServerPath = txtServerPath.Text;
 			Globals.Settings.NotepadPath = txtNotepadPath.Text;
 			Globals.Settings.Language = (Language)cbbUseLanguage.SelectedItem;
+			Globals.Settings.KeepComments = ckbKeepComments.Checked;
 
 			Serializer<Settings>.SaveXml("Settings.xml", Globals.Settings);
 

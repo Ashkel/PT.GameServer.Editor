@@ -137,6 +137,18 @@ public partial class MainForm
 		{
 			lbItemFiles.Items.Clear();
 			lbItemFiles.Items.AddRange(_currentTabFiles!);
+
+#if DEBUG
+			// Test
+			{
+				Item i = new();
+
+				foreach (var item in _currentTabFiles!)
+				{
+					i.Process(Path.Combine(Globals.OpenItemPath, item));
+				}
+			}
+#endif
 		}
 	}
 

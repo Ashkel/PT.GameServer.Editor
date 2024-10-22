@@ -8,6 +8,7 @@ public partial class NPC : GameInfo
 	#region Field/Properties
 
 	public const int MESSAGE_MAX = 20;
+
 	private int _messageCount = 0;
 
 	#endregion
@@ -67,23 +68,6 @@ public partial class NPC : GameInfo
 	/// Get or Set the character level
 	/// </summary>
 	public int Level { get; set; }
-
-	// Event
-
-	/// <summary>
-	/// Get or Set Event Code (generally item drop for quest)
-	/// </summary>
-	public int EventCode { get; set; }
-
-	/// <summary>
-	/// Get or Set Event Information (generally item drop for quest)
-	/// </summary>
-	public int EventInfo { get; set; }
-
-	/// <summary>
-	/// Get or Set Event Item (generally item drop for quest)
-	/// </summary>
-	public string EventItem { get; set; } = string.Empty;
 
 
 	// Merchants
@@ -208,27 +192,33 @@ public partial class NPC : GameInfo
 	/// <summary>
 	/// Get or Set NPC to be a BlessCastle master.
 	/// </summary>
-	public int BlessCastle { get; set; }
+	public bool BlessCastle { get; set; }
 
 	/// <summary>
 	/// Get or Set NPC to do Pollings.
 	/// </summary>
 	public int Polling { get; set; }
 
+	// Video
+
 	/// <summary>
 	/// Get or Set NPC title for video media.
 	/// </summary>
-	public string MediaPlay_Title { get; set; } = string.Empty;
+	public string MediaPlayTitle { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Get or Set NPC path for video media.
 	/// </summary>
-	public string MediaPlay_Path { get; set; } = string.Empty;
+	public string MediaPlayPath { get; set; } = string.Empty;
+
+	// Don't know what it is
 
 	/// <summary>
 	/// Get or Set NPC 
 	/// </summary>
 	public Range OpenCount { get; set; }
+
+	// Quests
 
 	/// <summary>
 	/// Get or Set NPC Quest Code.
@@ -240,6 +230,10 @@ public partial class NPC : GameInfo
 	/// </summary>
 	public int QuestParam { get; set; }
 
+	/// <summary>
+	/// Get or Set NPC Quest Class
+	/// </summary>
+	public int QuestClass { get; set; }
 
 	// Chat
 
@@ -287,11 +281,6 @@ public partial class NPC : GameInfo
 		State = false;
 		Level = 0;
 
-		// Events
-		EventCode = 0;
-		EventInfo = 0;
-		EventItem = string.Empty;
-
 		// Merchants
 		SellAttackItem.Clear();
 		SellDefenseItem.Clear();
@@ -319,15 +308,16 @@ public partial class NPC : GameInfo
 		StarPoint = 0;
 		DonationBox = false;
 		Teleport = 0;
-		BlessCastle = 0;
+		BlessCastle = false;
 		Polling = 0;
-		MediaPlay_Title = string.Empty;
-		MediaPlay_Path = string.Empty;
+		MediaPlayTitle = string.Empty;
+		MediaPlayPath = string.Empty;
 
 		OpenCount = Range.Empty;
 
 		QuestCode = 0;
 		QuestParam = 0;
+		QuestClass = 0;
 
 		// Chat
 		_messageCount = 0;
@@ -536,19 +526,19 @@ public partial class NPC : GameInfo
 	//	}
 	//	else if (string.Compare(keyword, Keywords.BlessCastle) == 0)
 	//	{
-	//		BlessCastle = FileHelper.ParseInteger(line, ref position);
+	//		BlessCastle = true;
 	//	}
 	//	else if (string.Compare(keyword, Keywords.Polling) == 0)
 	//	{
 	//		Polling = FileHelper.ParseInteger(line, ref position);
 	//	}
-	//	else if (string.Compare(keyword, Keywords.MediaPlay_Title) == 0)
+	//	else if (string.Compare(keyword, Keywords.MediaPlayTitle) == 0)
 	//	{
-	//		MediaPlay_Title = FileHelper.ParseString(line, ref position);
+	//		MediaPlayTitle = FileHelper.ParseString(line, ref position);
 	//	}
-	//	else if (string.Compare(keyword, Keywords.MediaPlay_Path) == 0)
+	//	else if (string.Compare(keyword, Keywords.MediaPlayPath) == 0)
 	//	{
-	//		MediaPlay_Path = FileHelper.ParseString(line, ref position);
+	//		MediaPlayPath = FileHelper.ParseString(line, ref position);
 	//	}
 	//	else if (string.Compare(keyword, Keywords.OpenCount) == 0)
 	//	{
@@ -649,19 +639,6 @@ public partial class NPC : GameInfo
 
 			case var text when text.Equals(Monster.Keywords.Level):
 				Level = ParseInteger();
-				break;
-
-			// Events
-			case var text when text.Equals(Monster.Keywords.EventCode):
-				EventCode = ParseInteger();
-				break;
-
-			case var text when text.Equals(Monster.Keywords.EventInfo):
-				EventInfo = ParseInteger();
-				break;
-
-			case var text when text.Equals(Monster.Keywords.EventItem):
-				EventItem = ParseString();
 				break;
 
 			// Merchants
@@ -777,7 +754,7 @@ public partial class NPC : GameInfo
 				break;
 
 			case var text when text.Equals(Keywords.BlessCastle):
-				BlessCastle = ParseInteger();
+				BlessCastle = true;
 				break;
 
 			case var text when text.Equals(Keywords.Polling):
@@ -785,12 +762,12 @@ public partial class NPC : GameInfo
 				break;
 
 			// Media
-			case var text when text.Equals(Keywords.MediaPlay_Title):
-				MediaPlay_Title = ParseString();
+			case var text when text.Equals(Keywords.MediaPlayTitle):
+				MediaPlayTitle = ParseString();
 				break;
 
-			case var text when text.Equals(Keywords.MediaPlay_Path):
-				MediaPlay_Path = ParseString();
+			case var text when text.Equals(Keywords.MediaPlayPath):
+				MediaPlayPath = ParseString();
 				break;
 
 			case var text when text.Equals(Keywords.OpenCount):
@@ -802,8 +779,13 @@ public partial class NPC : GameInfo
 				QuestParam = ParseInteger();
 				break;
 
+			case var text when text.Equals(Monster.Keywords.MonsterClass):
+				QuestClass = ParseInteger();
+				break;
+
 			// Messages
-			case var _ when keyword.StartsWith('*') && keyword.Contains("chat", StringComparison.OrdinalIgnoreCase):
+			case var text when (text.StartsWith('*') && text.Contains("chat", StringComparison.OrdinalIgnoreCase)) ||
+								text.Equals(Keywords.Chat[0]):
 				if (_messageCount < MESSAGE_MAX)
 					Messages[_messageCount++] = ParseString();
 				break;
@@ -818,6 +800,11 @@ public partial class NPC : GameInfo
 
 			default:
 				// Handle unknown keywords or skip them
+				if (keyword.StartsWith('*'))
+				{
+					if(!UnhandledKeywords.Contains(keyword))
+						UnhandledKeywords.Add(keyword);
+				}
 				break;
 		}
 	}
@@ -856,20 +843,6 @@ public partial class NPC : GameInfo
 			sb.AppendLine($"{Monster.Keywords.Level}\t\t{Level}");
 			sb.AppendLine();
 
-
-			sb.AppendLine("// Events");
-
-			if (EventCode != 0)
-				sb.AppendLine($"{Monster.Keywords.EventCode}\t\t{EventCode}");
-
-			if (EventInfo != 0)
-				sb.AppendLine($"{Monster.Keywords.EventInfo}\t\t{EventInfo}");
-
-			if (!string.IsNullOrEmpty(EventItem))
-			{
-				sb.AppendLine($"{Monster.Keywords.EventItem}\t\t{EventItem}");
-				sb.AppendLine();
-			}
 
 			sb.AppendLine("// Merchants");
 			if (SellEtcItem.Any())
@@ -939,24 +912,27 @@ public partial class NPC : GameInfo
 
 			if (Teleport != 0)
 				sb.AppendLine($"{Keywords.Teleport}\t\t{Teleport}");
-		
-			if (BlessCastle != 0)
-				sb.AppendLine($"{Keywords.BlessCastle}\t\t{BlessCastle}");
+
+			if (BlessCastle)
+				sb.AppendLine(Keywords.BlessCastle);
 		
 			if (Polling != 0)
 				sb.AppendLine($"{Keywords.Polling}\t\t{Polling}");
 		
-			if (!string.IsNullOrEmpty(MediaPlay_Title))
-				sb.AppendLine($"{Keywords.MediaPlay_Title}\t\t{MediaPlay_Title}");
+			if (!string.IsNullOrEmpty(MediaPlayTitle))
+				sb.AppendLine($"{Keywords.MediaPlayTitle}\t\t{MediaPlayTitle}");
 		
-			if (!string.IsNullOrEmpty(MediaPlay_Path))
-				sb.AppendLine($"{Keywords.MediaPlay_Path}\t\t{MediaPlay_Path}");
+			if (!string.IsNullOrEmpty(MediaPlayPath))
+				sb.AppendLine($"{Keywords.MediaPlayPath}\t\t{MediaPlayPath}");
 
 			if(OpenCount != Range.Empty)
 				sb.AppendLine($"{Keywords.OpenCount}\t\t{OpenCount.Min} {OpenCount.Max}");
 
 			if (QuestCode != 0)
 				sb.AppendLine($"{Keywords.QuestCode}\t\t{QuestCode} {QuestParam}");
+
+			if (QuestClass != 0)
+				sb.AppendLine($"{Monster.Keywords.MonsterClass}\t\t{QuestClass}");
 
 			sb.AppendLine();
 

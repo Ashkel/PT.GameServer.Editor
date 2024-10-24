@@ -87,9 +87,10 @@ namespace GameServer.Framework
 		#region Abstract methods
 
 		public abstract void Reset();
-		public abstract void Save(string? fileName = null);
 
 		protected abstract void ParseLine(string line);
+
+		public abstract void Save(string? fileName = null);
 
 		// ISSUE:
 		// The way I did it, gameinfo can't add information to a file where it doesn't exist.

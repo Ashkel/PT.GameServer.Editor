@@ -29,6 +29,7 @@ namespace GameServer.Forms
 		/// </summary>
 		private void InitializeComponent()
 		{
+			components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			menuStrip1 = new MenuStrip();
 			fileToolStripMenuItem = new ToolStripMenuItem();
@@ -42,7 +43,7 @@ namespace GameServer.Forms
 			toolStripSeparator3 = new ToolStripSeparator();
 			miHelpAbout = new ToolStripMenuItem();
 			toolStrip1 = new ToolStrip();
-			tabControl1 = new TabControl();
+			tcCategory = new TabControl();
 			tabPage1 = new TabPage();
 			gbItemInformation = new GroupBox();
 			tabControl2 = new TabControl();
@@ -512,15 +513,27 @@ namespace GameServer.Forms
 			txtNPCFilesSearch = new ToolStripTextBox();
 			tabPage4 = new TabPage();
 			gbFieldInformation = new GroupBox();
-			tabControl5 = new TabControl();
+			tcFieldInfo = new TabControl();
 			tabPage11 = new TabPage();
+			groupBox55 = new GroupBox();
+			dgvFieldBossTime = new DataGridView();
+			dgvtxtFieldBossName = new DataGridViewTextBoxColumn();
+			dgvtxtFieldBossServant = new DataGridViewTextBoxColumn();
+			dgvtxtFieldBossServantCount = new DataGridViewTextBoxColumn();
+			dgvtxtFieldBossTime = new DataGridViewTextBoxColumn();
+			groupBox54 = new GroupBox();
+			dgvFieldMonsters = new DataGridView();
+			txtFieldMonsterName = new DataGridViewTextBoxColumn();
+			txtFieldMonsterServerName = new DataGridViewTextBoxColumn();
+			txtFieldMonsterRate = new DataGridViewTextBoxColumn();
+			groupBox53 = new GroupBox();
 			groupBox51 = new GroupBox();
 			lbFieldMonsters = new ListBox();
 			toolStrip10 = new ToolStrip();
 			btnFieldMonsterReload = new ToolStripButton();
 			btnFieldMonsterAdd = new ToolStripButton();
+			btnFieldMonsterAddBoss = new ToolStripButton();
 			toolStripSeparator4 = new ToolStripSeparator();
-			toolStripLabel1 = new ToolStripLabel();
 			txtFieldMonsterSearch = new ToolStripTextBox();
 			tabPage12 = new TabPage();
 			groupBox52 = new GroupBox();
@@ -543,8 +556,11 @@ namespace GameServer.Forms
 			toolStripSeparator7 = new ToolStripSeparator();
 			txtFieldFilesSearch = new ToolStripTextBox();
 			statusStrip1 = new StatusStrip();
+			ctmFieldMonsterAdd = new ContextMenuStrip(components);
+			miFieldAddMonster = new ToolStripMenuItem();
+			miFieldAddServant = new ToolStripMenuItem();
 			menuStrip1.SuspendLayout();
-			tabControl1.SuspendLayout();
+			tcCategory.SuspendLayout();
 			tabPage1.SuspendLayout();
 			gbItemInformation.SuspendLayout();
 			tabControl2.SuspendLayout();
@@ -771,8 +787,12 @@ namespace GameServer.Forms
 			toolStrip4.SuspendLayout();
 			tabPage4.SuspendLayout();
 			gbFieldInformation.SuspendLayout();
-			tabControl5.SuspendLayout();
+			tcFieldInfo.SuspendLayout();
 			tabPage11.SuspendLayout();
+			groupBox55.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)dgvFieldBossTime).BeginInit();
+			groupBox54.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)dgvFieldMonsters).BeginInit();
 			groupBox51.SuspendLayout();
 			toolStrip10.SuspendLayout();
 			tabPage12.SuspendLayout();
@@ -780,6 +800,7 @@ namespace GameServer.Forms
 			toolStrip11.SuspendLayout();
 			groupBox4.SuspendLayout();
 			toolStrip5.SuspendLayout();
+			ctmFieldMonsterAdd.SuspendLayout();
 			SuspendLayout();
 			// 
 			// menuStrip1
@@ -867,19 +888,19 @@ namespace GameServer.Forms
 			toolStrip1.TabIndex = 1;
 			toolStrip1.Text = "toolStrip1";
 			// 
-			// tabControl1
+			// tcCategory
 			// 
-			tabControl1.Controls.Add(tabPage1);
-			tabControl1.Controls.Add(tabPage2);
-			tabControl1.Controls.Add(tabPage3);
-			tabControl1.Controls.Add(tabPage4);
-			tabControl1.Dock = DockStyle.Top;
-			tabControl1.Location = new Point(0, 49);
-			tabControl1.Name = "tabControl1";
-			tabControl1.SelectedIndex = 0;
-			tabControl1.Size = new Size(1280, 646);
-			tabControl1.TabIndex = 2;
-			tabControl1.Selected += tabControl1_Selected;
+			tcCategory.Controls.Add(tabPage1);
+			tcCategory.Controls.Add(tabPage2);
+			tcCategory.Controls.Add(tabPage3);
+			tcCategory.Controls.Add(tabPage4);
+			tcCategory.Dock = DockStyle.Top;
+			tcCategory.Location = new Point(0, 49);
+			tcCategory.Name = "tcCategory";
+			tcCategory.SelectedIndex = 0;
+			tcCategory.Size = new Size(1280, 646);
+			tcCategory.TabIndex = 2;
+			tcCategory.Selected += tcCategory_Selected;
 			// 
 			// tabPage1
 			// 
@@ -5554,7 +5575,7 @@ namespace GameServer.Forms
 			// 
 			// gbFieldInformation
 			// 
-			gbFieldInformation.Controls.Add(tabControl5);
+			gbFieldInformation.Controls.Add(tcFieldInfo);
 			gbFieldInformation.Location = new Point(288, 16);
 			gbFieldInformation.Name = "gbFieldInformation";
 			gbFieldInformation.Size = new Size(968, 586);
@@ -5562,19 +5583,23 @@ namespace GameServer.Forms
 			gbFieldInformation.TabStop = false;
 			gbFieldInformation.Text = "Information";
 			// 
-			// tabControl5
+			// tcFieldInfo
 			// 
-			tabControl5.Controls.Add(tabPage11);
-			tabControl5.Controls.Add(tabPage12);
-			tabControl5.Dock = DockStyle.Fill;
-			tabControl5.Location = new Point(3, 19);
-			tabControl5.Name = "tabControl5";
-			tabControl5.SelectedIndex = 0;
-			tabControl5.Size = new Size(962, 564);
-			tabControl5.TabIndex = 2;
+			tcFieldInfo.Controls.Add(tabPage11);
+			tcFieldInfo.Controls.Add(tabPage12);
+			tcFieldInfo.Dock = DockStyle.Fill;
+			tcFieldInfo.Location = new Point(3, 19);
+			tcFieldInfo.Name = "tcFieldInfo";
+			tcFieldInfo.SelectedIndex = 0;
+			tcFieldInfo.Size = new Size(962, 564);
+			tcFieldInfo.TabIndex = 2;
+			tcFieldInfo.Selected += tcFieldInfo_Selected;
 			// 
 			// tabPage11
 			// 
+			tabPage11.Controls.Add(groupBox55);
+			tabPage11.Controls.Add(groupBox54);
+			tabPage11.Controls.Add(groupBox53);
 			tabPage11.Controls.Add(groupBox51);
 			tabPage11.Location = new Point(4, 24);
 			tabPage11.Name = "tabPage11";
@@ -5583,6 +5608,105 @@ namespace GameServer.Forms
 			tabPage11.TabIndex = 0;
 			tabPage11.Text = "Mobs";
 			tabPage11.UseVisualStyleBackColor = true;
+			// 
+			// groupBox55
+			// 
+			groupBox55.Controls.Add(dgvFieldBossTime);
+			groupBox55.Location = new Point(6, 376);
+			groupBox55.Name = "groupBox55";
+			groupBox55.Size = new Size(680, 153);
+			groupBox55.TabIndex = 5;
+			groupBox55.TabStop = false;
+			groupBox55.Text = "Spawn Bosses";
+			// 
+			// dgvFieldBossTime
+			// 
+			dgvFieldBossTime.AllowUserToAddRows = false;
+			dgvFieldBossTime.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			dgvFieldBossTime.Columns.AddRange(new DataGridViewColumn[] { dgvtxtFieldBossName, dgvtxtFieldBossServant, dgvtxtFieldBossServantCount, dgvtxtFieldBossTime });
+			dgvFieldBossTime.Dock = DockStyle.Fill;
+			dgvFieldBossTime.Location = new Point(3, 19);
+			dgvFieldBossTime.MultiSelect = false;
+			dgvFieldBossTime.Name = "dgvFieldBossTime";
+			dgvFieldBossTime.RowHeadersWidth = 24;
+			dgvFieldBossTime.RowTemplate.Height = 25;
+			dgvFieldBossTime.Size = new Size(674, 131);
+			dgvFieldBossTime.TabIndex = 0;
+			// 
+			// dgvtxtFieldBossName
+			// 
+			dgvtxtFieldBossName.HeaderText = "Boss Name";
+			dgvtxtFieldBossName.Name = "dgvtxtFieldBossName";
+			dgvtxtFieldBossName.Width = 160;
+			// 
+			// dgvtxtFieldBossServant
+			// 
+			dgvtxtFieldBossServant.HeaderText = "Servant Name";
+			dgvtxtFieldBossServant.Name = "dgvtxtFieldBossServant";
+			dgvtxtFieldBossServant.Width = 160;
+			// 
+			// dgvtxtFieldBossServantCount
+			// 
+			dgvtxtFieldBossServantCount.HeaderText = "Servant Count";
+			dgvtxtFieldBossServantCount.Name = "dgvtxtFieldBossServantCount";
+			dgvtxtFieldBossServantCount.Width = 105;
+			// 
+			// dgvtxtFieldBossTime
+			// 
+			dgvtxtFieldBossTime.HeaderText = "Boss Time";
+			dgvtxtFieldBossTime.Name = "dgvtxtFieldBossTime";
+			dgvtxtFieldBossTime.Width = 223;
+			// 
+			// groupBox54
+			// 
+			groupBox54.Controls.Add(dgvFieldMonsters);
+			groupBox54.Location = new Point(6, 112);
+			groupBox54.Name = "groupBox54";
+			groupBox54.Size = new Size(680, 258);
+			groupBox54.TabIndex = 4;
+			groupBox54.TabStop = false;
+			groupBox54.Text = "Spawn Monsters";
+			// 
+			// dgvFieldMonsters
+			// 
+			dgvFieldMonsters.AllowUserToAddRows = false;
+			dgvFieldMonsters.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			dgvFieldMonsters.Columns.AddRange(new DataGridViewColumn[] { txtFieldMonsterName, txtFieldMonsterServerName, txtFieldMonsterRate });
+			dgvFieldMonsters.Dock = DockStyle.Fill;
+			dgvFieldMonsters.Location = new Point(3, 19);
+			dgvFieldMonsters.MultiSelect = false;
+			dgvFieldMonsters.Name = "dgvFieldMonsters";
+			dgvFieldMonsters.RowHeadersWidth = 24;
+			dgvFieldMonsters.RowTemplate.Height = 25;
+			dgvFieldMonsters.Size = new Size(674, 236);
+			dgvFieldMonsters.TabIndex = 0;
+			// 
+			// txtFieldMonsterName
+			// 
+			txtFieldMonsterName.HeaderText = "Name";
+			txtFieldMonsterName.Name = "txtFieldMonsterName";
+			txtFieldMonsterName.Width = 260;
+			// 
+			// txtFieldMonsterServerName
+			// 
+			txtFieldMonsterServerName.HeaderText = "Server Name";
+			txtFieldMonsterServerName.Name = "txtFieldMonsterServerName";
+			txtFieldMonsterServerName.Width = 260;
+			// 
+			// txtFieldMonsterRate
+			// 
+			txtFieldMonsterRate.HeaderText = "Rate";
+			txtFieldMonsterRate.Name = "txtFieldMonsterRate";
+			txtFieldMonsterRate.Width = 128;
+			// 
+			// groupBox53
+			// 
+			groupBox53.Location = new Point(6, 6);
+			groupBox53.Name = "groupBox53";
+			groupBox53.Size = new Size(680, 100);
+			groupBox53.TabIndex = 3;
+			groupBox53.TabStop = false;
+			groupBox53.Text = "Settings";
 			// 
 			// groupBox51
 			// 
@@ -5608,7 +5732,7 @@ namespace GameServer.Forms
 			// 
 			// toolStrip10
 			// 
-			toolStrip10.Items.AddRange(new ToolStripItem[] { btnFieldMonsterReload, btnFieldMonsterAdd, toolStripSeparator4, toolStripLabel1, txtFieldMonsterSearch });
+			toolStrip10.Items.AddRange(new ToolStripItem[] { btnFieldMonsterReload, btnFieldMonsterAdd, btnFieldMonsterAddBoss, toolStripSeparator4, txtFieldMonsterSearch });
 			toolStrip10.Location = new Point(4, 16);
 			toolStrip10.Name = "toolStrip10";
 			toolStrip10.Size = new Size(248, 25);
@@ -5632,25 +5756,29 @@ namespace GameServer.Forms
 			btnFieldMonsterAdd.ImageTransparentColor = Color.Magenta;
 			btnFieldMonsterAdd.Name = "btnFieldMonsterAdd";
 			btnFieldMonsterAdd.Size = new Size(23, 22);
-			btnFieldMonsterAdd.Text = "New File";
+			btnFieldMonsterAdd.Text = "Add Monster";
 			btnFieldMonsterAdd.Click += btnFieldMonsterAdd_Click;
+			// 
+			// btnFieldMonsterAddBoss
+			// 
+			btnFieldMonsterAddBoss.DisplayStyle = ToolStripItemDisplayStyle.Image;
+			btnFieldMonsterAddBoss.Image = Properties.Resources._7;
+			btnFieldMonsterAddBoss.ImageTransparentColor = Color.Magenta;
+			btnFieldMonsterAddBoss.Name = "btnFieldMonsterAddBoss";
+			btnFieldMonsterAddBoss.Size = new Size(23, 22);
+			btnFieldMonsterAddBoss.Text = "Add Boss";
+			btnFieldMonsterAddBoss.Click += btnFieldMonsterAddBoss_Click;
 			// 
 			// toolStripSeparator4
 			// 
 			toolStripSeparator4.Name = "toolStripSeparator4";
 			toolStripSeparator4.Size = new Size(6, 25);
 			// 
-			// toolStripLabel1
-			// 
-			toolStripLabel1.Name = "toolStripLabel1";
-			toolStripLabel1.Size = new Size(42, 22);
-			toolStripLabel1.Text = "Search";
-			// 
 			// txtFieldMonsterSearch
 			// 
 			txtFieldMonsterSearch.Alignment = ToolStripItemAlignment.Right;
 			txtFieldMonsterSearch.Name = "txtFieldMonsterSearch";
-			txtFieldMonsterSearch.Size = new Size(140, 25);
+			txtFieldMonsterSearch.Size = new Size(150, 25);
 			txtFieldMonsterSearch.TextChanged += txtFieldMonsterSearch_TextChanged;
 			// 
 			// tabPage12
@@ -5844,13 +5972,32 @@ namespace GameServer.Forms
 			statusStrip1.TabIndex = 3;
 			statusStrip1.Text = "statusStrip1";
 			// 
+			// ctmFieldMonsterAdd
+			// 
+			ctmFieldMonsterAdd.Items.AddRange(new ToolStripItem[] { miFieldAddMonster, miFieldAddServant });
+			ctmFieldMonsterAdd.Name = "ctmFieldMonsterAdd";
+			ctmFieldMonsterAdd.Size = new Size(157, 48);
+			ctmFieldMonsterAdd.ItemClicked += ctmFieldMonsterAdd_ItemClicked;
+			// 
+			// miFieldAddMonster
+			// 
+			miFieldAddMonster.Name = "miFieldAddMonster";
+			miFieldAddMonster.Size = new Size(156, 22);
+			miFieldAddMonster.Text = "Spawn Monster";
+			// 
+			// miFieldAddServant
+			// 
+			miFieldAddServant.Name = "miFieldAddServant";
+			miFieldAddServant.Size = new Size(156, 22);
+			miFieldAddServant.Text = "Boss Servant";
+			// 
 			// MainForm
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(1280, 720);
 			Controls.Add(statusStrip1);
-			Controls.Add(tabControl1);
+			Controls.Add(tcCategory);
 			Controls.Add(toolStrip1);
 			Controls.Add(menuStrip1);
 			FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -5864,7 +6011,7 @@ namespace GameServer.Forms
 			Load += MainForm_Load;
 			menuStrip1.ResumeLayout(false);
 			menuStrip1.PerformLayout();
-			tabControl1.ResumeLayout(false);
+			tcCategory.ResumeLayout(false);
 			tabPage1.ResumeLayout(false);
 			gbItemInformation.ResumeLayout(false);
 			tabControl2.ResumeLayout(false);
@@ -6148,8 +6295,12 @@ namespace GameServer.Forms
 			toolStrip4.PerformLayout();
 			tabPage4.ResumeLayout(false);
 			gbFieldInformation.ResumeLayout(false);
-			tabControl5.ResumeLayout(false);
+			tcFieldInfo.ResumeLayout(false);
 			tabPage11.ResumeLayout(false);
+			groupBox55.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)dgvFieldBossTime).EndInit();
+			groupBox54.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)dgvFieldMonsters).EndInit();
 			groupBox51.ResumeLayout(false);
 			groupBox51.PerformLayout();
 			toolStrip10.ResumeLayout(false);
@@ -6163,6 +6314,7 @@ namespace GameServer.Forms
 			groupBox4.PerformLayout();
 			toolStrip5.ResumeLayout(false);
 			toolStrip5.PerformLayout();
+			ctmFieldMonsterAdd.ResumeLayout(false);
 			ResumeLayout(false);
 			PerformLayout();
 		}
@@ -6176,7 +6328,7 @@ namespace GameServer.Forms
 		private ToolStripMenuItem miEditSettings;
 		private ToolStripMenuItem helpToolStripMenuItem;
 		private ToolStrip toolStrip1;
-		private TabControl tabControl1;
+		private TabControl tcCategory;
 		private TabPage tabPage1;
 		private TabPage tabPage2;
 		private StatusStrip statusStrip1;
@@ -6420,7 +6572,7 @@ namespace GameServer.Forms
 		private TabControl tabControl4;
 		private TabPage tabPage9;
 		private TabPage tabPage10;
-		private TabControl tabControl5;
+		private TabControl tcFieldInfo;
 		private TabPage tabPage11;
 		private TabPage tabPage12;
 		private GroupBox groupBox5;
@@ -6668,9 +6820,7 @@ namespace GameServer.Forms
 		private ToolStripButton btnFieldMonsterReload;
 		private ToolStripButton btnFieldMonsterAdd;
 		private ToolStripSeparator toolStripSeparator4;
-		private ToolStripLabel toolStripLabel1;
 		private ToolStripTextBox txtFieldMonsterSearch;
-		private ToolStripButton btnFieldMonsterDelete;
 		private GroupBox groupBox52;
 		private ListBox lbFieldNPCs;
 		private ToolStrip toolStrip11;
@@ -6683,5 +6833,21 @@ namespace GameServer.Forms
 		private ToolStripTextBox txtNPCFilesSearch;
 		private ToolStripSeparator toolStripSeparator7;
 		private ToolStripTextBox txtFieldFilesSearch;
+		private GroupBox groupBox54;
+		private GroupBox groupBox53;
+		private DataGridView dgvFieldMonsters;
+		private DataGridViewTextBoxColumn txtFieldMonsterName;
+		private DataGridViewTextBoxColumn txtFieldMonsterServerName;
+		private DataGridViewTextBoxColumn txtFieldMonsterRate;
+		private ToolStripButton btnFieldMonsterAddBoss;
+		private GroupBox groupBox55;
+		private DataGridView dgvFieldBossTime;
+		private DataGridViewTextBoxColumn dgvtxtFieldBossName;
+		private DataGridViewTextBoxColumn dgvtxtFieldBossServant;
+		private DataGridViewTextBoxColumn dgvtxtFieldBossServantCount;
+		private DataGridViewTextBoxColumn dgvtxtFieldBossTime;
+		private ContextMenuStrip ctmFieldMonsterAdd;
+		private ToolStripMenuItem miFieldAddMonster;
+		private ToolStripMenuItem miFieldAddServant;
 	}
 }

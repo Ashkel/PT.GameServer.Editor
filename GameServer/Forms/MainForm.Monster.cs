@@ -113,7 +113,7 @@ public partial class MainForm
 			monster.Reset();
 			monster.Process(Path.Combine(Globals.MonsterPath, fileName));
 
-			_monsterNames.TryAdd(fileName, monster.ServerName);
+			_monsterNames.TryAdd(fileName, new KeyValuePair<string, string>(monster.Name, monster.ServerName));
 		}
 
 		Monster.SoundList.Sort();

@@ -1,7 +1,9 @@
 ﻿using GameServer.Framework;
 using GameServer.Framework.Characters;
+using GameServer.Framework.Fields;
 using GameServer.Framework.Items;
 using System.Diagnostics;
+using System.Threading;
 
 namespace GameServer.Forms;
 
@@ -9,8 +11,13 @@ public partial class MainForm
 {
 	#region Field/Properties
 
-	private readonly Dictionary<string, string> _monsterNames = new();
-	private readonly Dictionary<string, string> _npcNames = new();
+	private readonly Field.MonsterSettings _loadedMonsterSettings;
+
+
+	private readonly Dictionary<string, KeyValuePair<string, string>> _monsterNames = new();
+
+	// key => FileName, value => KeyPair with: key => Name, value => ServerName
+	private readonly Dictionary<string, KeyValuePair<string, string>> _npcNames = new();
 
 	#endregion
 
@@ -22,7 +29,21 @@ public partial class MainForm
 		if (lbFieldFiles.SelectedItem is not string fileName)
 			return;
 
-		// TODO:
+		var spmFile = Path.Combine(Globals.FieldPath, fileName + ".spm");
+		if (!File.Exists(spmFile))
+		{
+			var result = MessageBox.Show($"{spmFile} was not found!\r\nWant to create file?", "File not found!", MessageBoxButtons.YesNo);
+			if (result == DialogResult.No)
+				return;
+
+			File.Create(spmFile);
+		}
+
+		_loadedMonsterSettings.Reset();
+		_loadedMonsterSettings.SetFile(spmFile);
+		_loadedMonsterSettings.Process();
+
+		// TODO: NPCs
 
 		SetFieldData();
 	}
@@ -80,18 +101,43 @@ public partial class MainForm
 
 	private void btnFieldMonsterAdd_Click(object sender, EventArgs e)
 	{
+		ctmFieldMonsterAdd.Show(lbFieldMonsters, Point.Empty);
+	}
+
+	private void btnFieldMonsterAddBoss_Click(object sender, EventArgs e)
+	{
 		if (lbFieldMonsters.SelectedItem is not string fileName)
 			return;
 
-		if(_monsterNames.ContainsKey(fileName))
+		if (_monsterNames.ContainsKey(fileName))
 		{
-			MessageBox.Show(_monsterNames[fileName]);
+			BossSpawnAddEntry(_monsterNames[fileName].Key);
 		}
 	}
 
 	private void txtFieldMonsterSearch_TextChanged(object sender, EventArgs e)
 	{
 		ListBoxSearch(lbFieldMonsters, txtFieldMonsterSearch.Text);
+	}
+
+	private void ctmFieldMonsterAdd_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+	{
+		if (lbFieldMonsters.SelectedItem is not string fileName)
+			return;
+
+		if (!_monsterNames.ContainsKey(fileName))
+			return;
+
+		switch (e.ClickedItem)
+		{
+			case var item when item == miFieldAddMonster:
+				MonsterSpawnAddEntry(_monsterNames[fileName]);
+				break;
+
+			case var item when item == miFieldAddServant:
+				BossSpawnAddServant(_monsterNames[fileName].Key);
+				break;
+		}
 	}
 
 	private void btnFieldNPCReload_Click(object sender, EventArgs e)
@@ -106,13 +152,28 @@ public partial class MainForm
 
 		if (_npcNames.ContainsKey(fileName))
 		{
-			MessageBox.Show(_npcNames[fileName]);
+			BossSpawnAddEntry(_npcNames[fileName].Key);
 		}
 	}
 
 	private void txtFieldNPCSearch_TextChanged(object sender, EventArgs e)
 	{
 		ListBoxSearch(lbFieldNPCs, txtFieldNPCSearch.Text);
+	}
+
+	private void tcFieldInfo_Selected(object sender, TabControlEventArgs e)
+	{
+		switch (e.TabPageIndex)
+		{
+			case 0:
+				break;
+
+			case 1:
+				break;
+
+			default:
+				break;
+		}
 	}
 
 	#endregion
@@ -133,7 +194,7 @@ public partial class MainForm
 		{
 			npc.Process(Path.Combine(Globals.NPCPath, fileName));
 
-			_npcNames.TryAdd(fileName, npc.ServerName);
+			_npcNames.TryAdd(fileName, new KeyValuePair<string, string>(npc.Name, npc.ServerName));
 		}
 
 		var npcs = _npcNames.Keys.ToList();
@@ -144,10 +205,16 @@ public partial class MainForm
 
 	private void LoadFieldFiles()
 	{
-		if (SetCurrentTabFiles(Globals.FieldPath, "*.spm"))
+		if (SetCurrentTabFiles(Globals.FieldPath, "*.spp"))
 		{
 			lbFieldFiles.Items.Clear();
-			lbFieldFiles.Items.AddRange(_currentTabFiles!);
+
+			foreach (var fileName in _currentTabFiles!)
+			{
+				var file = fileName.Remove(fileName.Length - 4);
+
+				lbFieldFiles.Items.Add(file);
+			}
 		}
 	}
 
@@ -155,6 +222,11 @@ public partial class MainForm
 	{
 		try
 		{
+			// Monster Settings
+
+
+			PopulateMonsterSpawn();
+
 
 		}
 		catch (Exception ex)
@@ -173,6 +245,93 @@ public partial class MainForm
 		{
 			LogError(ex);
 		}
+	}
+
+	#endregion
+
+
+	#region Control Helper methods
+
+	private void MonsterSpawnAddEntry(KeyValuePair<string, string> entry, int rate = 0)
+	{
+		var index = dgvFieldMonsters.Rows.Add();
+		var row = dgvFieldMonsters.Rows[index];
+
+		// Constants for cell indices
+		const int nameCellIndex = 0;
+		const int serverNameCellIndex = 1;
+		const int rateCellIndex = 2;
+
+		row.Cells[nameCellIndex].Value = entry.Key;
+		row.Cells[serverNameCellIndex].Value = entry.Value;
+		row.Cells[rateCellIndex].Value = rate.ToString();
+	}
+
+	private void BossSpawnAddEntry(string name, string? servantName = null, int servantCount = 0, List<int>? time = null)
+	{
+		var index = dgvFieldBossTime.Rows.Add();
+		var row = dgvFieldBossTime.Rows[index];
+
+		// Constants for cell indices
+		const int bossNameCellIndex = 0;
+		const int servantNameCellIndex = 1;
+		const int servantCountCellIndex = 2;
+		const int bossTimeCellIndex = 3;
+
+		row.Cells[bossNameCellIndex].Value = name;
+		row.Cells[servantNameCellIndex].Value = servantName;
+		row.Cells[servantNameCellIndex].Selected = servantName == null;
+		row.Cells[servantCountCellIndex].Value = servantCount;
+		row.Cells[bossTimeCellIndex].Value = time != null ? string.Join(' ', time) : string.Empty;
+	}
+
+	private void BossSpawnAddServant(string name)
+	{
+		if (dgvFieldBossTime.SelectedRows.Count <= 0)
+			return;
+
+		var row = dgvFieldBossTime.SelectedRows[0];
+		if (row == null)
+			return;
+
+		// Constants for cell indices
+		const int servantNameCellIndex = 1;
+		const int servantCountCellIndex = 2;
+		row.Cells[servantNameCellIndex].Value = name;
+		row.Cells[servantCountCellIndex].Value = "1";
+	}
+
+	private void PopulateMonsterSpawn()
+	{
+		dgvFieldMonsters.Rows.Clear();
+		dgvFieldBossTime.Rows.Clear();
+
+		if (!_loadedMonsterSettings.Monsters.Any())
+			return;
+
+
+		foreach (var monster in _loadedMonsterSettings.Monsters)
+		{
+			var keyPair = _monsterNames.Values.Where(v => v.Value == monster.Name).FirstOrDefault();
+
+			MonsterSpawnAddEntry(keyPair, monster.Rate);
+		}
+
+		if (!_loadedMonsterSettings.Bosses.Any())
+			return;
+
+		foreach (var boss in _loadedMonsterSettings.Bosses)
+		{
+			var bossPair = _monsterNames.Values.Where(v => v.Value == boss.Name).FirstOrDefault();
+			var servant = _monsterNames.Values.Where(v => v.Value == boss.ServantName).FirstOrDefault();
+
+			BossSpawnAddEntry(bossPair.Key, servant.Key, boss.ServantCount, boss.Time);
+		}
+	}
+
+	private void RetrieveMonsterSpawn()
+	{
+
 	}
 
 	#endregion

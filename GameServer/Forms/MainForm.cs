@@ -26,6 +26,7 @@ public partial class MainForm : Form
 		_loadedItem = new();
 		_loadedMonster = new();
 		_loadedNPC = new();
+		_loadedMonsterSettings = new();
 		//_backupItemHash = _loadedItem.GetHashCode();
 
 		InitializeComponent();
@@ -94,7 +95,7 @@ public partial class MainForm : Form
 		SettingsShowDialog();
 	}
 
-	private void tabControl1_Selected(object sender, TabControlEventArgs e)
+	private void tcCategory_Selected(object sender, TabControlEventArgs e)
 	{
 		switch (e.TabPageIndex)
 		{
@@ -127,6 +128,7 @@ public partial class MainForm : Form
 			FileName = Application.StartupPath,
 			Verb = "open",
 		};
+
 		Process.Start(pi);
 	}
 
@@ -138,6 +140,7 @@ public partial class MainForm : Form
 			FileName = Globals.Settings.ServerPath,
 			Verb = "open",
 		};
+
 		Process.Start(pi);
 	}
 
@@ -149,6 +152,7 @@ public partial class MainForm : Form
 			FileName = Globals.Settings.ClientPath,
 			Verb = "open",
 		};
+
 		Process.Start(pi);
 	}
 
@@ -160,6 +164,7 @@ public partial class MainForm : Form
 			FileName = "https://github.com/Ashkel/PT.GameServer.Editor",
 			Verb = "open",
 		};
+
 		Process.Start(pi);
 	}
 
@@ -184,8 +189,7 @@ public partial class MainForm : Form
 		if (settings.ShowDialog() == DialogResult.OK)
 		{
 			// Reload files with correct path
-			TabControlEventArgs ev = new(null, tabControl1.TabIndex, TabControlAction.Selected);
-			tabControl1_Selected(this, ev);
+			tcCategory_Selected(this, new TabControlEventArgs(null, tcCategory.TabIndex, TabControlAction.Selected));
 		}
 	}
 

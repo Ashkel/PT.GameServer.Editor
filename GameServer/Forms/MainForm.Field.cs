@@ -223,11 +223,12 @@ public partial class MainForm
 		try
 		{
 			// Monster Settings
-
+			nudFieldMonsterMaxFlags.Value = _loadedMonsterSettings.MaxFlags;
+			nudFieldMonstersPerFlag.Value = _loadedMonsterSettings.MonstersPerFlag;
+			nudFieldMonsterDelayMin.Value = _loadedMonsterSettings.SpawnDelay.Min;
+			nudFieldMonsterDelayMax.Value = _loadedMonsterSettings.SpawnDelay.Max;
 
 			PopulateMonsterSpawn();
-
-
 		}
 		catch (Exception ex)
 		{
@@ -239,7 +240,11 @@ public partial class MainForm
 	{
 		try
 		{
+			_loadedMonsterSettings.MaxFlags = (int)nudFieldMonsterMaxFlags.Value;
+			_loadedMonsterSettings.MonstersPerFlag = (int)nudFieldMonstersPerFlag.Value;
+			_loadedMonsterSettings.SpawnDelay = new Framework.Range((int)nudFieldMonsterDelayMin.Value, (int)nudFieldMonsterDelayMax.Value);
 
+			RetrieveMonsterSpawn();
 		}
 		catch (Exception ex)
 		{
@@ -309,7 +314,6 @@ public partial class MainForm
 		if (!_loadedMonsterSettings.Monsters.Any())
 			return;
 
-
 		foreach (var monster in _loadedMonsterSettings.Monsters)
 		{
 			var keyPair = _monsterNames.Values.Where(v => v.Value == monster.Name).FirstOrDefault();
@@ -331,7 +335,77 @@ public partial class MainForm
 
 	private void RetrieveMonsterSpawn()
 	{
+		// Retrieve monsters
+		{
+			_loadedMonsterSettings.Monsters.Clear();
 
+			// Constants for cell indices
+			//const int nameCellIndex = 0;
+			const int serverNameCellIndex = 1;
+			const int rateCellIndex = 2;
+
+			foreach (DataGridViewRow row in dgvFieldMonsters.Rows)
+			{
+				if (row.Cells[serverNameCellIndex].Value is not string name)
+					continue;
+				if (row.Cells[rateCellIndex].Value is not string str || !int.TryParse(str, out int rate))
+					continue;
+
+				var actor = new Actor
+				{
+					Name = name,
+					Rate = rate,
+				};
+
+				_loadedMonsterSettings.Monsters.Add(actor);
+			}
+		}
+
+		// Retrieve bosses
+		{
+			_loadedMonsterSettings.Bosses.Clear();
+
+			// Constants for cell indices
+			const int bossNameCellIndex = 0;
+			const int servantNameCellIndex = 1;
+			const int servantCountCellIndex = 2;
+			const int bossTimeCellIndex = 3;
+
+			foreach (DataGridViewRow row in dgvFieldBossTime.Rows)
+			{
+				if (row.Cells[bossNameCellIndex].Value is not string bossName)
+					continue;
+				if (row.Cells[servantNameCellIndex].Value is not string servantName)
+					continue;
+				if (row.Cells[servantCountCellIndex].Value is not string rateStr || !int.TryParse(rateStr, out int servantCount))
+					continue;
+				if (row.Cells[bossTimeCellIndex].Value is not string bossTime)
+					continue;
+
+				var boss = _monsterNames.Values.Where(v => v.Key == bossName).FirstOrDefault();
+				var servant = _monsterNames.Values.Where(v => v.Key == servantName).FirstOrDefault();
+
+				var time = new List<int>();
+
+                foreach (var item in bossTime.Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+					if (!int.TryParse(item, out int result))
+						continue;
+
+					time.Add(result);
+                }
+
+                var bossActor = new BossActor
+				{
+					Name = boss.Key,
+					ServantName = servant.Key,
+					ServantCount = servantCount,
+					Time = time
+				};
+
+				_loadedMonsterSettings.Bosses.Add(bossActor);
+			}
+		}
 	}
 
 	#endregion

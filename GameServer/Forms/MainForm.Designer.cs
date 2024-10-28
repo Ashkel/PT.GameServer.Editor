@@ -559,6 +559,13 @@ namespace GameServer.Forms
 			ctmFieldMonsterAdd = new ContextMenuStrip(components);
 			miFieldAddMonster = new ToolStripMenuItem();
 			miFieldAddServant = new ToolStripMenuItem();
+			nudFieldMonsterMaxFlags = new NumericUpDown();
+			label133 = new Label();
+			nudFieldMonsterDelayMax = new NumericUpDown();
+			nudFieldMonsterDelayMin = new NumericUpDown();
+			label136 = new Label();
+			nudFieldMonstersPerFlag = new NumericUpDown();
+			label137 = new Label();
 			menuStrip1.SuspendLayout();
 			tcCategory.SuspendLayout();
 			tabPage1.SuspendLayout();
@@ -793,6 +800,7 @@ namespace GameServer.Forms
 			((System.ComponentModel.ISupportInitialize)dgvFieldBossTime).BeginInit();
 			groupBox54.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)dgvFieldMonsters).BeginInit();
+			groupBox53.SuspendLayout();
 			groupBox51.SuspendLayout();
 			toolStrip10.SuspendLayout();
 			tabPage12.SuspendLayout();
@@ -801,6 +809,10 @@ namespace GameServer.Forms
 			groupBox4.SuspendLayout();
 			toolStrip5.SuspendLayout();
 			ctmFieldMonsterAdd.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)nudFieldMonsterMaxFlags).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudFieldMonsterDelayMax).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudFieldMonsterDelayMin).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudFieldMonstersPerFlag).BeginInit();
 			SuspendLayout();
 			// 
 			// menuStrip1
@@ -5701,6 +5713,13 @@ namespace GameServer.Forms
 			// 
 			// groupBox53
 			// 
+			groupBox53.Controls.Add(nudFieldMonstersPerFlag);
+			groupBox53.Controls.Add(label137);
+			groupBox53.Controls.Add(nudFieldMonsterDelayMax);
+			groupBox53.Controls.Add(nudFieldMonsterDelayMin);
+			groupBox53.Controls.Add(label136);
+			groupBox53.Controls.Add(nudFieldMonsterMaxFlags);
+			groupBox53.Controls.Add(label133);
 			groupBox53.Location = new Point(6, 6);
 			groupBox53.Name = "groupBox53";
 			groupBox53.Size = new Size(680, 100);
@@ -5990,6 +6009,69 @@ namespace GameServer.Forms
 			miFieldAddServant.Name = "miFieldAddServant";
 			miFieldAddServant.Size = new Size(156, 22);
 			miFieldAddServant.Text = "Boss Servant";
+			// 
+			// nudFieldMonsterMaxFlags
+			// 
+			nudFieldMonsterMaxFlags.Location = new Point(96, 30);
+			nudFieldMonsterMaxFlags.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+			nudFieldMonsterMaxFlags.Name = "nudFieldMonsterMaxFlags";
+			nudFieldMonsterMaxFlags.Size = new Size(160, 23);
+			nudFieldMonsterMaxFlags.TabIndex = 29;
+			nudFieldMonsterMaxFlags.ThousandsSeparator = true;
+			// 
+			// label133
+			// 
+			label133.AutoSize = true;
+			label133.Location = new Point(16, 32);
+			label133.Name = "label133";
+			label133.Size = new Size(65, 15);
+			label133.TabIndex = 30;
+			label133.Text = "Flag Count";
+			// 
+			// nudFieldMonsterDelayMax
+			// 
+			nudFieldMonsterDelayMax.Location = new Point(468, 30);
+			nudFieldMonsterDelayMax.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+			nudFieldMonsterDelayMax.Name = "nudFieldMonsterDelayMax";
+			nudFieldMonsterDelayMax.Size = new Size(72, 23);
+			nudFieldMonsterDelayMax.TabIndex = 46;
+			nudFieldMonsterDelayMax.ThousandsSeparator = true;
+			// 
+			// nudFieldMonsterDelayMin
+			// 
+			nudFieldMonsterDelayMin.Location = new Point(390, 30);
+			nudFieldMonsterDelayMin.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+			nudFieldMonsterDelayMin.Name = "nudFieldMonsterDelayMin";
+			nudFieldMonsterDelayMin.Size = new Size(72, 23);
+			nudFieldMonsterDelayMin.TabIndex = 45;
+			nudFieldMonsterDelayMin.ThousandsSeparator = true;
+			// 
+			// label136
+			// 
+			label136.AutoSize = true;
+			label136.Location = new Point(310, 32);
+			label136.Name = "label136";
+			label136.Size = new Size(46, 15);
+			label136.TabIndex = 47;
+			label136.Text = "Interval";
+			// 
+			// nudFieldMonstersPerFlag
+			// 
+			nudFieldMonstersPerFlag.Location = new Point(96, 59);
+			nudFieldMonstersPerFlag.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+			nudFieldMonstersPerFlag.Name = "nudFieldMonstersPerFlag";
+			nudFieldMonstersPerFlag.Size = new Size(160, 23);
+			nudFieldMonstersPerFlag.TabIndex = 48;
+			nudFieldMonstersPerFlag.ThousandsSeparator = true;
+			// 
+			// label137
+			// 
+			label137.AutoSize = true;
+			label137.Location = new Point(16, 61);
+			label137.Name = "label137";
+			label137.Size = new Size(66, 15);
+			label137.TabIndex = 49;
+			label137.Text = "# Monsters";
 			// 
 			// MainForm
 			// 
@@ -6301,6 +6383,8 @@ namespace GameServer.Forms
 			((System.ComponentModel.ISupportInitialize)dgvFieldBossTime).EndInit();
 			groupBox54.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)dgvFieldMonsters).EndInit();
+			groupBox53.ResumeLayout(false);
+			groupBox53.PerformLayout();
 			groupBox51.ResumeLayout(false);
 			groupBox51.PerformLayout();
 			toolStrip10.ResumeLayout(false);
@@ -6315,6 +6399,10 @@ namespace GameServer.Forms
 			toolStrip5.ResumeLayout(false);
 			toolStrip5.PerformLayout();
 			ctmFieldMonsterAdd.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)nudFieldMonsterMaxFlags).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudFieldMonsterDelayMax).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudFieldMonsterDelayMin).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudFieldMonstersPerFlag).EndInit();
 			ResumeLayout(false);
 			PerformLayout();
 		}
@@ -6849,5 +6937,12 @@ namespace GameServer.Forms
 		private ContextMenuStrip ctmFieldMonsterAdd;
 		private ToolStripMenuItem miFieldAddMonster;
 		private ToolStripMenuItem miFieldAddServant;
+		private NumericUpDown nudFieldMonstersPerFlag;
+		private Label label137;
+		private NumericUpDown nudFieldMonsterDelayMax;
+		private NumericUpDown nudFieldMonsterDelayMin;
+		private Label label136;
+		private NumericUpDown nudFieldMonsterMaxFlags;
+		private Label label133;
 	}
 }

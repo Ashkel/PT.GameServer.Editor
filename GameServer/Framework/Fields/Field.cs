@@ -1,6 +1,4 @@
-﻿using GameServer.Framework.Characters;
-using GameServer.Helpers;
-using System.Xml.Linq;
+﻿using GameServer.Helpers;
 
 namespace GameServer.Framework.Fields;
 
@@ -53,8 +51,6 @@ public partial class Field
 			// Helper functions for parsing data
 			string ParseString() => FileHelper.ParseString(line, ref position);
 			int ParseInteger() => FileHelper.ParseInteger(line, ref position);
-			float ParseFloat() => FileHelper.ParseFloat(line, ref position);
-			bool ParseBool(string condition) => FileHelper.ParseBool(line, ref position, condition);
 			Range ParseRange() => FileHelper.ParseRange(line, ref position);
 
 			switch (keyword)

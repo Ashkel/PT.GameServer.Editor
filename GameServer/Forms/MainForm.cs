@@ -27,6 +27,7 @@ public partial class MainForm : Form
 		_loadedMonster = new();
 		_loadedNPC = new();
 		_loadedMonsterSettings = new();
+		_loadedNPCSettings = new();
 		//_backupItemHash = _loadedItem.GetHashCode();
 
 		InitializeComponent();

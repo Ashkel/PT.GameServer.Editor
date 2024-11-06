@@ -12,7 +12,7 @@ namespace GameServer.Framework
 
 		[XmlIgnore]
 		[JsonIgnore]
-		public Encoding Encoding { get; protected set; } = Encoding.GetEncoding(949);
+		public static Encoding Encoding { get; } = Encoding.GetEncoding(949);
 
 		[XmlIgnore]
 		[JsonIgnore]

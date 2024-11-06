@@ -3,6 +3,7 @@ using GameServer.Framework.Characters;
 using GameServer.Framework.Fields;
 using GameServer.Framework.Items;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading;
 
 namespace GameServer.Forms;
@@ -12,6 +13,8 @@ public partial class MainForm
 	#region Field/Properties
 
 	private readonly Field.MonsterSettings _loadedMonsterSettings;
+	private readonly Field.NpcSettings _loadedNPCSettings;
+	private int _loadedNpcIndex = -1;
 
 
 	private readonly Dictionary<string, KeyValuePair<string, string>> _monsterNames = new();
@@ -29,23 +32,52 @@ public partial class MainForm
 		if (lbFieldFiles.SelectedItem is not string fileName)
 			return;
 
-		var spmFile = Path.Combine(Globals.FieldPath, fileName + ".spm");
-		if (!File.Exists(spmFile))
+		try
 		{
-			var result = MessageBox.Show($"{spmFile} was not found!\r\nWant to create file?", "File not found!", MessageBoxButtons.YesNo);
-			if (result == DialogResult.No)
-				return;
+			var file = fileName.Remove(fileName.Length - 4) + ".png";
+			var mapFile = Path.Combine(Application.StartupPath, "Field/Map", file);
 
-			File.Create(spmFile);
+			if (!File.Exists(mapFile))
+				mapFile = Path.Combine(Globals.Settings.ClientPath, "Field/Map", file);
+
+			if (File.Exists(mapFile))
+				pbFieldMap.Image = new Bitmap(mapFile);
+
+			var spmFile = Path.Combine(Globals.FieldPath, fileName + ".spm");
+			if (!File.Exists(spmFile))
+			{
+				var result = MessageBox.Show($"{spmFile} was not found!\r\nWant to create file?", "File not found!", MessageBoxButtons.YesNo);
+				if (result == DialogResult.No)
+					return;
+
+				File.Create(spmFile);
+			}
+
+			_loadedMonsterSettings.Reset();
+			_loadedMonsterSettings.SetFile(spmFile);
+			_loadedMonsterSettings.Process();
+
+			var spcFile = Path.Combine(Globals.FieldPath, fileName + ".spc");
+			if (!File.Exists(spcFile))
+			{
+				var result = MessageBox.Show($"{spcFile} was not found!\r\nWant to create file?", "File not found!", MessageBoxButtons.YesNo);
+				if (result == DialogResult.No)
+					return;
+
+				File.Create(spcFile);
+			}
+
+			_loadedNPCSettings.Reset();
+			_loadedNPCSettings.SetFile(spcFile);
+			_loadedNPCSettings.Load();
+
+
+			SetFieldData();
 		}
-
-		_loadedMonsterSettings.Reset();
-		_loadedMonsterSettings.SetFile(spmFile);
-		_loadedMonsterSettings.Process();
-
-		// TODO: NPCs
-
-		SetFieldData();
+		catch (Exception ex)
+		{
+			LogError(ex);
+		}
 	}
 
 	private void btnFieldFilesReload_Click(object sender, EventArgs e)
@@ -76,6 +108,8 @@ public partial class MainForm
 
 		if (result == DialogResult.Yes)
 		{
+			_loadedMonsterSettings.Save();
+			_loadedNPCSettings.Save();
 		}
 	}
 
@@ -176,6 +210,26 @@ public partial class MainForm
 		}
 	}
 
+	private void lbFieldLoadedNPCs_SelectedIndexChanged(object sender, EventArgs e)
+	{
+		var character = _loadedNPCSettings.Characters.Where(v => v.Info.HeadModel.Contains((string)lbFieldLoadedNPCs.SelectedItem)).FirstOrDefault();
+		_loadedNpcIndex = _loadedNPCSettings.Characters.IndexOf(character);
+
+		ckbFieldNPCIsActive.Checked = character.PacketCode != 0;
+
+		txtFieldNPCBodyModel.Text = character.Info.BodyModel;
+
+		nudFieldNPCClan.Value = character.Info.ClanCode;
+	
+		nudFieldNPCPosX.Value = character.X;
+		nudFieldNPCPosY.Value = character.Y;
+		nudFieldNPCPosZ.Value = character.Z;
+
+		nudFieldNPCAngleX.Value = character.AX;
+		nudFieldNPCAngleY.Value = character.AY;
+		nudFieldNPCAngleZ.Value = character.AZ;
+	}
+
 	#endregion
 
 
@@ -229,6 +283,16 @@ public partial class MainForm
 			nudFieldMonsterDelayMax.Value = _loadedMonsterSettings.SpawnDelay.Max;
 
 			PopulateMonsterSpawn();
+
+			lbFieldLoadedNPCs.Items.Clear();
+
+			foreach (var npc in _loadedNPCSettings.Characters)
+			{
+				var fileName = _npcNames.Keys.Where(v => npc.Info.HeadModel.Contains(v)).FirstOrDefault();
+
+				if (!string.IsNullOrEmpty(fileName))
+					lbFieldLoadedNPCs.Items.Add(fileName);
+			}
 		}
 		catch (Exception ex)
 		{

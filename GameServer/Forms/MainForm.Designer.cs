@@ -527,6 +527,13 @@ namespace GameServer.Forms
 			txtFieldMonsterServerName = new DataGridViewTextBoxColumn();
 			txtFieldMonsterRate = new DataGridViewTextBoxColumn();
 			groupBox53 = new GroupBox();
+			nudFieldMonstersPerFlag = new NumericUpDown();
+			label137 = new Label();
+			nudFieldMonsterDelayMax = new NumericUpDown();
+			nudFieldMonsterDelayMin = new NumericUpDown();
+			label136 = new Label();
+			nudFieldMonsterMaxFlags = new NumericUpDown();
+			label133 = new Label();
 			groupBox51 = new GroupBox();
 			lbFieldMonsters = new ListBox();
 			toolStrip10 = new ToolStrip();
@@ -536,6 +543,29 @@ namespace GameServer.Forms
 			toolStripSeparator4 = new ToolStripSeparator();
 			txtFieldMonsterSearch = new ToolStripTextBox();
 			tabPage12 = new TabPage();
+			groupBox58 = new GroupBox();
+			pbFieldMap = new PictureBox();
+			groupBox57 = new GroupBox();
+			ckbFieldNPCIsActive = new CheckBox();
+			label141 = new Label();
+			nudFieldNPCClan = new NumericUpDown();
+			nudFieldNPCAngleZ = new NumericUpDown();
+			nudFieldNPCAngleY = new NumericUpDown();
+			nudFieldNPCAngleX = new NumericUpDown();
+			nudFieldNPCPosZ = new NumericUpDown();
+			nudFieldNPCPosY = new NumericUpDown();
+			nudFieldNPCPosX = new NumericUpDown();
+			label140 = new Label();
+			label138 = new Label();
+			button1 = new Button();
+			txtFieldNPCBodyModel = new TextBox();
+			label139 = new Label();
+			groupBox56 = new GroupBox();
+			lbFieldLoadedNPCs = new ListBox();
+			toolStrip12 = new ToolStrip();
+			btnFieldNPCDelete = new ToolStripButton();
+			btnFieldNPCCopy = new ToolStripButton();
+			toolStripSeparator8 = new ToolStripSeparator();
 			groupBox52 = new GroupBox();
 			lbFieldNPCs = new ListBox();
 			toolStrip11 = new ToolStrip();
@@ -559,13 +589,6 @@ namespace GameServer.Forms
 			ctmFieldMonsterAdd = new ContextMenuStrip(components);
 			miFieldAddMonster = new ToolStripMenuItem();
 			miFieldAddServant = new ToolStripMenuItem();
-			nudFieldMonsterMaxFlags = new NumericUpDown();
-			label133 = new Label();
-			nudFieldMonsterDelayMax = new NumericUpDown();
-			nudFieldMonsterDelayMin = new NumericUpDown();
-			label136 = new Label();
-			nudFieldMonstersPerFlag = new NumericUpDown();
-			label137 = new Label();
 			menuStrip1.SuspendLayout();
 			tcCategory.SuspendLayout();
 			tabPage1.SuspendLayout();
@@ -801,18 +824,30 @@ namespace GameServer.Forms
 			groupBox54.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)dgvFieldMonsters).BeginInit();
 			groupBox53.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)nudFieldMonstersPerFlag).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudFieldMonsterDelayMax).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudFieldMonsterDelayMin).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudFieldMonsterMaxFlags).BeginInit();
 			groupBox51.SuspendLayout();
 			toolStrip10.SuspendLayout();
 			tabPage12.SuspendLayout();
+			groupBox58.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)pbFieldMap).BeginInit();
+			groupBox57.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)nudFieldNPCClan).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudFieldNPCAngleZ).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudFieldNPCAngleY).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudFieldNPCAngleX).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudFieldNPCPosZ).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudFieldNPCPosY).BeginInit();
+			((System.ComponentModel.ISupportInitialize)nudFieldNPCPosX).BeginInit();
+			groupBox56.SuspendLayout();
+			toolStrip12.SuspendLayout();
 			groupBox52.SuspendLayout();
 			toolStrip11.SuspendLayout();
 			groupBox4.SuspendLayout();
 			toolStrip5.SuspendLayout();
 			ctmFieldMonsterAdd.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)nudFieldMonsterMaxFlags).BeginInit();
-			((System.ComponentModel.ISupportInitialize)nudFieldMonsterDelayMax).BeginInit();
-			((System.ComponentModel.ISupportInitialize)nudFieldMonsterDelayMin).BeginInit();
-			((System.ComponentModel.ISupportInitialize)nudFieldMonstersPerFlag).BeginInit();
 			SuspendLayout();
 			// 
 			// menuStrip1
@@ -5727,6 +5762,69 @@ namespace GameServer.Forms
 			groupBox53.TabStop = false;
 			groupBox53.Text = "Settings";
 			// 
+			// nudFieldMonstersPerFlag
+			// 
+			nudFieldMonstersPerFlag.Location = new Point(96, 59);
+			nudFieldMonstersPerFlag.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+			nudFieldMonstersPerFlag.Name = "nudFieldMonstersPerFlag";
+			nudFieldMonstersPerFlag.Size = new Size(160, 23);
+			nudFieldMonstersPerFlag.TabIndex = 48;
+			nudFieldMonstersPerFlag.ThousandsSeparator = true;
+			// 
+			// label137
+			// 
+			label137.AutoSize = true;
+			label137.Location = new Point(16, 61);
+			label137.Name = "label137";
+			label137.Size = new Size(66, 15);
+			label137.TabIndex = 49;
+			label137.Text = "# Monsters";
+			// 
+			// nudFieldMonsterDelayMax
+			// 
+			nudFieldMonsterDelayMax.Location = new Point(468, 30);
+			nudFieldMonsterDelayMax.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+			nudFieldMonsterDelayMax.Name = "nudFieldMonsterDelayMax";
+			nudFieldMonsterDelayMax.Size = new Size(72, 23);
+			nudFieldMonsterDelayMax.TabIndex = 46;
+			nudFieldMonsterDelayMax.ThousandsSeparator = true;
+			// 
+			// nudFieldMonsterDelayMin
+			// 
+			nudFieldMonsterDelayMin.Location = new Point(390, 30);
+			nudFieldMonsterDelayMin.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+			nudFieldMonsterDelayMin.Name = "nudFieldMonsterDelayMin";
+			nudFieldMonsterDelayMin.Size = new Size(72, 23);
+			nudFieldMonsterDelayMin.TabIndex = 45;
+			nudFieldMonsterDelayMin.ThousandsSeparator = true;
+			// 
+			// label136
+			// 
+			label136.AutoSize = true;
+			label136.Location = new Point(310, 32);
+			label136.Name = "label136";
+			label136.Size = new Size(46, 15);
+			label136.TabIndex = 47;
+			label136.Text = "Interval";
+			// 
+			// nudFieldMonsterMaxFlags
+			// 
+			nudFieldMonsterMaxFlags.Location = new Point(96, 30);
+			nudFieldMonsterMaxFlags.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+			nudFieldMonsterMaxFlags.Name = "nudFieldMonsterMaxFlags";
+			nudFieldMonsterMaxFlags.Size = new Size(160, 23);
+			nudFieldMonsterMaxFlags.TabIndex = 29;
+			nudFieldMonsterMaxFlags.ThousandsSeparator = true;
+			// 
+			// label133
+			// 
+			label133.AutoSize = true;
+			label133.Location = new Point(16, 32);
+			label133.Name = "label133";
+			label133.Size = new Size(65, 15);
+			label133.TabIndex = 30;
+			label133.Text = "Flag Count";
+			// 
 			// groupBox51
 			// 
 			groupBox51.Controls.Add(lbFieldMonsters);
@@ -5802,6 +5900,9 @@ namespace GameServer.Forms
 			// 
 			// tabPage12
 			// 
+			tabPage12.Controls.Add(groupBox58);
+			tabPage12.Controls.Add(groupBox57);
+			tabPage12.Controls.Add(groupBox56);
 			tabPage12.Controls.Add(groupBox52);
 			tabPage12.Location = new Point(4, 24);
 			tabPage12.Name = "tabPage12";
@@ -5810,6 +5911,234 @@ namespace GameServer.Forms
 			tabPage12.TabIndex = 1;
 			tabPage12.Text = "NPCs";
 			tabPage12.UseVisualStyleBackColor = true;
+			// 
+			// groupBox58
+			// 
+			groupBox58.Controls.Add(pbFieldMap);
+			groupBox58.Location = new Point(317, 169);
+			groupBox58.Name = "groupBox58";
+			groupBox58.Size = new Size(326, 342);
+			groupBox58.TabIndex = 6;
+			groupBox58.TabStop = false;
+			groupBox58.Text = "Field";
+			// 
+			// pbFieldMap
+			// 
+			pbFieldMap.Location = new Point(3, 19);
+			pbFieldMap.Name = "pbFieldMap";
+			pbFieldMap.Size = new Size(320, 320);
+			pbFieldMap.SizeMode = PictureBoxSizeMode.StretchImage;
+			pbFieldMap.TabIndex = 0;
+			pbFieldMap.TabStop = false;
+			// 
+			// groupBox57
+			// 
+			groupBox57.Controls.Add(ckbFieldNPCIsActive);
+			groupBox57.Controls.Add(label141);
+			groupBox57.Controls.Add(nudFieldNPCClan);
+			groupBox57.Controls.Add(nudFieldNPCAngleZ);
+			groupBox57.Controls.Add(nudFieldNPCAngleY);
+			groupBox57.Controls.Add(nudFieldNPCAngleX);
+			groupBox57.Controls.Add(nudFieldNPCPosZ);
+			groupBox57.Controls.Add(nudFieldNPCPosY);
+			groupBox57.Controls.Add(nudFieldNPCPosX);
+			groupBox57.Controls.Add(label140);
+			groupBox57.Controls.Add(label138);
+			groupBox57.Controls.Add(button1);
+			groupBox57.Controls.Add(txtFieldNPCBodyModel);
+			groupBox57.Controls.Add(label139);
+			groupBox57.Location = new Point(268, 9);
+			groupBox57.Name = "groupBox57";
+			groupBox57.Size = new Size(425, 154);
+			groupBox57.TabIndex = 5;
+			groupBox57.TabStop = false;
+			groupBox57.Text = "NPC Settings";
+			// 
+			// ckbFieldNPCIsActive
+			// 
+			ckbFieldNPCIsActive.AutoSize = true;
+			ckbFieldNPCIsActive.Location = new Point(348, 31);
+			ckbFieldNPCIsActive.Name = "ckbFieldNPCIsActive";
+			ckbFieldNPCIsActive.Size = new Size(70, 19);
+			ckbFieldNPCIsActive.TabIndex = 26;
+			ckbFieldNPCIsActive.Text = "Is Active";
+			ckbFieldNPCIsActive.UseVisualStyleBackColor = true;
+			// 
+			// label141
+			// 
+			label141.AutoSize = true;
+			label141.Location = new Point(16, 118);
+			label141.Name = "label141";
+			label141.Size = new Size(38, 15);
+			label141.TabIndex = 25;
+			label141.Text = "Angle";
+			// 
+			// nudFieldNPCClan
+			// 
+			nudFieldNPCClan.Location = new Point(80, 59);
+			nudFieldNPCClan.Maximum = new decimal(new int[] { 1000000000, 0, 0, 0 });
+			nudFieldNPCClan.Name = "nudFieldNPCClan";
+			nudFieldNPCClan.Size = new Size(204, 23);
+			nudFieldNPCClan.TabIndex = 24;
+			nudFieldNPCClan.ThousandsSeparator = true;
+			// 
+			// nudFieldNPCAngleZ
+			// 
+			nudFieldNPCAngleZ.Location = new Point(220, 116);
+			nudFieldNPCAngleZ.Maximum = new decimal(new int[] { 40960, 0, 0, 0 });
+			nudFieldNPCAngleZ.Minimum = new decimal(new int[] { 40960, 0, 0, int.MinValue });
+			nudFieldNPCAngleZ.Name = "nudFieldNPCAngleZ";
+			nudFieldNPCAngleZ.Size = new Size(64, 23);
+			nudFieldNPCAngleZ.TabIndex = 23;
+			nudFieldNPCAngleZ.ThousandsSeparator = true;
+			// 
+			// nudFieldNPCAngleY
+			// 
+			nudFieldNPCAngleY.Location = new Point(150, 116);
+			nudFieldNPCAngleY.Maximum = new decimal(new int[] { 40960, 0, 0, 0 });
+			nudFieldNPCAngleY.Minimum = new decimal(new int[] { 40960, 0, 0, int.MinValue });
+			nudFieldNPCAngleY.Name = "nudFieldNPCAngleY";
+			nudFieldNPCAngleY.Size = new Size(64, 23);
+			nudFieldNPCAngleY.TabIndex = 22;
+			nudFieldNPCAngleY.ThousandsSeparator = true;
+			// 
+			// nudFieldNPCAngleX
+			// 
+			nudFieldNPCAngleX.Location = new Point(80, 116);
+			nudFieldNPCAngleX.Maximum = new decimal(new int[] { 40960, 0, 0, 0 });
+			nudFieldNPCAngleX.Minimum = new decimal(new int[] { 40960, 0, 0, int.MinValue });
+			nudFieldNPCAngleX.Name = "nudFieldNPCAngleX";
+			nudFieldNPCAngleX.Size = new Size(64, 23);
+			nudFieldNPCAngleX.TabIndex = 21;
+			nudFieldNPCAngleX.ThousandsSeparator = true;
+			// 
+			// nudFieldNPCPosZ
+			// 
+			nudFieldNPCPosZ.Location = new Point(220, 87);
+			nudFieldNPCPosZ.Maximum = new decimal(new int[] { -727379968, 232, 0, 0 });
+			nudFieldNPCPosZ.Minimum = new decimal(new int[] { -727379968, 232, 0, int.MinValue });
+			nudFieldNPCPosZ.Name = "nudFieldNPCPosZ";
+			nudFieldNPCPosZ.Size = new Size(64, 23);
+			nudFieldNPCPosZ.TabIndex = 19;
+			nudFieldNPCPosZ.ThousandsSeparator = true;
+			// 
+			// nudFieldNPCPosY
+			// 
+			nudFieldNPCPosY.Location = new Point(150, 87);
+			nudFieldNPCPosY.Maximum = new decimal(new int[] { -727379968, 232, 0, 0 });
+			nudFieldNPCPosY.Minimum = new decimal(new int[] { -727379968, 232, 0, int.MinValue });
+			nudFieldNPCPosY.Name = "nudFieldNPCPosY";
+			nudFieldNPCPosY.Size = new Size(64, 23);
+			nudFieldNPCPosY.TabIndex = 18;
+			nudFieldNPCPosY.ThousandsSeparator = true;
+			// 
+			// nudFieldNPCPosX
+			// 
+			nudFieldNPCPosX.Location = new Point(80, 87);
+			nudFieldNPCPosX.Maximum = new decimal(new int[] { -727379968, 232, 0, 0 });
+			nudFieldNPCPosX.Minimum = new decimal(new int[] { -727379968, 232, 0, int.MinValue });
+			nudFieldNPCPosX.Name = "nudFieldNPCPosX";
+			nudFieldNPCPosX.Size = new Size(64, 23);
+			nudFieldNPCPosX.TabIndex = 17;
+			nudFieldNPCPosX.ThousandsSeparator = true;
+			// 
+			// label140
+			// 
+			label140.AutoSize = true;
+			label140.Location = new Point(16, 89);
+			label140.Name = "label140";
+			label140.Size = new Size(50, 15);
+			label140.TabIndex = 16;
+			label140.Text = "Position";
+			// 
+			// label138
+			// 
+			label138.AutoSize = true;
+			label138.Location = new Point(16, 61);
+			label138.Name = "label138";
+			label138.Size = new Size(31, 15);
+			label138.TabIndex = 12;
+			label138.Text = "Clan";
+			// 
+			// button1
+			// 
+			button1.Location = new Point(260, 29);
+			button1.Name = "button1";
+			button1.Size = new Size(24, 23);
+			button1.TabIndex = 10;
+			button1.Text = "...";
+			button1.UseVisualStyleBackColor = true;
+			// 
+			// txtFieldNPCBodyModel
+			// 
+			txtFieldNPCBodyModel.Location = new Point(80, 29);
+			txtFieldNPCBodyModel.Name = "txtFieldNPCBodyModel";
+			txtFieldNPCBodyModel.Size = new Size(174, 23);
+			txtFieldNPCBodyModel.TabIndex = 9;
+			// 
+			// label139
+			// 
+			label139.AutoSize = true;
+			label139.Location = new Point(16, 32);
+			label139.Name = "label139";
+			label139.Size = new Size(50, 15);
+			label139.TabIndex = 11;
+			label139.Text = "Skin File";
+			// 
+			// groupBox56
+			// 
+			groupBox56.Controls.Add(lbFieldLoadedNPCs);
+			groupBox56.Controls.Add(toolStrip12);
+			groupBox56.Location = new Point(6, 9);
+			groupBox56.Name = "groupBox56";
+			groupBox56.Padding = new Padding(4, 0, 4, 1);
+			groupBox56.Size = new Size(256, 524);
+			groupBox56.TabIndex = 4;
+			groupBox56.TabStop = false;
+			groupBox56.Text = "Loaded NPCs";
+			// 
+			// lbFieldLoadedNPCs
+			// 
+			lbFieldLoadedNPCs.Dock = DockStyle.Fill;
+			lbFieldLoadedNPCs.FormattingEnabled = true;
+			lbFieldLoadedNPCs.ItemHeight = 15;
+			lbFieldLoadedNPCs.Location = new Point(4, 41);
+			lbFieldLoadedNPCs.Name = "lbFieldLoadedNPCs";
+			lbFieldLoadedNPCs.Size = new Size(248, 482);
+			lbFieldLoadedNPCs.TabIndex = 1;
+			lbFieldLoadedNPCs.SelectedIndexChanged += lbFieldLoadedNPCs_SelectedIndexChanged;
+			// 
+			// toolStrip12
+			// 
+			toolStrip12.Items.AddRange(new ToolStripItem[] { btnFieldNPCDelete, btnFieldNPCCopy, toolStripSeparator8 });
+			toolStrip12.Location = new Point(4, 16);
+			toolStrip12.Name = "toolStrip12";
+			toolStrip12.Size = new Size(248, 25);
+			toolStrip12.TabIndex = 0;
+			toolStrip12.Text = "toolStrip12";
+			// 
+			// btnFieldNPCDelete
+			// 
+			btnFieldNPCDelete.DisplayStyle = ToolStripItemDisplayStyle.Image;
+			btnFieldNPCDelete.Image = Properties.Resources._3;
+			btnFieldNPCDelete.ImageTransparentColor = Color.Magenta;
+			btnFieldNPCDelete.Name = "btnFieldNPCDelete";
+			btnFieldNPCDelete.Size = new Size(23, 22);
+			btnFieldNPCDelete.Text = "Reload Files";
+			// 
+			// btnFieldNPCCopy
+			// 
+			btnFieldNPCCopy.DisplayStyle = ToolStripItemDisplayStyle.Image;
+			btnFieldNPCCopy.Image = Properties.Resources._4;
+			btnFieldNPCCopy.ImageTransparentColor = Color.Magenta;
+			btnFieldNPCCopy.Name = "btnFieldNPCCopy";
+			btnFieldNPCCopy.Size = new Size(23, 22);
+			btnFieldNPCCopy.Text = "New File";
+			// 
+			// toolStripSeparator8
+			// 
+			toolStripSeparator8.Name = "toolStripSeparator8";
+			toolStripSeparator8.Size = new Size(6, 25);
 			// 
 			// groupBox52
 			// 
@@ -6009,69 +6338,6 @@ namespace GameServer.Forms
 			miFieldAddServant.Name = "miFieldAddServant";
 			miFieldAddServant.Size = new Size(156, 22);
 			miFieldAddServant.Text = "Boss Servant";
-			// 
-			// nudFieldMonsterMaxFlags
-			// 
-			nudFieldMonsterMaxFlags.Location = new Point(96, 30);
-			nudFieldMonsterMaxFlags.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
-			nudFieldMonsterMaxFlags.Name = "nudFieldMonsterMaxFlags";
-			nudFieldMonsterMaxFlags.Size = new Size(160, 23);
-			nudFieldMonsterMaxFlags.TabIndex = 29;
-			nudFieldMonsterMaxFlags.ThousandsSeparator = true;
-			// 
-			// label133
-			// 
-			label133.AutoSize = true;
-			label133.Location = new Point(16, 32);
-			label133.Name = "label133";
-			label133.Size = new Size(65, 15);
-			label133.TabIndex = 30;
-			label133.Text = "Flag Count";
-			// 
-			// nudFieldMonsterDelayMax
-			// 
-			nudFieldMonsterDelayMax.Location = new Point(468, 30);
-			nudFieldMonsterDelayMax.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
-			nudFieldMonsterDelayMax.Name = "nudFieldMonsterDelayMax";
-			nudFieldMonsterDelayMax.Size = new Size(72, 23);
-			nudFieldMonsterDelayMax.TabIndex = 46;
-			nudFieldMonsterDelayMax.ThousandsSeparator = true;
-			// 
-			// nudFieldMonsterDelayMin
-			// 
-			nudFieldMonsterDelayMin.Location = new Point(390, 30);
-			nudFieldMonsterDelayMin.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
-			nudFieldMonsterDelayMin.Name = "nudFieldMonsterDelayMin";
-			nudFieldMonsterDelayMin.Size = new Size(72, 23);
-			nudFieldMonsterDelayMin.TabIndex = 45;
-			nudFieldMonsterDelayMin.ThousandsSeparator = true;
-			// 
-			// label136
-			// 
-			label136.AutoSize = true;
-			label136.Location = new Point(310, 32);
-			label136.Name = "label136";
-			label136.Size = new Size(46, 15);
-			label136.TabIndex = 47;
-			label136.Text = "Interval";
-			// 
-			// nudFieldMonstersPerFlag
-			// 
-			nudFieldMonstersPerFlag.Location = new Point(96, 59);
-			nudFieldMonstersPerFlag.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
-			nudFieldMonstersPerFlag.Name = "nudFieldMonstersPerFlag";
-			nudFieldMonstersPerFlag.Size = new Size(160, 23);
-			nudFieldMonstersPerFlag.TabIndex = 48;
-			nudFieldMonstersPerFlag.ThousandsSeparator = true;
-			// 
-			// label137
-			// 
-			label137.AutoSize = true;
-			label137.Location = new Point(16, 61);
-			label137.Name = "label137";
-			label137.Size = new Size(66, 15);
-			label137.TabIndex = 49;
-			label137.Text = "# Monsters";
 			// 
 			// MainForm
 			// 
@@ -6385,11 +6651,30 @@ namespace GameServer.Forms
 			((System.ComponentModel.ISupportInitialize)dgvFieldMonsters).EndInit();
 			groupBox53.ResumeLayout(false);
 			groupBox53.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)nudFieldMonstersPerFlag).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudFieldMonsterDelayMax).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudFieldMonsterDelayMin).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudFieldMonsterMaxFlags).EndInit();
 			groupBox51.ResumeLayout(false);
 			groupBox51.PerformLayout();
 			toolStrip10.ResumeLayout(false);
 			toolStrip10.PerformLayout();
 			tabPage12.ResumeLayout(false);
+			groupBox58.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)pbFieldMap).EndInit();
+			groupBox57.ResumeLayout(false);
+			groupBox57.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)nudFieldNPCClan).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudFieldNPCAngleZ).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudFieldNPCAngleY).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudFieldNPCAngleX).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudFieldNPCPosZ).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudFieldNPCPosY).EndInit();
+			((System.ComponentModel.ISupportInitialize)nudFieldNPCPosX).EndInit();
+			groupBox56.ResumeLayout(false);
+			groupBox56.PerformLayout();
+			toolStrip12.ResumeLayout(false);
+			toolStrip12.PerformLayout();
 			groupBox52.ResumeLayout(false);
 			groupBox52.PerformLayout();
 			toolStrip11.ResumeLayout(false);
@@ -6399,10 +6684,6 @@ namespace GameServer.Forms
 			toolStrip5.ResumeLayout(false);
 			toolStrip5.PerformLayout();
 			ctmFieldMonsterAdd.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)nudFieldMonsterMaxFlags).EndInit();
-			((System.ComponentModel.ISupportInitialize)nudFieldMonsterDelayMax).EndInit();
-			((System.ComponentModel.ISupportInitialize)nudFieldMonsterDelayMin).EndInit();
-			((System.ComponentModel.ISupportInitialize)nudFieldMonstersPerFlag).EndInit();
 			ResumeLayout(false);
 			PerformLayout();
 		}
@@ -6944,5 +7225,28 @@ namespace GameServer.Forms
 		private Label label136;
 		private NumericUpDown nudFieldMonsterMaxFlags;
 		private Label label133;
+		private GroupBox groupBox56;
+		private ListBox lbFieldLoadedNPCs;
+		private ToolStrip toolStrip12;
+		private ToolStripButton btnFieldNPCDelete;
+		private ToolStripButton btnFieldNPCCopy;
+		private ToolStripSeparator toolStripSeparator8;
+		private GroupBox groupBox57;
+		private GroupBox groupBox58;
+		private PictureBox pbFieldMap;
+		private Button button1;
+		private TextBox txtFieldNPCBodyModel;
+		private Label label139;
+		private NumericUpDown nudFieldNPCPosZ;
+		private NumericUpDown nudFieldNPCPosY;
+		private NumericUpDown nudFieldNPCPosX;
+		private Label label140;
+		private Label label138;
+		private NumericUpDown nudFieldNPCAngleZ;
+		private NumericUpDown nudFieldNPCAngleY;
+		private NumericUpDown nudFieldNPCAngleX;
+		private NumericUpDown nudFieldNPCClan;
+		private Label label141;
+		private CheckBox ckbFieldNPCIsActive;
 	}
 }
